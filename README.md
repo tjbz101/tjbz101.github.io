@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,12 +8,14 @@
     body { font-family: Arial, sans-serif; margin: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-    th { background-color: #f2f2f2; }
+    th { background-color: #f2f2f2; cursor: pointer; }
+    th:hover { background-color: #ddd; }
     form { margin-bottom: 20px; }
     input[type="text"] { margin-right: 10px; padding: 5px; }
     button { padding: 5px 10px; margin: 5px 0; }
     .remove-btn { background-color: #f44336; color: white; border: none; cursor: pointer; }
     .save-btn { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    .sort-arrow { margin-left: 5px; }
   </style>
 </head>
 <body>
@@ -40,8 +43,8 @@
     <thead>
       <tr>
         <th>Checkbox</th>
-        <th>String Name</th>
-        <th>Type</th>
+        <th onclick="sortTable(1)">String Name<span id="sortNameArrow" class="sort-arrow"></span></th>
+        <th onclick="sortTable(2)">Type<span id="sortTypeArrow" class="sort-arrow"></span></th>
         <th>Available</th>
         <th>MSRP (Set)</th>
         <th>Actions</th>
@@ -87,6 +90,8 @@
       { name: "Natural Gut (Other Brands)", type: "Natural Gut", available: "Yes", msrp: "$42.00 (avg.)" }
     ];
 
+    let sortDirection = { 1: 'asc', 2: 'asc' }; // Column 1 (Name), Column 2 (Type)
+
     function renderTable() {
       const tbody = document.querySelector('#stringTable tbody');
       tbody.innerHTML = '';
@@ -102,6 +107,32 @@
         `;
         tbody.appendChild(tr);
       });
+      updateSortArrows();
+    }
+
+    function sortTable(columnIndex) {
+      const direction = sortDirection[columnIndex] === 'asc' ? 'desc' : 'asc';
+      sortDirection[columnIndex] = direction;
+
+      strings.sort((a, b) => {
+        const valueA = columnIndex === 1 ? a.name.toLowerCase() : a.type.toLowerCase();
+        const valueB = columnIndex === 1 ? b.name.toLowerCase() : b.type.toLowerCase();
+        if (direction === 'asc') {
+          return valueA.localeCompare(valueB);
+        } else {
+          return valueB.localeCompare(valueA);
+        }
+      });
+
+      localStorage.setItem('timStringList', JSON.stringify(strings));
+      renderTable();
+    }
+
+    function updateSortArrows() {
+      const nameArrow = document.getElementById('sortNameArrow');
+      const typeArrow = document.getElementById('sortTypeArrow');
+      nameArrow.textContent = sortDirection[1] === 'asc' ? ' ↑' : ' ↓';
+      typeArrow.textContent = sortDirection[2] === 'asc' ? ' ↑' : ' ↓';
     }
 
     function addString(e) {
