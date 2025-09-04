@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <h1>Tim's String List Manager</h1>
+  <h1>Brownies String Manager</h1>
   <p>Add, remove, or edit strings. Changes save locally in your browser.</p>
 
   <form id="addForm">
