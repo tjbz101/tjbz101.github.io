@@ -28,7 +28,7 @@
     <input type="text" id="stringName" placeholder="String Name" required>
     <select id="type">
       <option value="Multi">Multi</option>
-      <option value="Syn">Syn</option>
+      <option value="Syn">Synthetic</option>
       <option value="Poly">Poly</option>
       <option value="Natural Gut">Natural Gut</option>
     </select>
