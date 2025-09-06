@@ -66,7 +66,7 @@
       { name: "Asics Resolution 16", type: "Poly", available: "Yes", msrp: "$12.95" },
       { name: "Gamma Octo TNT", type: "Poly", available: "Yes", msrp: "$14.95" },
       { name: "Babolat Conquest", type: "Poly", available: "Yes", msrp: "$15.95" },
-      { name: "Babolat Envi Y", type: "Syn", available: "Limited", msrp: "$7.50 (est.)" },
+      { name: "Babolat N.vy", type: "Syn", available: "Limited", msrp: "$7.50 (est.)" },
       { name: "Babolat Excel", type: "Multi", available: "Yes", msrp: "$18.95" },
       { name: "Head Velocity MLT", type: "Multi", available: "Yes", msrp: "$11.95" },
       { name: "Head FXP", type: "Syn", available: "Yes", msrp: "$9.95" },
