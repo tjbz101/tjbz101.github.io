@@ -185,7 +185,7 @@
         let reviewText = '';
         switch (stringName) {
           case 'Wilson Poly Last':
-            reviewText = 'Wilson Poly Last, a discontinued polyester, offers solid control and durability, though its age may reduce elasticity. Users note a stiff feel, ideal for baseline play if stored well.';
+            reviewText = 'Wilson Poly Last, a discontinued polyester, offers solid control and durability, Users note a stiff feel, ideal for baseline play if stored well.';
             break;
           case 'Asics Resolution 16':
             reviewText = 'Asics Resolution 16, a polyester string, delivers excellent spin and control with decent durability. Players praise its crisp response, though it may feel harsh for some.';
@@ -196,8 +196,8 @@
           case 'Babolat Conquest':
             reviewText = 'Babolat Conquest, a polyester, provides strong control and spin with good tension maintenance. Users enjoy its bite, though it’s less arm-friendly for long sessions.';
             break;
-          case 'Babolat Envi Y':
-            reviewText = 'Babolat Envi Y, a synthetic gut, offers a soft, arm-friendly feel with decent power. Limited availability makes it a niche choice, with users noting good value.';
+          case 'Babolat N.vy':
+            reviewText = 'Babolat N.Vy, a synthetic gut, offers a soft, arm-friendly feel with decent power. Limited availability makes it a niche choice, with users noting good value.';
             break;
           case 'Babolat Excel':
             reviewText = 'Babolat Excel, a multifilament, shines with comfort and power, mimicking natural gut. Reviews praise its plush feel, though durability is moderate for frequent play.';
@@ -221,7 +221,7 @@
             reviewText = 'Prince Synthetic Gut with Duraflex, a synthetic gut, delivers a soft feel with good power and durability. Reviews praise its value and all-around playability.';
             break;
           case 'Prince Synthetic Gut 15L':
-            reviewText = 'Prince Synthetic Gut 15L, a thinner synthetic gut, provides a lively response with decent comfort. Users note its affordability, though durability varies.';
+            reviewText = 'Prince Synthetic Gut 15L, a heavier synthetic gut, provides a lively response with decent comfort. Users note its affordability, though durability varies.';
             break;
           case 'Head Intellistring':
             reviewText = 'Head Intellistring, a synthetic gut, offers a balanced play with moderate power. Limited stock feedback suggests it’s a solid, budget-friendly option.';
