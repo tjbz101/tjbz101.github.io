@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,11 +11,14 @@
     th { background-color: #f2f2f2; cursor: pointer; }
     th:hover { background-color: #ddd; }
     form { margin-bottom: 20px; }
-    input[type="text"] { margin-right: 10px; padding: 5px; }
+    input[type="text"], select { margin-right: 10px; padding: 5px; }
     button { padding: 5px 10px; margin: 5px 0; }
     .remove-btn { background-color: #f44336; color: white; border: none; cursor: pointer; }
     .save-btn { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
     .sort-arrow { margin-left: 5px; }
+    .review { display: none; margin-top: 5px; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -59,34 +63,33 @@
 
   <script>
     let strings = JSON.parse(localStorage.getItem('timStringList')) || [
-      { name: "Wilson NXT", type: "Multi", available: "Yes", msrp: "$19.95" },
-      { name: "Tecnifibre NRG2", type: "Multi", available: "Yes", msrp: "$19.95" },
-      { name: "Babolat Xcel", type: "Multi", available: "Yes", msrp: "$18.95" },
-      { name: "Tecnifibre X-One Biphase", type: "Multi", available: "Yes", msrp: "$21.95" },
+      { name: "Wilson Poly Last", type: "Poly", available: "No", msrp: "$8.00 (est.)" },
+      { name: "Asics Resolution 16", type: "Poly", available: "Yes", msrp: "$12.95" },
+      { name: "Gamma Octo TNT", type: "Poly", available: "Yes", msrp: "$14.95" },
+      { name: "Babolat Conquest", type: "Poly", available: "Yes", msrp: "$15.95" },
+      { name: "Babolat N.Vy", type: "Syn", available: "Limited", msrp: "$7.50 (est.)" },
+      { name: "Babolat Excel", type: "Multi", available: "Yes", msrp: "$18.95" },
       { name: "Head Velocity MLT", type: "Multi", available: "Yes", msrp: "$11.95" },
-      { name: "Wilson Sensation", type: "Multi", available: "Limited", msrp: "$9.95 (est.)" },
-      { name: "Wilson Super Spin", type: "Multi", available: "No", msrp: "$10.00 (est.)" },
-      { name: "Wilson Synthetic Gut Extreme", type: "Syn", available: "Yes", msrp: "$7.95" },
-      { name: "Wilson Synthetic Gut Power", type: "Syn", available: "Yes", msrp: "$6.95" },
+      { name: "Head FXP", type: "Syn", available: "Yes", msrp: "$9.95" },
+      { name: "Head FXP Tour", type: "Syn", available: "Yes", msrp: "$10.95" },
+      { name: "Premier Control 15", type: "Poly", available: "Yes", msrp: "$13.95" },
+      { name: "Premier Tour XC", type: "Poly", available: "Yes", msrp: "$14.95" },
       { name: "Prince Synthetic Gut with Duraflex", type: "Syn", available: "Yes", msrp: "$7.95" },
-      { name: "Head Synthetic Gut PPS", type: "Syn", available: "Yes", msrp: "$7.50" },
-      { name: "Gamma Synthetic Gut", type: "Syn", available: "Yes", msrp: "$6.95" },
-      { name: "Babolat Synthetic Gut", type: "Syn", available: "Yes", msrp: "$6.50" },
-      { name: "Babolat N.Vy", type: "Syn", available: "Limited", msrp: "$7.95 (est.)" },
-      { name: "Babolat SpiralTek", type: "Syn", available: "Yes", msrp: "$5.95" },
-      { name: "Luxilon ALU Power", type: "Poly", available: "Yes", msrp: "$17.95" },
-      { name: "Solinco Hyper-G", type: "Poly", available: "Yes", msrp: "$11.95" },
-      { name: "Babolat RPM Blast", type: "Poly", available: "Yes", msrp: "$17.95" },
-      { name: "Solinco Tour Bite", type: "Poly", available: "Yes", msrp: "$11.95" },
-      { name: "Head Lynx Edge", type: "Poly", available: "Yes", msrp: "$11.95" },
-      { name: "Head Sonic Pro", type: "Poly", available: "Yes", msrp: "$10.95" },
-      { name: "Yonex Poly Tour Pro", type: "Poly", available: "Yes", msrp: "$12.95" },
-      { name: "Tecnifibre Black Code", type: "Poly", available: "Yes", msrp: "$12.95" },
-      { name: "Luxilon ALU Power Soft", type: "Poly", available: "Yes", msrp: "$17.95" },
-      { name: "Wilson PolyLast", type: "Poly", available: "No", msrp: "$8.00 (est.)" },
-      { name: "Babolat Pro Hurricane", type: "Poly", available: "Yes", msrp: "$9.95" },
-      { name: "Babolat VS Touch", type: "Natural Gut", available: "Yes", msrp: "$45.95" },
-      { name: "Natural Gut (Other Brands)", type: "Natural Gut", available: "Yes", msrp: "$42.00 (avg.)" }
+      { name: "Prince Synthetic Gut 15L", type: "Syn", available: "Yes", msrp: "$6.95" },
+      { name: "Head Intellistring", type: "Syn", available: "Limited", msrp: "$8.50 (est.)" },
+      { name: "Kirschbaum Super Smash", type: "Poly", available: "Yes", msrp: "$13.95" },
+      { name: "Kirschbaum Synthetic Gut", type: "Syn", available: "Yes", msrp: "$6.50" },
+      { name: "Bluestar Multi Filament", type: "Multi", available: "Yes", msrp: "$17.95" },
+      { name: "Tourna Premier Poly", type: "Poly", available: "Yes", msrp: "$12.95" },
+      { name: "Wilson Shock Shield 16", type: "Syn", available: "Yes", msrp: "$8.95" },
+      { name: "Wilson Shock Shield 17", type: "Syn", available: "Yes", msrp: "$8.95" },
+      { name: "Wilson NXT with Duramax 15", type: "Multi", available: "Yes", msrp: "$21.95" },
+      { name: "Wilson Hyperlast", type: "Poly", available: "No", msrp: "$9.00 (est.)" },
+      { name: "Wilson Super Spin 16", type: "Multi", available: "No", msrp: "$10.00 (est.)" },
+      { name: "Wilson Hollowcore 16", type: "Syn", available: "Limited", msrp: "$7.50 (est.)" },
+      { name: "Wilson Synthetic Gut Extreme", type: "Syn", available: "Yes", msrp: "$7.95" },
+      { name: "Wilson Extreme Octane", type: "Syn", available: "Yes", msrp: "$7.50" },
+      { name: "Wilson SGX", type: "Syn", available: "Yes", msrp: "$7.95" }
     ];
 
     let sortDirection = { 1: 'asc', 2: 'asc' }; // Column 1 (Name), Column 2 (Type)
@@ -98,7 +101,7 @@
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><input type="checkbox" class="checkbox" data-index="${index}"></td>
-          <td contenteditable="true" data-field="name">${str.name}</td>
+          <td><a href="#" onclick="showReview('${str.name}', event); return false;">${str.name}</a><div class="review" id="review-${str.name.replace(/ /g, '-')}" style="display:none;"></div></td>
           <td contenteditable="true" data-field="type">${str.type}</td>
           <td contenteditable="true" data-field="available">${str.available}</td>
           <td contenteditable="true" data-field="msrp">${str.msrp}</td>
@@ -174,10 +177,4 @@
       alert('Changes saved!');
     }
 
-    const addForm = document.getElementById('addForm');
-    addForm.addEventListener('submit', addString);
-
-    renderTable();
-  </script>
-</body>
-</html>
+    function show
