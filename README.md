@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brownies String Manager</title>
+  <title>String Manager</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-  <h1>Brownies String Manager</h1>
+  <h1> String Manager</h1>
   <p>Add, remove, or edit strings. Changes save locally in your browser.</p>
 
   <form id="addForm">
