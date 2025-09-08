@@ -198,8 +198,8 @@
           case 'Babolat N.vy':
             reviewText = 'Babolat N.Vy, a synthetic gut, offers a soft, arm-friendly feel with decent power. Limited availability makes it a niche choice, with users noting good value.';
             break;
-          case 'Babolat Excel':
-            reviewText = 'Babolat Excel, a multifilament, shines with comfort and power, mimicking natural gut. Reviews praise its plush feel, though durability is moderate for frequent play.';
+          case 'Babolat XCel':
+            reviewText = 'Babolat XCel, a multifilament, shines with comfort and power, mimicking natural gut. Reviews praise its plush feel, though durability is moderate for frequent play.';
             break;
           case 'Head Velocity MLT':
             reviewText = 'Head Velocity MLT, a multifilament, is known for its soft, comfortable play and good power. Players appreciate its arm-friendliness, with solid tension retention.';
