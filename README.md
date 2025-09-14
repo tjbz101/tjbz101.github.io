@@ -40,7 +40,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425C</h3>
+  <h3>V091425D</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
   <table id="stringTable">
@@ -61,7 +61,7 @@
     let strings = [
       { name: "Asics Resolution 16", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
       { name: "Babolat Conquest", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Babolat Envi Y", type: "Synthetic Gut", available: "Limited", msrp: "$25" },
+      { name: "Babolat N.Vy", type: "Synthetic Gut", available: "Limited", msrp: "$25" },
       { name: "Babolat Excel", type: "Multifilament", available: "Yes", msrp: "$25" },
       { name: "Bluestar Multi Filament", type: "Multifilament", available: "Yes", msrp: "$25" },
       { name: "Gamma Octo TNT", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
@@ -136,9 +136,9 @@
       if (reviewDiv.style.display === 'none') {
         let reviewText = '';
         switch (stringName) {
-          case 'Asics Resolution 16': reviewText = 'Asics Resolution 16, a synthetic gut string from Asics, provides a balanced feel with good comfort and power. Limited feedback suggests it’s a solid all-around option.'; break;
+          case 'Asics Resolution 16 (44'length)': reviewText = 'Asics Resolution 16, a synthetic gut string from Asics, provides a balanced feel with good comfort and power. Limited feedback suggests it’s a solid all-around option.'; break;
           case 'Babolat Conquest': reviewText = 'Babolat Conquest, a synthetic gut from Babolat, offers strong comfort and durability. Users enjoy its playability, though it’s less spin-focused than polys.'; break;
-          case 'Babolat Envi Y': reviewText = 'Babolat Envi Y, a synthetic gut from Babolat, offers a soft, arm-friendly feel with decent power. Limited availability makes it a niche choice, with users noting good value.'; break;
+          case 'Babolat N.Vy': reviewText = 'Babolat N.Vy, a synthetic gut from Babolat, offers a soft, arm-friendly feel with decent power. Limited availability makes it a niche choice, with users noting good value.'; break;
           case 'Babolat Excel': reviewText = 'Babolat Excel, a multifilament from Babolat, shines with comfort and power, mimicking natural gut. Reviews praise its plush feel, though durability is moderate for frequent play.'; break;
           case 'Bluestar Multi Filament': reviewText = 'Bluestar Multi Filament, a multifilament, offers a soft, gut-like feel with excellent power. Users praise its comfort, though durability is average.'; break;
           case 'Gamma Octo TNT': reviewText = 'Gamma Octo TNT, a synthetic gut from Gamma, is lauded for its all-around performance and durability. Reviews highlight a firm feel, great for aggressive players.'; break;
@@ -155,7 +155,7 @@
           case 'Tourna Premier Poly': reviewText = 'Tourna Premier Poly, a polyester from Tourna, offers good spin and durability. Reviews commend its value, though it may feel harsh for some players.'; break;
           case 'Wilson Extreme Octane': reviewText = 'Wilson Extreme Octane, a synthetic gut from Wilson, delivers a lively response with good control. Reviews note its affordability and decent durability.'; break;
           case 'Wilson Hollowcore 16': reviewText = 'Wilson Hollowcore 16, a synthetic gut from Wilson, provides a unique hollow design for power. Limited feedback suggests a soft, lively feel.'; break;
-          case 'Wilson Hyperlast': reviewText = 'Wilson Hyperlast, a polyester from Wilson, offers control and durability. Users recall its firm feel, though age may affect performance.'; break;
+          case 'Wilson Hyperlast': reviewText = 'Wilson Hyperlast, a polyester from Wilson, offers control and durability. Users recall its firm feel.'; break;
           case 'Wilson NXT with Duramax 15': reviewText = 'Wilson NXT with Duramax 15, a multifilament from Wilson, combines plush comfort with enhanced durability. Players love its power and gut-like response.'; break;
           case 'Wilson Poly Last': reviewText = 'Wilson Poly Last, a polyester from Wilson, offers solid control and durability, though its age may reduce elasticity. Users note a stiff feel, ideal for baseline play if stored well.'; break;
           case 'Wilson SGX': reviewText = 'Wilson SGX, a synthetic gut from Wilson, provides a balanced feel with vibrant colors. Users enjoy its versatility and budget-friendly price.'; break;
