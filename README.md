@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,15 +20,16 @@
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
       table, thead, tbody, th, td, tr { display: block; }
-      thead tr { position: absolute; top: -9999px; left -9999px; }
+      thead tr { position: absolute; top: -9999px; left: -9999px; }
       tr { border: 1px solid #ccc; margin-bottom: 15px; padding: 10px 0; }
-      td { border: none; border-bottom: 1px solid #eee; position: relative; padding: 10px 50%; font-size: 0.9em; }
-      td:before { position: absolute; top: 8px; left: 10px; width: 40%; padding-right: 10px; white-space: nowrap; font-weight: bold; font-size: 0.9em; }
+      td { border: none; border-bottom: 1px solid #eee; position: relative; padding: 15px 60%; font-size: 0.9em; }
+      td:before { position: absolute; top: 10px; left: 15px; width: 35%; padding-right: 15px; white-space: nowrap; font-weight: bold; font-size: 0.9em; }
+      td:after { content: ""; display: block; height: 10px; } /* Vertical spacer */
       td:nth-of-type(1):before { content: "String Name"; }
       td:nth-of-type(2):before { content: "Type"; }
       td:nth-of-type(3):before { content: "Available"; }
-      td:nth-of-type(4):before { content: "MSRP (Set)"; }
-      .review { max-width: 100%; margin-left: 10px; }
+      td:nth-of-type(4):before { content: "MSRP"; }
+      .review { max-width: 100%; margin-left: 15px; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
       th, td { padding: 6px; font-size: 0.9em; }
@@ -40,7 +41,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425F</h3>
+  <h3>V091425G</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
   <table id="stringTable">
