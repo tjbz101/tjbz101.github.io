@@ -23,12 +23,12 @@
       thead tr { position: absolute; top: -9999px; left: -9999px; }
       tr { border: 1px solid #ccc; margin-bottom: 15px; padding: 10px 0; }
       td { border: none; border-bottom: 1px solid #eee; position: relative; padding: 15px 60%; font-size: 0.9em; }
-      td:before { position: absolute; top: 10px; left: 15px; width: 35%; padding-right: 15px; white-space: nowrap; font-weight: bold; font-size: 0.9em; }
-      td:after { content: ""; display: block; height: 10px; } /* Vertical spacer */
-      td:nth-of-type(1):before { content: "String Name"; }
-      td:nth-of-type(2):before { content: "Type"; }
-      td:nth-of-type(3):before { content: "Available"; }
-      td:nth-of-type(4):before { content: "MSRP"; }
+      td:before { position: absolute; top: 10px; left: 15px; width: 35%; padding-right: 15px; white-space: nowrap; font-weight: bold; font-size: 0.9em; content: attr(data-label) "\A"; }
+      td:after { content: ""; display: block; height: 5px; } /* Reduced vertical spacer */
+      td:nth-of-type(1) { data-label: "String Name"; }
+      td:nth-of-type(2) { data-label: "Type"; }
+      td:nth-of-type(3) { data-label: "Available"; }
+      td:nth-of-type(4) { data-label: "MSRP"; }
       .review { max-width: 100%; margin-left: 15px; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
@@ -41,7 +41,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425G</h3>
+  <h3>V091425H</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
   <table id="stringTable">
@@ -100,10 +100,10 @@
       strings.forEach((str, index) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><a href="#" onclick="showReview('${str.name}', event); return false;">${str.name}</a><div class="review" id="review-${str.name.replace(/ /g, '-')}" style="display:none;"></div></td>
-          <td>${str.type}</td>
-          <td>${str.available}</td>
-          <td>${str.msrp}</td>
+          <td data-label="String Name"><a href="#" onclick="showReview('${str.name}', event); return false;">${str.name}</a><div class="review" id="review-${str.name.replace(/ /g, '-')}" style="display:none;"></div></td>
+          <td data-label="Type">${str.type}</td>
+          <td data-label="Available">${str.available}</td>
+          <td data-label="MSRP">${str.msrp}</td>
         `;
         tbody.appendChild(tr);
       });
