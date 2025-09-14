@@ -17,14 +17,29 @@
     .review { display: none; margin-top: 5px; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 300px; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .gif-left { float: left; margin-right: 20px; }
-    .gif-right { float: right; margin-left: 20px; }
+    /* Media Queries for Responsiveness */
+    @media (max-width: 767px) { /* iPhones/Mobile */
+      table, thead, tbody, th, td, tr { display: block; }
+      thead tr { position: absolute; top: -9999px; left: -9999px; }
+      tr { border: 1px solid #ccc; margin-bottom: 10px; }
+      td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
+      td:before { position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; }
+      td:nth-of-type(1):before { content: "String Name"; }
+      td:nth-of-type(2):before { content: "Type"; }
+      td:nth-of-type(3):before { content: "Available"; }
+      td:nth-of-type(4):before { content: "MSRP (Set)"; }
+      .review { max-width: 100%; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
+      th, td { padding: 6px; font-size: 0.9em; }
+    }
+    @media (min-width: 1024px) { /* Desktops */
+      /* No changes needed, full table layout */
+    }
   </style>
 </head>
 <body>
-  <img src="https://media.giphy.com/media/l0HlRN7ndq8A1W5VO/giphy.gif" alt="Tennis Racket Left" class="gif-left" width="100">
   <h1>String List</h1>
-  <img src="https://media.giphy.com/media/l0HlRN7ndq8A1W5VO/giphy.gif" alt="Tennis Racket Right" class="gif-right" width="100">
   <h3>V091425</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
@@ -44,34 +59,34 @@
 
   <script>
     let strings = [
-      { name: "Asics Resolution 16", type: "Poly", available: "Yes", msrp: "$37.95" },
-      { name: "Babolat Conquest", type: "Poly", available: "Yes", msrp: "$40.95" },
-      { name: "Babolat Envi Y", type: "Syn", available: "Limited", msrp: "$32.50 (est.)" },
-      { name: "Babolat Excel", type: "Multi", available: "Yes", msrp: "$43.95" },
-      { name: "Bluestar Multi Filament", type: "Multi", available: "Yes", msrp: "$42.95" },
-      { name: "Gamma Octo TNT", type: "Poly", available: "Yes", msrp: "$39.95" },
-      { name: "Head FXP", type: "Syn", available: "Yes", msrp: "$34.95" },
-      { name: "Head FXP Tour", type: "Syn", available: "Yes", msrp: "$35.95" },
-      { name: "Head Intellistring", type: "Syn", available: "Limited", msrp: "$33.50 (est.)" },
-      { name: "Head Velocity MLT", type: "Multi", available: "Yes", msrp: "$36.95" },
-      { name: "Kirschbaum Super Smash", type: "Poly", available: "Yes", msrp: "$38.95" },
-      { name: "Kirschbaum Synthetic Gut", type: "Syn", available: "Yes", msrp: "$31.50" },
-      { name: "Premier Control 15", type: "Poly", available: "Yes", msrp: "$38.95" },
-      { name: "Premier Tour XC", type: "Poly", available: "Yes", msrp: "$39.95" },
-      { name: "Prince Synthetic Gut 15L", type: "Syn", available: "Yes", msrp: "$31.95" },
-      { name: "Prince Synthetic Gut with Duraflex", type: "Syn", available: "Yes", msrp: "$32.95" },
-      { name: "Tourna Poly Premier", type: "Poly", available: "Yes", msrp: "$36.95" },
-      { name: "Tourna Premier Poly", type: "Poly", available: "Yes", msrp: "$37.95" },
-      { name: "Wilson Extreme Octane", type: "Syn", available: "Yes", msrp: "$32.50" },
-      { name: "Wilson Hollowcore 16", type: "Syn", available: "Limited", msrp: "$32.50 (est.)" },
-      { name: "Wilson Hyperlast", type: "Poly", available: "No", msrp: "$34.00 (est.)" },
-      { name: "Wilson NXT with Duramax 15", type: "Multi", available: "Yes", msrp: "$46.95" },
-      { name: "Wilson Poly Last", type: "Poly", available: "No", msrp: "$33.00 (est.)" },
-      { name: "Wilson SGX", type: "Syn", available: "Yes", msrp: "$32.95" },
-      { name: "Wilson Shock Shield 16", type: "Syn", available: "Yes", msrp: "$33.95" },
-      { name: "Wilson Shock Shield 17", type: "Syn", available: "Yes", msrp: "$33.95" },
-      { name: "Wilson Super Spin 16", type: "Multi", available: "No", msrp: "$35.00 (est.)" },
-      { name: "Wilson Synthetic Gut Extreme", type: "Syn", available: "Yes", msrp: "$32.95" }
+      { name: "Asics Resolution 16", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Babolat Conquest", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Babolat Envi Y", type: "Syn", available: "Limited", msrp: "$25" },
+      { name: "Babolat Excel", type: "Multi", available: "Yes", msrp: "$25" },
+      { name: "Bluestar Multi Filament", type: "Multi", available: "Yes", msrp: "$25" },
+      { name: "Gamma Octo TNT", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Head FXP", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Head FXP Tour", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Head Intellistring", type: "Syn", available: "Limited", msrp: "$25" },
+      { name: "Head Velocity MLT", type: "Multi", available: "Yes", msrp: "$25" },
+      { name: "Kirschbaum Super Smash", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Kirschbaum Synthetic Gut", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Premier Control 15", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Premier Tour XC", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Prince Synthetic Gut 15L", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Prince Synthetic Gut with Duraflex", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Tourna Poly Premier", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Tourna Premier Poly", type: "Poly", available: "Yes", msrp: "$25" },
+      { name: "Wilson Extreme Octane", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Wilson Hollowcore 16", type: "Syn", available: "Limited", msrp: "$25" },
+      { name: "Wilson Hyperlast", type: "Poly", available: "No", msrp: "$25" },
+      { name: "Wilson NXT with Duramax 15", type: "Multi", available: "Yes", msrp: "$25" },
+      { name: "Wilson Poly Last", type: "Poly", available: "No", msrp: "$25" },
+      { name: "Wilson SGX", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Wilson Shock Shield 16", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Wilson Shock Shield 17", type: "Syn", available: "Yes", msrp: "$25" },
+      { name: "Wilson Super Spin 16", type: "Multi", available: "No", msrp: "$25" },
+      { name: "Wilson Synthetic Gut Extreme", type: "Syn", available: "Yes", msrp: "$25" }
     ];
 
     // Default sort by String Name (ascending)
@@ -96,7 +111,7 @@
     }
 
     function sortTable(columnIndex) {
-      const direction = sortDirection[columnIndex] === 'asc' ? 'desc' : 'asc';
+      const direction = sortDirection[columnIndex] === 'asc' ? 'desc' : ' ↓';
       sortDirection[columnIndex] = direction;
 
       strings.sort((a, b) => {
