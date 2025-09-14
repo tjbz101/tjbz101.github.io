@@ -10,7 +10,7 @@
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 4px; text-align: left; white-space: nowrap; }
+    th, td { border: 1px solid #ddd; padding: 2px; text-align: left; white-space: nowrap; }
     th { background-color: #041E42; color: #fff; cursor: pointer; }
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
@@ -20,9 +20,12 @@
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
       table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      th, td { font-size: 0.75em; padding: 3px; min-width: 80px; } /* Smaller text and padding for iPhone fit */
-      th { font-weight: bold; }
-      tbody tr { display: table-row; } /* Ensure rows stay as rows */
+      th, td { font-size: 0.7em; padding: 2px; }
+      th:nth-child(1), td:nth-child(1) { width: 40%; } /* String Name gets more space */
+      th:nth-child(2), td:nth-child(2) { width: 20%; } /* Type */
+      th:nth-child(3), td:nth-child(3) { width: 20%; } /* Available */
+      th:nth-child(4), td:nth-child(4) { width: 20%; } /* MSRP */
+      tbody tr { margin-bottom: 5px; } /* Slight row separation */
       .review { max-width: 100%; margin-left: 5px; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
