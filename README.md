@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,15 +20,15 @@
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
       table, thead, tbody, th, td, tr { display: block; }
-      thead tr { position: absolute; top: -9999px; left: -9999px; }
-      tr { border: 1px solid #ccc; margin-bottom: 10px; }
-      td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
-      td:before { position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; }
+      thead tr { position: absolute; top: -9999px; left -9999px; }
+      tr { border: 1px solid #ccc; margin-bottom: 15px; padding: 10px 0; }
+      td { border: none; border-bottom: 1px solid #eee; position: relative; padding: 10px 50%; font-size: 0.9em; }
+      td:before { position: absolute; top: 8px; left: 10px; width: 40%; padding-right: 10px; white-space: nowrap; font-weight: bold; font-size: 0.9em; }
       td:nth-of-type(1):before { content: "String Name"; }
       td:nth-of-type(2):before { content: "Type"; }
       td:nth-of-type(3):before { content: "Available"; }
       td:nth-of-type(4):before { content: "MSRP (Set)"; }
-      .review { max-width: 100%; }
+      .review { max-width: 100%; margin-left: 10px; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
       th, td { padding: 6px; font-size: 0.9em; }
@@ -71,8 +71,8 @@
       { name: "Head Velocity MLT", type: "Multifilament", available: "Yes", msrp: "$25" },
       { name: "Kirschbaum Super Smash", type: "Polyester", available: "Yes", msrp: "$25" },
       { name: "Kirschbaum Synthetic Gut", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Premier Control 15", type: "Multifilament", available: "Yes", msrp: "$25" },
-      { name: "Premier Tour XC", type: "Polyester", available: "Yes", msrp: "$25" },
+      { name: "Prince Control 15", type: "Multifilament", available: "Yes", msrp: "$25" },
+      { name: "Prince Tour XC", type: "Polyester", available: "Yes", msrp: "$25" },
       { name: "Prince Synthetic Gut 15L", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
       { name: "Prince Synthetic Gut with Duraflex", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
       { name: "Tourna Premier Poly", type: "Polyester", available: "Yes", msrp: "$25" },
@@ -148,8 +148,8 @@
           case 'Head Velocity MLT': reviewText = 'Head Velocity MLT, a multifilament from Head, is known for its soft, comfortable play and good power. Players appreciate its arm-friendliness, with solid tension retention.'; break;
           case 'Kirschbaum Super Smash': reviewText = 'Kirschbaum Super Smash, a polyester from Kirschbaum, is favored for its spin and durability. Players love its aggressive bite, though it’s stiffer on the arm.'; break;
           case 'Kirschbaum Synthetic Gut': reviewText = 'Kirschbaum Synthetic Gut, a budget synthetic from Kirschbaum, provides good power and comfort. Reviews highlight its value, with decent performance for casual play.'; break;
-          case 'Premier Control 15': reviewText = 'Premier Control 15, a multifilament, excels in precision and comfort with a soft feel. Players note its playability, though durability is average.'; break;
-          case 'Premier Tour XC': reviewText = 'Premier Tour XC, a polyester, offers great spin and control with solid durability. Users enjoy its crisp response, ideal for competitive baseline play.'; break;
+          case 'Prince Control 15': reviewText = 'Prince Control 15, a multifilament, excels in precision and comfort with a soft feel. Players note its playability, though durability is average.'; break;
+          case 'Prince Tour XC': reviewText = 'Prince Tour XC, a polyester, offers great spin and control with solid durability. Users enjoy its crisp response, ideal for competitive baseline play.'; break;
           case 'Prince Synthetic Gut 15L': reviewText = 'Prince Synthetic Gut 15L, a synthetic gut from Prince, provides a lively response with decent comfort. Users note its affordability, though durability varies.'; break;
           case 'Prince Synthetic Gut with Duraflex': reviewText = 'Prince Synthetic Gut with Duraflex, a synthetic gut from Prince, delivers a soft feel with good power and durability. Reviews praise its value and all-around playability.'; break;
           case 'Tourna Premier Poly': reviewText = 'Tourna Premier Poly, a polyester from Tourna, offers good spin and durability. Reviews commend its value, though it may feel harsh for some players.'; break;
