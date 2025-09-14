@@ -40,7 +40,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425</h3>
+  <h3>V091225B</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
   <table id="stringTable">
