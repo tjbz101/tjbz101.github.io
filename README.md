@@ -10,23 +10,18 @@
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 2px; text-align: left; white-space: nowrap; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; position: relative; }
     th { background-color: #041E42; color: #fff; cursor: pointer; }
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
-    .review { display: none; margin-top: 5px; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 300px; }
+    .review { display: none; position: absolute; top: 100%; left: 0; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 250px; max-height: 150px; overflow-y: auto; z-index: 1; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
-      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      th, td { font-size: 0.7em; padding: 2px; }
-      th:nth-child(1), td:nth-child(1) { width: 40%; } /* String Name gets more space */
-      th:nth-child(2), td:nth-child(2) { width: 20%; } /* Type */
-      th:nth-child(3), td:nth-child(3) { width: 20%; } /* Available */
-      th:nth-child(4), td:nth-child(4) { width: 20%; } /* MSRP */
-      tbody tr { margin-bottom: 5px; } /* Slight row separation */
-      .review { max-width: 100%; margin-left: 5px; }
+      table { overflow-x: auto; display: block; }
+      th, td { font-size: 0.8em; padding: 4px; min-width: 100px; }
+      .review { max-width: 90%; left: 5%; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
       th, td { padding: 6px; font-size: 0.9em; }
@@ -38,7 +33,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425I</h3>
+  <h3>V091425J</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
   <table id="stringTable">
