@@ -59,7 +59,7 @@
 
   <script>
     let strings = [
-      { name: "Asics Resolution 16 (44'length)", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
+      { name: "Asics Resolution 16", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
       { name: "Babolat Conquest", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
       { name: "Babolat N.Vy", type: "Synthetic Gut", available: "Limited", msrp: "$25" },
       { name: "Babolat Excel", type: "Multifilament", available: "Yes", msrp: "$25" },
@@ -136,7 +136,7 @@
       if (reviewDiv.style.display === 'none') {
         let reviewText = '';
         switch (stringName) {
-          case 'Asics Resolution 16 (44\'length)': reviewText = 'Asics Resolution 16, a synthetic gut string from Asics, provides a balanced feel with good comfort and power. Limited feedback suggests it’s a solid all-around option.'; break;
+          case 'Asics Resolution 16': reviewText = 'Asics Resolution 16, a synthetic gut string from Asics, provides a balanced feel with good comfort and power. Limited feedback suggests it’s a solid all-around option.'; break;
           case 'Babolat Conquest': reviewText = 'Babolat Conquest, a synthetic gut from Babolat, offers strong comfort and durability. Users enjoy its playability, though it’s less spin-focused than polys.'; break;
           case 'Babolat N.Vy': reviewText = 'Babolat N.Vy, a synthetic gut from Babolat, offers a soft, arm-friendly feel with decent power. Limited availability makes it a niche choice, with users noting good value.'; break;
           case 'Babolat Excel': reviewText = 'Babolat Excel, a multifilament from Babolat, shines with comfort and power, mimicking natural gut. Reviews praise its plush feel, though durability is moderate for frequent play.'; break;
