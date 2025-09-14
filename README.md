@@ -10,7 +10,7 @@
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th, td { border: 1px solid #ddd; padding: 4px; text-align: left; white-space: nowrap; }
     th { background-color: #041E42; color: #fff; cursor: pointer; }
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
@@ -19,17 +19,11 @@
     a:hover { text-decoration: underline; }
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
-      table, thead, tbody, th, td, tr { display: block; }
-      thead tr { position: absolute; top: -9999px; left: -9999px; }
-      tr { border: 1px solid #ccc; margin-bottom: 15px; padding: 10px 0; }
-      td { border: none; border-bottom: 1px solid #eee; position: relative; padding: 15px 60%; font-size: 0.9em; }
-      td:before { position: absolute; top: 10px; left: 15px; width: 35%; padding-right: 15px; white-space: nowrap; font-weight: bold; font-size: 0.9em; content: attr(data-label) "\A"; }
-      td:after { content: ""; display: block; height: 5px; } /* Reduced vertical spacer */
-      td:nth-of-type(1) { data-label: "String Name"; }
-      td:nth-of-type(2) { data-label: "Type"; }
-      td:nth-of-type(3) { data-label: "Available"; }
-      td:nth-of-type(4) { data-label: "MSRP"; }
-      .review { max-width: 100%; margin-left: 15px; }
+      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      th, td { font-size: 0.75em; padding: 3px; min-width: 80px; } /* Smaller text and padding for iPhone fit */
+      th { font-weight: bold; }
+      tbody tr { display: table-row; } /* Ensure rows stay as rows */
+      .review { max-width: 100%; margin-left: 5px; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
       th, td { padding: 6px; font-size: 0.9em; }
@@ -41,7 +35,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425H</h3>
+  <h3>V091425I</h3>
   <p>View the static string list. Sort by clicking column headers.</p>
 
   <table id="stringTable">
@@ -100,10 +94,10 @@
       strings.forEach((str, index) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td data-label="String Name"><a href="#" onclick="showReview('${str.name}', event); return false;">${str.name}</a><div class="review" id="review-${str.name.replace(/ /g, '-')}" style="display:none;"></div></td>
-          <td data-label="Type">${str.type}</td>
-          <td data-label="Available">${str.available}</td>
-          <td data-label="MSRP">${str.msrp}</td>
+          <td><a href="#" onclick="showReview('${str.name}', event); return false;">${str.name}</a><div class="review" id="review-${str.name.replace(/ /g, '-')}" style="display:none;"></div></td>
+          <td>${str.type}</td>
+          <td>${str.available}</td>
+          <td>${str.msrp}</td>
         `;
         tbody.appendChild(tr);
       });
