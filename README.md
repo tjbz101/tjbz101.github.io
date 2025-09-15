@@ -34,7 +34,7 @@
 <body>
   <h1>String List</h1>
   <h3>V091425J</h3>
-  <p>Available strings, sort by name or type. We can split sets for a hybrid string job.<br>You provide strings, $20, or pick from below, $25.  Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience.  </p>
+  <p>Available strings, sort by name or type. We can split sets for a hybrid string job.<br>You provide strings, $20, or pick from below, $25.  Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.  </p>
 
   <table id="stringTable">
     <thead>
