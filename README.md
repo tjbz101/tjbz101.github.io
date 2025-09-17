@@ -10,7 +10,7 @@
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; position: relative; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; position: relative; min-width: 100px; }
     th { background-color: #041E42; color: #fff; cursor: pointer; }
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
@@ -19,8 +19,8 @@
     a:hover { text-decoration: underline; }
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
-      table { overflow-x: auto; display: block; }
-      th, td { font-size: 0.8em; padding: 4px; min-width: 100px; }
+      table { overflow-x: auto; display: block; width: 100%; }
+      th, td { font-size: 0.75em; padding: 3px; min-width: 80px; white-space: nowrap; } /* Reduced size, fixed width */
       .review { max-width: 90%; left: 5%; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
@@ -33,8 +33,8 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425J</h3>
-  <p>Available strings, sort by name or type. We can split sets for a hybrid string job.<br>You provide strings, $20, or pick from below, $25.  Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.  </p>
+  <h3>V091425K</h3>
+  <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
 
   <table id="stringTable">
     <thead>
@@ -43,6 +43,11 @@
         <th onclick="sortTable(2)">Type<span id="sortTypeArrow" class="sort-arrow"></span></th>
         <th>Available</th>
         <th>MSRP (Set)</th>
+        <th>Comfort Rating</th>
+        <th>Control</th>
+        <th>Durability</th>
+        <th>Power</th>
+        <th>Spin Potential</th>
       </tr>
     </thead>
     <tbody>
@@ -52,33 +57,33 @@
 
   <script>
     let strings = [
-      { name: "Asics Resolution 16", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Babolat Conquest", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Babolat N.Vy", type: "Synthetic Gut", available: "Limited", msrp: "$25" },
-      { name: "Babolat Excel", type: "Multifilament", available: "Yes", msrp: "$25" },
-      { name: "Bluestar Multi Filament", type: "Multifilament", available: "Yes", msrp: "$25" },
-      { name: "Gamma Octo TNT", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Head FXP", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Head FXP Tour", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Head Intellistring", type: "Synthetic Gut", available: "Limited", msrp: "$25" },
-      { name: "Head Velocity MLT", type: "Multifilament", available: "Yes", msrp: "$25" },
-      { name: "Kirschbaum Super Smash", type: "Polyester", available: "Yes", msrp: "$25" },
-      { name: "Kirschbaum Synthetic Gut", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Prince Control 15", type: "Multifilament", available: "Yes", msrp: "$25" },
-      { name: "Prince Tour XC", type: "Polyester", available: "Yes", msrp: "$25" },
-      { name: "Prince Synthetic Gut 15L", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Prince Synthetic Gut with Duraflex", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Tourna Premier Poly", type: "Polyester", available: "Yes", msrp: "$25" },
-      { name: "Wilson Extreme Octane", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Wilson Hollowcore 16", type: "Synthetic Gut", available: "Limited", msrp: "$25" },
-      { name: "Wilson Hyperlast", type: "Polyester", available: "No", msrp: "$25" },
-      { name: "Wilson NXT with Duramax 15", type: "Multifilament", available: "Yes", msrp: "$25" },
-      { name: "Wilson Poly Last", type: "Polyester", available: "No", msrp: "$25" },
-      { name: "Wilson SGX", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Wilson Shock Shield 16", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Wilson Shock Shield 17", type: "Synthetic Gut", available: "Yes", msrp: "$25" },
-      { name: "Wilson Super Spin 16", type: "Multifilament", available: "No", msrp: "$25" },
-      { name: "Wilson Synthetic Gut Extreme", type: "Synthetic Gut", available: "Yes", msrp: "$25" }
+      { name: "Asics Resolution 16", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Babolat Conquest", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "14-18 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Babolat N.Vy", type: "Synthetic Gut", available: "Limited", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "10-14 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Babolat Excel", type: "Multifilament", available: "Yes", msrp: "$25", comfort: "Very High (9/10)", control: "Good (7/10)", durability: "8-12 hours", power: "Very High (9/10)", spin: "Low (5/10)" },
+      { name: "Bluestar Multi Filament", type: "Multifilament", available: "Yes", msrp: "$25", comfort: "Very High (9/10)", control: "Good (7/10)", durability: "10-14 hours", power: "Very High (9/10)", spin: "Low (5/10)" },
+      { name: "Gamma Octo TNT", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "14-18 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Head FXP", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Head FXP Tour", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "10-14 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Head Intellistring", type: "Synthetic Gut", available: "Limited", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "10-14 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Head Velocity MLT", type: "Multifilament", available: "Yes", msrp: "$25", comfort: "Very High (9/10)", control: "Good (7/10)", durability: "15-20 hours", power: "High (8/10)", spin: "Moderate (7/10)" },
+      { name: "Kirschbaum Super Smash", type: "Polyester", available: "Yes", msrp: "$25", comfort: "Low (4/10)", control: "Very High (9/10)", durability: "20-25 hours", power: "Low (5/10)", spin: "Very High (9/10)" },
+      { name: "Kirschbaum Synthetic Gut", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Prince Control 15", type: "Multifilament", available: "Yes", msrp: "$25", comfort: "Very High (9/10)", control: "Good (7/10)", durability: "8-12 hours", power: "Very High (9/10)", spin: "Low (5/10)" },
+      { name: "Prince Tour XC", type: "Polyester", available: "Yes", msrp: "$25", comfort: "Low (4/10)", control: "Very High (9/10)", durability: "18-22 hours", power: "Low (5/10)", spin: "Very High (9/10)" },
+      { name: "Prince Synthetic Gut 15L", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Prince Synthetic Gut with Duraflex", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "14-18 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Tourna Premier Poly", type: "Polyester", available: "Yes", msrp: "$25", comfort: "Low (4/10)", control: "Very High (9/10)", durability: "18-22 hours", power: "Low (5/10)", spin: "Very High (9/10)" },
+      { name: "Wilson Extreme Octane", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Wilson Hollowcore 16", type: "Synthetic Gut", available: "Limited", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "10-14 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Wilson Hyperlast", type: "Polyester", available: "No", msrp: "$25", comfort: "Low (4/10)", control: "Very High (9/10)", durability: "18-22 hours", power: "Low (5/10)", spin: "Very High (9/10)" },
+      { name: "Wilson NXT with Duramax 15", type: "Multifilament", available: "Yes", msrp: "$25", comfort: "Very High (9/10)", control: "Good (7/10)", durability: "12-16 hours", power: "Very High (9/10)", spin: "Moderate (6/10)" },
+      { name: "Wilson Poly Last", type: "Polyester", available: "No", msrp: "$25", comfort: "Low (4/10)", control: "Very High (9/10)", durability: "18-22 hours", power: "Low (5/10)", spin: "Very High (9/10)" },
+      { name: "Wilson SGX", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Wilson Shock Shield 16", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Wilson Shock Shield 17", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "10-14 hours", power: "High (8/10)", spin: "Moderate (6/10)" },
+      { name: "Wilson Super Spin 16", type: "Multifilament", available: "No", msrp: "$25", comfort: "Very High (9/10)", control: "Good (7/10)", durability: "8-12 hours", power: "Very High (9/10)", spin: "Moderate (7/10)" },
+      { name: "Wilson Synthetic Gut Extreme", type: "Synthetic Gut", available: "Yes", msrp: "$25", comfort: "High (8/10)", control: "Good (7/10)", durability: "12-16 hours", power: "High (8/10)", spin: "Moderate (6/10)" }
     ];
 
     // Default sort by String Name (ascending)
@@ -96,6 +101,11 @@
           <td>${str.type}</td>
           <td>${str.available}</td>
           <td>${str.msrp}</td>
+          <td>${str.comfort}</td>
+          <td>${str.control}</td>
+          <td>${str.durability}</td>
+          <td>${str.power}</td>
+          <td>${str.spin}</td>
         `;
         tbody.appendChild(tr);
       });
