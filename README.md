@@ -11,7 +11,7 @@
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; position: relative; min-width: 100px; }
-    th { background-color: #041E42; color: #fff; cursor: pointer; }
+    th { background-color: #041E42; color: #fff; cursor: pointer; position: sticky; top: 0; z-index: 1; }
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
     .review { display: none; position: absolute; top: 100%; left: 0; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 250px; max-height: 150px; overflow-y: auto; z-index: 1; }
@@ -20,7 +20,8 @@
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
       table { overflow-x: auto; display: block; width: 100%; }
-      th, td { font-size: 0.75em; padding: 3px; min-width: 80px; white-space: nowrap; } /* Reduced size, fixed width */
+      th, td { font-size: 0.75em; padding: 3px; min-width: 80px; white-space: nowrap; }
+      th { position: sticky; top: 0; } /* Ensure sticky works on mobile */
       .review { max-width: 90%; left: 5%; }
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
