@@ -37,7 +37,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091825M</h3>
+  <h3>V091825M3</h3>
   <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
 
   <div class="table-container">
@@ -188,19 +188,37 @@
       document.querySelector('.table-container').appendChild(stickyHeader);
 
       const container = document.querySelector('.table-container');
+      let isScrolling = false;
+
       container.addEventListener('scroll', () => {
         const scrollTop = container.scrollTop;
-        if (scrollTop > 0) {
+        if (scrollTop > 0 && !isScrolling) {
+          isScrolling = true;
           stickyHeader.style.display = 'block';
+          stickyHeader.style.position = 'fixed'; // Use fixed during scroll
+          stickyHeader.style.top = '0'; // Lock to top of viewport
           stickyHeader.style.width = table.offsetWidth + 'px';
-          stickyHeader.style.top = container.offsetTop + 'px'; // Fix position at container top
           const cells = stickyHeader.querySelectorAll('th');
           const tableCells = thead.querySelectorAll('th');
           cells.forEach((cell, index) => {
             cell.style.width = tableCells[index].offsetWidth + 'px';
           });
-        } else {
+        } else if (scrollTop === 0) {
           stickyHeader.style.display = 'none';
+          stickyHeader.style.position = 'absolute'; // Reset to avoid artifacts
+          isScrolling = false;
+        }
+      });
+
+      // Handle resize to maintain header width
+      window.addEventListener('resize', () => {
+        if (stickyHeader.style.display === 'block') {
+          stickyHeader.style.width = table.offsetWidth + 'px';
+          const cells = stickyHeader.querySelectorAll('th');
+          const tableCells = thead.querySelectorAll('th');
+          cells.forEach((cell, index) => {
+            cell.style.width = tableCells[index].offsetWidth + 'px';
+          });
         }
       });
     }
