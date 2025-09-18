@@ -193,6 +193,7 @@
         if (scrollTop > 0) {
           stickyHeader.style.display = 'block';
           stickyHeader.style.width = table.offsetWidth + 'px';
+          stickyHeader.style.top = container.offsetTop + 'px'; // Fix position at container top
           const cells = stickyHeader.querySelectorAll('th');
           const tableCells = thead.querySelectorAll('th');
           cells.forEach((cell, index) => {
