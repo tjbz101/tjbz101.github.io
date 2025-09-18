@@ -9,10 +9,10 @@
     h1 { color: #041E42; text-align: center; margin-bottom: 10px; }
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
-    .table-container { position: relative; max-height: 400px; overflow-y: auto; overflow-x: auto; } /* Container with scroll */
+    .table-container { position: relative; max-height: 400px; overflow-y: auto; overflow-x: auto; } /* Scroll container */
     table { border-collapse: collapse; width: 100%; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; min-width: 100px; }
-    th { background-color: #041E42; color: #fff; cursor: pointer; position: -webkit-sticky; position: sticky; top: 0; z-index: 3; } /* Vendor prefix for Safari */
+    th { background-color: #041E42; color: #fff; cursor: pointer; position: -webkit-sticky; position: sticky; top: 0; z-index: 3; } /* Sticky with vendor prefix */
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
     .review { display: none; position: absolute; top: 100%; left: 0; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 250px; max-height: 150px; overflow-y: auto; z-index: 1; }
@@ -22,11 +22,11 @@
     @media (max-width: 767px) { /* iPhones/Mobile */
       .table-container { max-height: none; overflow-x: auto; }
       th, td { font-size: 0.75em; padding: 3px; min-width: 80px; white-space: nowrap; }
-      th { position: -webkit-sticky; position: sticky; top: 0; } /* Ensure sticky on iOS */
+      th { position: -webkit-sticky; position: sticky; top: 0; background-color: #041E42; } /* Ensure sticky on mobile */
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
       .table-container { max-height: 400px; overflow-y: auto; overflow-x: auto; }
-      th { position: -webkit-sticky; position: sticky; top: 0; z-index: 3; }
+      th { position: -webkit-sticky; position: sticky; top: 0; z-index: 3; background-color: #041E42; } /* Reinforce for tablets */
       th, td { padding: 6px; font-size: 0.9em; min-width: 100px; }
       .review { max-width: 90%; left: 5%; }
     }
@@ -37,7 +37,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091725L22</h3>
+  <h3>V091725L</h3>
   <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
 
   <div class="table-container">
