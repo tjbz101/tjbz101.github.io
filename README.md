@@ -9,9 +9,9 @@
     h1 { color: #041E42; text-align: center; margin-bottom: 10px; }
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
-    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; position: relative; min-width: 100px; }
-    th { background-color: #041E42; color: #fff; cursor: pointer; position: sticky; top: 0; z-index: 1; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; position: relative; } /* Added position: relative */
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; min-width: 100px; }
+    th { background-color: #041E42; color: #fff; cursor: pointer; position: sticky; top: 0; z-index: 3; } /* Increased z-index */
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
     .review { display: none; position: absolute; top: 100%; left: 0; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 250px; max-height: 150px; overflow-y: auto; z-index: 1; }
@@ -21,11 +21,13 @@
     @media (max-width: 767px) { /* iPhones/Mobile */
       table { overflow-x: auto; display: block; width: 100%; }
       th, td { font-size: 0.75em; padding: 3px; min-width: 80px; white-space: nowrap; }
-      th { position: sticky; top: 0; } /* Ensure sticky works on mobile */
-      .review { max-width: 90%; left: 5%; }
+      th { position: sticky; top: 0; background-color: #041E42; } /* Reinforce sticky */
     }
     @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
-      th, td { padding: 6px; font-size: 0.9em; }
+      table { overflow-x: auto; }
+      th { position: sticky; top: 0; z-index: 3; background-color: #041E42; } /* Reinforce sticky for tablets */
+      th, td { padding: 6px; font-size: 0.9em; min-width: 100px; }
+      .review { max-width: 90%; left: 5%; }
     }
     @media (min-width: 1024px) { /* Desktops */
       /* No changes needed, full table layout */
@@ -34,7 +36,7 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091425K2</h3>
+  <h3>V091725L</h3>
   <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
 
   <table id="stringTable">
@@ -149,30 +151,4 @@
           case 'Kirschbaum Super Smash': reviewText = 'Kirschbaum Super Smash, a polyester from Kirschbaum, is favored for its spin and durability. Players love its aggressive bite, though it’s stiffer on the arm.'; break;
           case 'Kirschbaum Synthetic Gut': reviewText = 'Kirschbaum Synthetic Gut, a budget synthetic from Kirschbaum, provides good power and comfort. Reviews highlight its value, with decent performance for casual play.'; break;
           case 'Prince Control 15': reviewText = 'Prince Control 15, a multifilament, excels in precision and comfort with a soft feel. Players note its playability, though durability is average.'; break;
-          case 'Prince Tour XC': reviewText = 'Prince Tour XC, a polyester, offers great spin and control with solid durability. Users enjoy its crisp response, ideal for competitive baseline play.'; break;
-          case 'Prince Synthetic Gut 15L': reviewText = 'Prince Synthetic Gut 15L, a synthetic gut from Prince, provides a lively response with decent comfort. Users note its affordability, though durability varies.'; break;
-          case 'Prince Synthetic Gut with Duraflex': reviewText = 'Prince Synthetic Gut with Duraflex, a synthetic gut from Prince, delivers a soft feel with good power and durability. Reviews praise its value and all-around playability.'; break;
-          case 'Tourna Premier Poly': reviewText = 'Tourna Premier Poly, a polyester from Tourna, offers good spin and durability. Reviews commend its value, though it may feel harsh for some players.'; break;
-          case 'Wilson Extreme Octane': reviewText = 'Wilson Extreme Octane, a synthetic gut from Wilson, delivers a lively response with good control. Reviews note its affordability and decent durability.'; break;
-          case 'Wilson Hollowcore 16': reviewText = 'Wilson Hollowcore 16, a synthetic gut from Wilson, provides a unique hollow design for power. Limited feedback suggests a soft, lively feel.'; break;
-          case 'Wilson Hyperlast': reviewText = 'Wilson Hyperlast, a polyester from Wilson, offers control and durability. Users recall its firm feel.'; break;
-          case 'Wilson NXT with Duramax 15': reviewText = 'Wilson NXT with Duramax 15, a multifilament from Wilson, combines plush comfort with enhanced durability. Players love its power and gut-like response.'; break;
-          case 'Wilson Poly Last': reviewText = 'Wilson Poly Last, a polyester from Wilson, offers solid control and durability, though its age may reduce elasticity. Users note a stiff feel, ideal for baseline play if stored well.'; break;
-          case 'Wilson SGX': reviewText = 'Wilson SGX, a synthetic gut from Wilson, provides a balanced feel with vibrant colors. Users enjoy its versatility and budget-friendly price.'; break;
-          case 'Wilson Shock Shield 16': reviewText = 'Wilson Shock Shield 16, a synthetic gut from Wilson, offers vibration dampening with a soft feel. Users appreciate its comfort, ideal for arm protection.'; break;
-          case 'Wilson Shock Shield 17': reviewText = 'Wilson Shock Shield 17, a thinner synthetic gut from Wilson, provides similar comfort with added feel. Reviews note its effectiveness for sensitive arms.'; break;
-          case 'Wilson Super Spin 16': reviewText = 'Wilson Super Spin 16, a multifilament from Wilson, excels in spin and comfort. Reviews highlight its hexagonal shape, though durability is limited.'; break;
-          case 'Wilson Synthetic Gut Extreme': reviewText = 'Wilson Synthetic Gut Extreme, a synthetic gut from Wilson, offers a crisp, durable play. Users praise its value and all-court performance.'; break;
-          default: reviewText = 'No detailed review available for this string.';
-        }
-        reviewDiv.textContent = reviewText;
-        reviewDiv.style.display = 'block';
-      } else {
-        reviewDiv.style.display = 'none';
-      }
-    }
-
-    renderTable();
-  </script>
-</body>
-</html>
+          case 'Prince Tour XC':
