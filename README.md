@@ -9,55 +9,49 @@
     h1 { color: #041E42; text-align: center; margin-bottom: 10px; }
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
-    .table-container { position: relative; max-height: 400px; overflow-y: auto; overflow-x: auto; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; min-width: 100px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background-color: #041E42; color: #fff; cursor: pointer; }
     th:hover { background-color: #003087; }
     .sort-arrow { margin-left: 5px; }
-    .review { display: none; position: absolute; top: 100%; left: 0; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 250px; max-height: 150px; overflow-y: auto; z-index: 1; }
+    .review { display: none; margin-top: 5px; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 300px; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
-      .table-container { max-height: none; overflow-x: auto; }
+      table { overflow-x: auto; display: block; width: 100%; }
       th, td { font-size: 0.75em; padding: 3px; min-width: 80px; white-space: nowrap; }
-    }
-    @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
-      .table-container { max-height: 400px; overflow-y: auto; overflow-x: auto; }
-      th, td { padding: 6px; font-size: 0.9em; min-width: 100px; }
       .review { max-width: 90%; left: 5%; }
     }
-    @media (min-width: 1024px) { /* Desktops */
-      .table-container { max-height: 500px; overflow-y: auto; }
+    @media (min-width: 768px) and (max-width: 1023px) { /* Tablets */
+      th, td { padding: 6px; font-size: 0.9em; }
     }
-    .sticky-header { display: none; position: absolute; top: 0; left: 0; width: 100%; background-color: #041E42; z-index: 2; overflow: hidden; } /* Added overflow: hidden */
-    .sticky-header th { color: #fff; border: 1px solid #ddd; padding: 8px; }
+    @media (min-width: 1024px) { /* Desktops */
+      /* No changes needed, full table layout */
+    }
   </style>
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091825M4f</h3>
+  <h3>V091825N</h3>
   <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
 
-  <div class="table-container">
-    <table id="stringTable">
-      <thead>
-        <tr>
-          <th onclick="sortTable(1)">String Name<span id="sortNameArrow" class="sort-arrow"></span></th>
-          <th onclick="sortTable(2)">Type<span id="sortTypeArrow" class="sort-arrow"></span></th>
-          <th>Available</th>
-          <th>MSRP (Set)</th>
-          <th>Comfort Rating</th>
-          <th>Durability</th>
-          <th>Spin Potential</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Strings will be loaded here -->
-      </tbody>
-    </table>
-  </div>
+  <table id="stringTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(1)">String Name<span id="sortNameArrow" class="sort-arrow"></span></th>
+        <th onclick="sortTable(2)">Type<span id="sortTypeArrow" class="sort-arrow"></span></th>
+        <th>Available</th>
+        <th>MSRP (Set)</th>
+        <th>Comfort Rating</th>
+        <th>Durability</th>
+        <th>Spin Potential</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Strings will be loaded here -->
+    </tbody>
+  </table>
 
   <script>
     let strings = [
@@ -177,50 +171,6 @@
       } else {
         reviewDiv.style.display = 'none';
       }
-    }
-
-    function setupStickyHeader() {
-      const table = document.getElementById('stringTable');
-      const thead = table.querySelector('thead');
-      const stickyHeader = document.createElement('div');
-      stickyHeader.className = 'sticky-header';
-      stickyHeader.innerHTML = thead.innerHTML;
-      document.querySelector('.table-container').appendChild(stickyHeader);
-
-      const container = document.querySelector('.table-container');
-      let isScrolling = false;
-
-      container.addEventListener('scroll', () => {
-        const scrollTop = container.scrollTop;
-        if (scrollTop > 0 && !isScrolling) {
-          isScrolling = true;
-          stickyHeader.style.display = 'block';
-          stickyHeader.style.position = 'fixed';
-          stickyHeader.style.top = '0';
-          stickyHeader.style.width = table.offsetWidth + 'px';
-          const cells = stickyHeader.querySelectorAll('th');
-          const tableCells = thead.querySelectorAll('th');
-          cells.forEach((cell, index) => {
-            cell.style.width = tableCells[index].offsetWidth + 'px';
-          });
-        } else if (scrollTop === 0) {
-          stickyHeader.style.display = 'none';
-          stickyHeader.style.position = 'absolute';
-          isScrolling = false;
-        }
-      });
-
-      // Handle resize to maintain header width
-      window.addEventListener('resize', () => {
-        if (stickyHeader.style.display === 'block') {
-          stickyHeader.style.width = table.offsetWidth + 'px';
-          const cells = stickyHeader.querySelectorAll('th');
-          const tableCells = thead.querySelectorAll('th');
-          cells.forEach((cell, index) => {
-            cell.style.width = tableCells[index].offsetWidth + 'px';
-          });
-        }
-      });
     }
 
     renderTable();
