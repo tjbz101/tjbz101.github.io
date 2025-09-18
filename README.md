@@ -31,13 +31,13 @@
     @media (min-width: 1024px) { /* Desktops */
       .table-container { max-height: 500px; overflow-y: auto; }
     }
-    .sticky-header { display: none; position: absolute; top: 0; left: 0; width: 100%; background-color: #041E42; z-index: 2; }
+    .sticky-header { display: none; position: absolute; top: 0; left: 0; width: 100%; background-color: #041E42; z-index: 2; overflow: hidden; } /* Added overflow: hidden */
     .sticky-header th { color: #fff; border: 1px solid #ddd; padding: 8px; }
   </style>
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091825M3</h3>
+  <h3>V091825M4f</h3>
   <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
 
   <div class="table-container">
@@ -195,8 +195,8 @@
         if (scrollTop > 0 && !isScrolling) {
           isScrolling = true;
           stickyHeader.style.display = 'block';
-          stickyHeader.style.position = 'fixed'; // Use fixed during scroll
-          stickyHeader.style.top = '0'; // Lock to top of viewport
+          stickyHeader.style.position = 'fixed';
+          stickyHeader.style.top = '0';
           stickyHeader.style.width = table.offsetWidth + 'px';
           const cells = stickyHeader.querySelectorAll('th');
           const tableCells = thead.querySelectorAll('th');
@@ -205,7 +205,7 @@
           });
         } else if (scrollTop === 0) {
           stickyHeader.style.display = 'none';
-          stickyHeader.style.position = 'absolute'; // Reset to avoid artifacts
+          stickyHeader.style.position = 'absolute';
           isScrolling = false;
         }
       });
