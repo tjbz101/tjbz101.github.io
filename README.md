@@ -151,4 +151,30 @@
           case 'Kirschbaum Super Smash': reviewText = 'Kirschbaum Super Smash, a polyester from Kirschbaum, is favored for its spin and durability. Players love its aggressive bite, though it’s stiffer on the arm.'; break;
           case 'Kirschbaum Synthetic Gut': reviewText = 'Kirschbaum Synthetic Gut, a budget synthetic from Kirschbaum, provides good power and comfort. Reviews highlight its value, with decent performance for casual play.'; break;
           case 'Prince Control 15': reviewText = 'Prince Control 15, a multifilament, excels in precision and comfort with a soft feel. Players note its playability, though durability is average.'; break;
-          case 'Prince Tour XC':
+          case 'Prince Tour XC': reviewText = 'Prince Tour XC, a polyester, offers great spin and control with solid durability. Users enjoy its crisp response, ideal for competitive baseline play.'; break;
+          case 'Prince Synthetic Gut 15L': reviewText = 'Prince Synthetic Gut 15L, a synthetic gut from Prince, provides a lively response with decent comfort. Users note its affordability, though durability varies.'; break;
+          case 'Prince Synthetic Gut with Duraflex': reviewText = 'Prince Synthetic Gut with Duraflex, a synthetic gut from Prince, delivers a soft feel with good power and durability. Reviews praise its value and all-around playability.'; break;
+          case 'Tourna Premier Poly': reviewText = 'Tourna Premier Poly, a polyester from Tourna, offers good spin and durability. Reviews commend its value, though it may feel harsh for some players.'; break;
+          case 'Wilson Extreme Octane': reviewText = 'Wilson Extreme Octane, a synthetic gut from Wilson, delivers a lively response with good control. Reviews note its affordability and decent durability.'; break;
+          case 'Wilson Hollowcore 16': reviewText = 'Wilson Hollowcore 16, a synthetic gut from Wilson, provides a unique hollow design for power. Limited feedback suggests a soft, lively feel.'; break;
+          case 'Wilson Hyperlast': reviewText = 'Wilson Hyperlast, a polyester from Wilson, offers control and durability. Users recall its firm feel.'; break;
+          case 'Wilson NXT with Duramax 15': reviewText = 'Wilson NXT with Duramax 15, a multifilament from Wilson, combines plush comfort with enhanced durability. Players love its power and gut-like response.'; break;
+          case 'Wilson Poly Last': reviewText = 'Wilson Poly Last, a polyester from Wilson, offers solid control and durability, though its age may reduce elasticity. Users note a stiff feel, ideal for baseline play if stored well.'; break;
+          case 'Wilson SGX': reviewText = 'Wilson SGX, a synthetic gut from Wilson, provides a balanced feel with vibrant colors. Users enjoy its versatility and budget-friendly price.'; break;
+          case 'Wilson Shock Shield 16': reviewText = 'Wilson Shock Shield 16, a synthetic gut from Wilson, offers vibration dampening with a soft feel. Users appreciate its comfort, ideal for arm protection.'; break;
+          case 'Wilson Shock Shield 17': reviewText = 'Wilson Shock Shield 17, a thinner synthetic gut from Wilson, provides similar comfort with added feel. Reviews note its effectiveness for sensitive arms.'; break;
+          case 'Wilson Super Spin 16': reviewText = 'Wilson Super Spin 16, a multifilament from Wilson, excels in spin and comfort. Reviews highlight its hexagonal shape, though durability is limited.'; break;
+          case 'Wilson Synthetic Gut Extreme': reviewText = 'Wilson Synthetic Gut Extreme, a synthetic gut from Wilson, offers a crisp, durable play. Users praise its value and all-court performance.'; break;
+          default: reviewText = 'No detailed review available for this string.';
+        }
+        reviewDiv.textContent = reviewText;
+        reviewDiv.style.display = 'block';
+      } else {
+        reviewDiv.style.display = 'none';
+      }
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>
