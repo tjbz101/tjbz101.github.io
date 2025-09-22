@@ -9,6 +9,7 @@
     h1 { color: #041E42; text-align: center; margin-bottom: 10px; }
     h3 { color: #041E42; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
     p { text-align: center; color: #041E42; margin-bottom: 20px; }
+    #searchInput { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
     table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background-color: #041E42; color: #fff; cursor: pointer; }
@@ -17,6 +18,7 @@
     .review { display: none; margin-top: 5px; padding: 5px; border: 1px solid #ccc; background: #f9f9f9; max-width: 300px; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .hidden-row { display: none; }
     /* Media Queries for Responsiveness */
     @media (max-width: 767px) { /* iPhones/Mobile */
       table { overflow-x: auto; display: block; width: 100%; }
@@ -33,8 +35,10 @@
 </head>
 <body>
   <h1>String List</h1>
-  <h3>V091825N</h3>
+  <h3>V092225O</h3>
   <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
+
+  <input type="text" id="searchInput" placeholder="Search by name or type..." onkeyup="searchTable()">
 
   <table id="stringTable">
     <thead>
@@ -107,7 +111,6 @@
         tbody.appendChild(tr);
       });
       updateSortArrows();
-      setupStickyHeader();
     }
 
     function sortTable(columnIndex) {
@@ -171,6 +174,20 @@
       } else {
         reviewDiv.style.display = 'none';
       }
+    }
+
+    function searchTable() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#stringTable tbody tr');
+      rows.forEach(row => {
+        const name = row.cells[0].textContent.toLowerCase();
+        const type = row.cells[1].textContent.toLowerCase();
+        if (name.includes(input) || type.includes(input)) {
+          row.classList.remove('hidden-row');
+        } else {
+          row.classList.add('hidden-row');
+        }
+      });
     }
 
     renderTable();
