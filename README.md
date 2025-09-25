@@ -193,6 +193,7 @@
     renderTable();
   </script>
 
+<h3>Player profile and current string setup</h3>
 
   <table>
     <tr>
