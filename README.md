@@ -216,7 +216,7 @@
     <tr><td>10</td><td>Holger Rune</td><td>ATP</td><td>Babolat Pure Aero VS</td><td>Babolat RPM Blast (poly)</td><td>48/50</td></tr>
     <tr><td>11</td><td>Grigor Dimitrov</td><td>ATP</td><td>Wilson Pro Staff RF97 Autograph</td><td>Wilson Natural Gut mains / Luxilon ALU Rough crosses</td><td>55/52</td></tr>
     <tr><td>12</td><td>Alex de Minaur</td><td>ATP</td><td>Wilson Blade 98</td><td>Luxilon ALU Power Soft (poly)</td><td>51/53</td></tr>
-    <tr><td>13</td><td>Taylor Fritz</td><td>ATP</td><td>Dunlop CX 200 Tour</td><td>Solinco Confidential (poly)</td><td>50/50</td></tr>
+    <tr><td>13</td><td>Taylor Fritz</td><td>ATP</td><td>Head (unknown)</td><td>Solinco Confidential (poly)</td><td>50/50</td></tr>
     <tr><td>14</td><td>Tommy Paul</td><td>ATP</td><td>Wilson Blade 98 v9</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
     <tr><td>15</td><td>Frances Tiafoe</td><td>ATP</td><td>Yonex VCORE Pro 97</td><td>Yonex Poly Tour Pro (poly)</td><td>42/42</td></tr>
     <tr><td>16</td><td>Ben Shelton</td><td>ATP</td><td>Yonex EZONE 98</td><td>Yonex Poly Tour Fire (poly)</td><td>48/50</td></tr>
