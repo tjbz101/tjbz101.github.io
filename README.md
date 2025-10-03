@@ -195,66 +195,67 @@
 
 <h3>Player profile and current string setup</h3>
 
-  <table>
-    <tr>
-        <th>#</th>
-        <th>Player</th>
-        <th>Tour</th>
-        <th>Racket Model</th>
-        <th>String Setup</th>
-        <th>Tension (lbs)</th>
-    </tr>
-    <tr><td>1</td><td>Carlos Alcaraz</td><td>ATP</td><td>Babolat Pure Aero 98</td><td>Babolat RPM Blast (poly)</td><td>50/52</td></tr>
-    <tr><td>2</td><td>Jannik Sinner</td><td>ATP</td><td>Head Speed Pro</td><td>Head Hawk Touch (poly)</td><td>58/60</td></tr>
-    <tr><td>3</td><td>Novak Djokovic</td><td>ATP</td><td>Head Speed Pro (custom)</td><td>Babolat Natural Gut mains / Luxilon ALU Power Rough crosses</td><td>59/56</td></tr>
-    <tr><td>4</td><td>Alexander Zverev</td><td>ATP</td><td>Head Gravity Pro</td><td>Head Hawk (poly)</td><td>53/55</td></tr>
-    <tr><td>5</td><td>Daniil Medvedev</td><td>ATP</td><td>Tecnifibre T-Fight 305</td><td>Tecnifibre Razor Code (poly)</td><td>52/54</td></tr>
-    <tr><td>6</td><td>Andrey Rublev</td><td>ATP</td><td>Head YouTek IG Speed MP</td><td>Head Hawk Touch (poly)</td><td>55/57</td></tr>
-    <tr><td>7</td><td>Casper Ruud</td><td>ATP</td><td>Yonex EZONE 98</td><td>Yonex Poly Tour Pro (poly)</td><td>54/54</td></tr>
-    <tr><td>8</td><td>Hubert Hurkacz</td><td>ATP</td><td>Wilson Blade 98 v9 (18x20)</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
-    <tr><td>9</td><td>Stefanos Tsitsipas</td><td>ATP</td><td>Wilson Blade 98 (custom black)</td><td>Luxilon RPM Team (poly)</td><td>50/52</td></tr>
-    <tr><td>10</td><td>Holger Rune</td><td>ATP</td><td>Babolat Pure Aero VS</td><td>Babolat RPM Blast (poly)</td><td>48/50</td></tr>
-    <tr><td>11</td><td>Grigor Dimitrov</td><td>ATP</td><td>Wilson Pro Staff RF97 Autograph</td><td>Wilson Natural Gut mains / Luxilon ALU Rough crosses</td><td>55/52</td></tr>
-    <tr><td>12</td><td>Alex de Minaur</td><td>ATP</td><td>Wilson Blade 98</td><td>Luxilon ALU Power Soft (poly)</td><td>51/53</td></tr>
-    <tr><td>13</td><td>Taylor Fritz</td><td>ATP</td><td>Head (unknown)</td><td>Solinco Confidential (poly)</td><td>50/50</td></tr>
-    <tr><td>14</td><td>Tommy Paul</td><td>ATP</td><td>Wilson Blade 98 v9</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
-    <tr><td>15</td><td>Frances Tiafoe</td><td>ATP</td><td>Yonex VCORE Pro 97</td><td>Yonex Poly Tour Pro (poly)</td><td>42/42</td></tr>
-    <tr><td>16</td><td>Ben Shelton</td><td>ATP</td><td>Yonex EZONE 98</td><td>Yonex Poly Tour Fire (poly)</td><td>48/50</td></tr>
-    <tr><td>17</td><td>Ugo Humbert</td><td>ATP</td><td>Head Gravity MP</td><td>Head Hawk Touch (poly)</td><td>53/55</td></tr>
-    <tr><td>18</td><td>Arthur Fils</td><td>ATP</td><td>Babolat Pure Drive 98</td><td>Babolat RPM Blast (poly)</td><td>50/52</td></tr>
-    <tr><td>19</td><td>Jack Draper</td><td>ATP</td><td>Wilson Pro Staff 97</td><td>Luxilon ALU Power (poly)</td><td>52/54</td></tr>
-    <tr><td>20</td><td>Sebastian Korda</td><td>ATP</td><td>Wilson Blade 98</td><td>Solinco Hyper-G Soft (poly)</td><td>51/53</td></tr>
-    <tr><td>21</td><td>Iga Swiatek</td><td>WTA</td><td>Yonex EZONE 98</td><td>Luxilon ALU Power Rough (poly)</td><td>52/52</td></tr>
-    <tr><td>22</td><td>Aryna Sabalenka</td><td>WTA</td><td>Wilson Blade 98 v9</td><td>Luxilon ALU Power (poly)</td><td>50/50</td></tr>
-    <tr><td>23</td><td>Coco Gauff</td><td>WTA</td><td>Head Aurora Pro</td><td>Head Lynx Tour (poly)</td><td>51/53</td></tr>
-    <tr><td>24</td><td>Elena Rybakina</td><td>WTA</td><td>Yonex EZONE 98</td><td>Yonex Poly Tour Pro (poly)</td><td>53/55</td></tr>
-    <tr><td>25</td><td>Jasmine Paolini</td><td>WTA</td><td>Yonex VCORE 100</td><td>Yonex Poly Tour Spin (poly)</td><td>52/54</td></tr>
-    <tr><td>26</td><td>Qinwen Zheng</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon ALU Power (poly)</td><td>50/52</td></tr>
-    <tr><td>27</td><td>Mirra Andreeva</td><td>WTA</td><td>Wilson Blade 98 v9</td><td>Luxilon ALU Power Soft (poly)</td><td>49/51</td></tr>
-    <tr><td>28</td><td>Danielle Collins</td><td>WTA</td><td>Wilson Clash 100</td><td>Wilson NXT (multi)</td><td>55/55</td></tr>
-    <tr><td>29</td><td>Anna Kalinskaya</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon RPM Blast (poly)</td><td>51/53</td></tr>
-    <tr><td>30</td><td>Madison Keys</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
-    <tr><td>31</td><td>Beatriz Haddad Maia</td><td>WTA</td><td>Wilson Clash 100</td><td>Wilson NXT Duramax (multi)</td><td>54/54</td></tr>
-    <tr><td>32</td><td>Diana Shnaider</td><td>WTA</td><td>Babolat Pure Aero 98</td><td>Babolat RPM Blast (poly)</td><td>50/52</td></tr>
-    <tr><td>33</td><td>Emma Navarro</td><td>WTA</td><td>Wilson Blade 98 v9</td><td>Luxilon ALU Power (poly)</td><td>51/53</td></tr>
-    <tr><td>34</td><td>Ons Jabeur</td><td>WTA</td><td>Wilson Blade 98</td><td>Wilson NXT (multi)</td><td>53/55</td></tr>
-    <tr><td>35</td><td>Barbora Krejcikova</td><td>WTA</td><td>Yonex VCORE Pro 97</td><td>Yonex Poly Tour Pro (poly)</td><td>52/52</td></tr>
-    <tr><td>36</td><td>Elina Svitolina</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon ALU Power Rough (poly)</td><td>50/50</td></tr>
-    <tr><td>37</td><td>Maria Sakkari</td><td>WTA</td><td>Wilson Blade 98 v9</td><td>Luxilon ALU Power (poly)</td><td>51/51</td></tr>
-    <tr><td>38</td><td>Daria Kasatkina</td><td>WTA</td><td>Diadem Forge 7</td><td>Diadem Evolution (poly)</td><td>49/51</td></tr>
-    <tr><td>39</td><td>Karolina Muchova</td><td>WTA</td><td>Head Gravity Pro</td><td>Head Hawk Touch (poly)</td><td>52/54</td></tr>
-    <tr><td>40</td><td>Jessica Pegula</td><td>WTA</td><td>Yonex EZONE 98</td><td>Yonex Poly Tour Fire (poly)</td><td>50/52</td></tr>
-    <tr><td>41</td><td>Paula Badosa</td><td>WTA</td><td>Wilson Clash 100</td><td>Luxilon ALU Power (poly)</td><td>53/55</td></tr>
-    <tr><td>42</td><td>Zheng Qinwen</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon ALU Power (poly)</td><td>50/52</td></tr>
-    <tr><td>43</td><td>Marketa Vondrousova</td><td>WTA</td><td>Wilson Pro Staff 97</td><td>Wilson NXT (multi)</td><td>54/54</td></tr>
-    <tr><td>44</td><td>Linda Noskova</td><td>WTA</td><td>Yonex EZONE 98</td><td>Yonex Poly Tour Pro (poly)</td><td>51/53</td></tr>
-    <tr><td>45</td><td>Elise Mertens</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon ALU Power Soft (poly)</td><td>52/52</td></tr>
-    <tr><td>46</td><td>Donna Vekic</td><td>WTA</td><td>Head Gravity MP</td><td>Head Hawk (poly)</td><td>53/55</td></tr>
-    <tr><td>47</td><td>Petra Kvitova</td><td>WTA</td><td>Wilson Pro Staff RF97 Autograph</td><td>Luxilon ALU Power Rough (poly)</td><td>55/52</td></tr>
-    <tr><td>48</td><td>Victoria Azarenka</td><td>WTA</td><td>Wilson Aura Pro</td><td>Wilson Natural Gut mains / Luxilon ALU crosses</td><td>56/53</td></tr>
-    <tr><td>49</td><td>Sofia Kenin</td><td>WTA</td><td>Wilson Blade 98</td><td>Luxilon RPM Team (poly)</td><td>50/50</td></tr>
-    <tr><td>50</td><td>Anastasija Sevastova</td><td>WTA</td><td>Wilson Blade 98 v9</td><td>Wilson NXT (multi)</td><td>52/54</td></tr>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Player</th>
+    <th>Tour</th>
+    <th>Racket Model</th>
+    <th>String Setup</th>
+    <th>Tension (lbs)</th>
+  </tr>
+  <tr><td>1</td><td>Carlos Alcaraz</td><td>ATP</td><td>Babolat Pure Aero 98 (98sq)</td><td>Babolat RPM Blast (poly)</td><td>50/52</td></tr>
+  <tr><td>2</td><td>Jannik Sinner</td><td>ATP</td><td>Head Speed Pro (100sq)</td><td>Head Hawk Touch (poly)</td><td>58/60</td></tr>
+  <tr><td>3</td><td>Novak Djokovic</td><td>ATP</td><td>Head Speed Pro (custom) (100sq)</td><td>Babolat Natural Gut mains / Luxilon ALU Power Rough crosses</td><td>59/56</td></tr>
+  <tr><td>4</td><td>Alexander Zverev</td><td>ATP</td><td>Head Gravity Pro (100sq)</td><td>Head Hawk (poly)</td><td>53/55</td></tr>
+  <tr><td>5</td><td>Daniil Medvedev</td><td>ATP</td><td>Tecnifibre T-Fight 305 (98sq)</td><td>Tecnifibre Razor Code (poly)</td><td>52/54</td></tr>
+  <tr><td>6</td><td>Andrey Rublev</td><td>ATP</td><td>Head YouTek IG Speed MP (100sq)</td><td>Head Hawk Touch (poly)</td><td>55/57</td></tr>
+  <tr><td>7</td><td>Casper Ruud</td><td>ATP</td><td>Yonex EZONE 98 (98sq)</td><td>Yonex Poly Tour Pro (poly)</td><td>54/54</td></tr>
+  <tr><td>8</td><td>Hubert Hurkacz</td><td>ATP</td><td>Wilson Blade 98 v9 (18x20) (98sq)</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
+  <tr><td>9</td><td>Stefanos Tsitsipas</td><td>ATP</td><td>Wilson Blade 98 (custom black) (98sq)</td><td>Luxilon RPM Team (poly)</td><td>50/52</td></tr>
+  <tr><td>10</td><td>Holger Rune</td><td>ATP</td><td>Babolat Pure Aero VS (98sq)</td><td>Babolat RPM Blast (poly)</td><td>48/50</td></tr>
+  <tr><td>11</td><td>Grigor Dimitrov</td><td>ATP</td><td>Wilson Pro Staff RF97 Autograph (97sq)</td><td>Wilson Natural Gut mains / Luxilon ALU Rough crosses</td><td>55/52</td></tr>
+  <tr><td>12</td><td>Alex de Minaur</td><td>ATP</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon ALU Power Soft (poly)</td><td>51/53</td></tr>
+  <tr><td>13</td><td>Taylor Fritz</td><td>ATP</td><td>Head IG Radical MP (95sq)</td><td>HEAD Hawk (poly) mains / Babolat VS Touch (natural gut) crosses</td><td>~52/~50</td></tr>
+  <tr><td>14</td><td>Tommy Paul</td><td>ATP</td><td>Wilson Blade 98 v9 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
+  <tr><td>15</td><td>Frances Tiafoe</td><td>ATP</td><td>Yonex VCORE Pro 97 (97sq)</td><td>Yonex Poly Tour Pro (poly)</td><td>42/42</td></tr>
+  <tr><td>16</td><td>Ben Shelton</td><td>ATP</td><td>Yonex EZONE 98 (98sq)</td><td>Yonex Poly Tour Fire (poly)</td><td>48/50</td></tr>
+  <tr><td>17</td><td>Ugo Humbert</td><td>ATP</td><td>Head Gravity MP (100sq)</td><td>Head Hawk Touch (poly)</td><td>53/55</td></tr>
+  <tr><td>18</td><td>Arthur Fils</td><td>ATP</td><td>Babolat Pure Drive 98 (98sq)</td><td>Babolat RPM Blast (poly)</td><td>50/52</td></tr>
+  <tr><td>19</td><td>Jack Draper</td><td>ATP</td><td>Wilson Pro Staff 97 (97sq)</td><td>Luxilon ALU Power (poly)</td><td>52/54</td></tr>
+  <tr><td>20</td><td>Sebastian Korda</td><td>ATP</td><td>Wilson Blade 98 (98sq)</td><td>Solinco Hyper-G Soft (poly)</td><td>51/53</td></tr>
+  <tr><td>21</td><td>Iga Swiatek</td><td>WTA</td><td>Yonex EZONE 98 (98sq)</td><td>Luxilon ALU Power Rough (poly)</td><td>52/52</td></tr>
+  <tr><td>22</td><td>Aryna Sabalenka</td><td>WTA</td><td>Wilson Blade 98 v9 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>50/50</td></tr>
+  <tr><td>23</td><td>Coco Gauff</td><td>WTA</td><td>Head Aurora Pro (unknown)</td><td>Head Lynx Tour (poly)</td><td>51/53</td></tr>
+  <tr><td>24</td><td>Elena Rybakina</td><td>WTA</td><td>Yonex EZONE 98 (98sq)</td><td>Yonex Poly Tour Pro (poly)</td><td>53/55</td></tr>
+  <tr><td>25</td><td>Jasmine Paolini</td><td>WTA</td><td>Yonex VCORE 100 (100sq)</td><td>Yonex Poly Tour Spin (poly)</td><td>52/54</td></tr>
+  <tr><td>26</td><td>Qinwen Zheng</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>50/52</td></tr>
+  <tr><td>27</td><td>Mirra Andreeva</td><td>WTA</td><td>Wilson Blade 98 v9 (98sq)</td><td>Luxilon ALU Power Soft (poly)</td><td>49/51</td></tr>
+  <tr><td>28</td><td>Danielle Collins</td><td>WTA</td><td>Wilson Clash 100 (100sq)</td><td>Wilson NXT (multi)</td><td>55/55</td></tr>
+  <tr><td>29</td><td>Anna Kalinskaya</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon RPM Blast (poly)</td><td>51/53</td></tr>
+  <tr><td>30</td><td>Madison Keys</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>52/52</td></tr>
+  <tr><td>31</td><td>Beatriz Haddad Maia</td><td>WTA</td><td>Wilson Clash 100 (100sq)</td><td>Wilson NXT Duramax (multi)</td><td>54/54</td></tr>
+  <tr><td>32</td><td>Diana Shnaider</td><td>WTA</td><td>Babolat Pure Aero 98 (98sq)</td><td>Babolat RPM Blast (poly)</td><td>50/52</td></tr>
+  <tr><td>33</td><td>Emma Navarro</td><td>WTA</td><td>Wilson Blade 98 v9 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>51/53</td></tr>
+  <tr><td>34</td><td>Ons Jabeur</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Wilson NXT (multi)</td><td>53/55</td></tr>
+  <tr><td>35</td><td>Barbora Krejcikova</td><td>WTA</td><td>Yonex VCORE Pro 97 (97sq)</td><td>Yonex Poly Tour Pro (poly)</td><td>52/52</td></tr>
+  <tr><td>36</td><td>Elina Svitolina</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon ALU Power Rough (poly)</td><td>50/50</td></tr>
+  <tr><td>37</td><td>Maria Sakkari</td><td>WTA</td><td>Wilson Blade 98 v9 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>51/51</td></tr>
+  <tr><td>38</td><td>Daria Kasatkina</td><td>WTA</td><td>Diadem Forge 7 (unknown)</td><td>Diadem Evolution (poly)</td><td>49/51</td></tr>
+  <tr><td>39</td><td>Karolina Muchova</td><td>WTA</td><td>Head Gravity Pro (100sq)</td><td>Head Hawk Touch (poly)</td><td>52/54</td></tr>
+  <tr><td>40</td><td>Jessica Pegula</td><td>WTA</td><td>Yonex EZONE 98 (98sq)</td><td>Yonex Poly Tour Fire (poly)</td><td>50/52</td></tr>
+  <tr><td>41</td><td>Paula Badosa</td><td>WTA</td><td>Wilson Clash 100 (100sq)</td><td>Luxilon ALU Power (poly)</td><td>53/55</td></tr>
+  <tr><td>42</td><td>Zheng Qinwen</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon ALU Power (poly)</td><td>50/52</td></tr>
+  <tr><td>43</td><td>Marketa Vondrousova</td><td>WTA</td><td>Wilson Pro Staff 97 (97sq)</td><td>Wilson NXT (multi)</td><td>54/54</td></tr>
+  <tr><td>44</td><td>Linda Noskova</td><td>WTA</td><td>Yonex EZONE 98 (98sq)</td><td>Yonex Poly Tour Pro (poly)</td><td>51/53</td></tr>
+  <tr><td>45</td><td>Elise Mertens</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon ALU Power Soft (poly)</td><td>52/52</td></tr>
+  <tr><td>46</td><td>Donna Vekic</td><td>WTA</td><td>Head Gravity MP (100sq)</td><td>Head Hawk (poly)</td><td>53/55</td></tr>
+  <tr><td>47</td><td>Petra Kvitova</td><td>WTA</td><td>Wilson Pro Staff RF97 Autograph (97sq)</td><td>Luxilon ALU Power Rough (poly)</td><td>55/52</td></tr>
+  <tr><td>48</td><td>Victoria Azarenka</td><td>WTA</td><td>Wilson Aura Pro (unknown)</td><td>Wilson Natural Gut mains / Luxilon ALU crosses</td><td>56/53</td></tr>
+  <tr><td>49</td><td>Sofia Kenin</td><td>WTA</td><td>Wilson Blade 98 (98sq)</td><td>Luxilon RPM Team (poly)</td><td>50/50</td></tr>
+  <tr><td>50</td><td>Anastasija Sevastova</td><td>WTA</td><td>Wilson Blade 98 v9 (98sq)</td><td>Wilson NXT (multi)</td><td>52/54</td></tr>
 </table>
+
 
 <style>
     table {
