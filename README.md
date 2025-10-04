@@ -36,7 +36,7 @@
 <body>
   <h1>Available String List & Player profiles</h1>
   <h3>V092225O</h3>
-  <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, type, and current availability derived by AI.</p>
+  <p>Available strings, sort by name or type. We can split sets for a hybrid string job. You provide strings, $20, or pick from below, $25. </p><p>Currently stringing on a Gamma ELS 7500 stringer, 50 years of experience. String comments, availability, and player profiles derived by AI.</p>
 
   <input type="text" id="searchInput" placeholder="Search by name or type..." onkeyup="searchTable()">
 
