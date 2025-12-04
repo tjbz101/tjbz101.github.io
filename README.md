@@ -60,9 +60,9 @@
   <h3>V120325B</h3>
 
   <div class="tab">
-    <button class="tablinks active" onclick="openTab(event, 'AvailStrings')">Avail Strings</button>
-    <button class="tablinks" onclick="openTab(event, 'ProList')">Pro List</button>
-    <button class="tablinks" onclick="openTab(event, 'StringingInfo')">Stringing Info</button>
+    <button class="tablinks active" onclick="openTab(event, 'AvailStrings')">Available Strings</button>
+    <button class="tablinks" onclick="openTab(event, 'ProList')">Player Profiles</button>
+    <button class="tablinks" onclick="openTab(event, 'StringingInfo')">Stringing Info, Tensions</button>
   </div>
 
   <!-- Tab 1: Available Strings (NOW WITH CLICKABLE POP-UPS) -->
