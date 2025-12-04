@@ -205,9 +205,23 @@ function toggleReview(name) {
 // Sort, search, tabs
 let sortDir=[1,1];
 function sortTable(col){
-  sortDir[col]=sortDir[col]===1?-1:1;
-  strings.sort((a,b)=>sortDir[col]*(col===0?a.name:b.type).localeCompare(col===0?b.name:b.type));
-  stringBody.innerHTML='';strings.forEach(s=>{const tr=document.createElement('tr');tr.innerHTML=`<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;stringBody.appendChild(tr);});
+  sortDir[col] = sortDir[col] === 1 ? -1 : 1; // Flip direction (1=asc, -1=desc)
+  
+  strings.sort((a, b) => {
+    let valueA = col === 0 ? a.name.toLowerCase() : a.type.toLowerCase();
+    let valueB = col === 0 ? b.name.toLowerCase() : b.type.toLowerCase();
+    if (valueA < valueB) return sortDir[col];
+    if (valueA > valueB) return -sortDir[col];
+    return 0;
+  });
+  
+  // Re-render the table
+  stringBody.innerHTML = '';
+  strings.forEach(s => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;
+    stringBody.appendChild(tr);
+  });
 }
 function searchTable(){
   const term=document.getElementById('searchInput').value.toLowerCase();
