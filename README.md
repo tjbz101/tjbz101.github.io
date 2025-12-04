@@ -9,10 +9,38 @@
     h1,h3{text-align:center;color:#041E42;}
     h1{margin:20px 0 10px;}
     h3{font-size:1.2em;margin-bottom:20px;}
-    .tab{overflow:hidden;border-bottom:1px solid #ccc;background:#f1f1f1;display:flex;justify-content:center;flex-wrap:wrap;}
-    .tab button{background:inherit;border:none;outline:none;cursor:pointer;padding:14px 20px;font-size:17px;transition:0.3s;}
-    .tab button:hover{background:#ddd;}
-    .tab button.active{background:#041E42;color:white;}
+  .tab {
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 10px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #ddd;
+}
+.tab button {
+  background: #f0f0f0;
+  color: #041E42;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+.tab button:hover {
+  background: #041E42;
+  color: white;
+  transform: translateY(-2px);
+}
+.tab button.active {
+  background: #041E42;
+  color: white;
+  box-shadow: 0 6px 20px rgba(4,30,66,0.4);
+  transform: translateY(-3px);
+}
     .tabcontent{display:none;padding:20px;animation:fade 0.5s;}
     @keyframes fade{from{opacity:0}to{opacity:1}}
     table{border-collapse:collapse;width:100%;margin-bottom:20px;}
