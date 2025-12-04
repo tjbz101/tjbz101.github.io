@@ -108,7 +108,7 @@
   <div id="StringingInfo" class="tabcontent">
     <h3 style="text-align:center;">Stringing Info</h3>
     <p style="text-align:center;">
-      <img src="https://imgur.com/a/nQunAEb" 
+      <img src="https://i.ibb.co/p6Gd1WyQ/IMG-0513.jpg" 
            alt="Stringing Info" style="max-width:100%; height:auto; border:2px solid #041E42; border-radius:8px;">
     </p>
   </div>
