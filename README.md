@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -26,7 +26,7 @@
 <body>
 
 <h1>Available String List & Player Profiles</h1>
-<h3>V120325B</h3>
+<h3>V120325C</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Avail Strings</button>
