@@ -72,8 +72,8 @@
   <table id="stringTable">
     <thead>
       <tr>
-        <th onclick="sortTable(0)">String Name</th>
-        <th onclick="sortTable(1)">Type</th>
+        <th onclick="sortTable(0)">String Name ↕</th>
+        <th onclick="sortTable(1)">Type ↕</th>
         <th>Available</th>
         <th>MSRP (Set)</th>
         <th>Comfort Rating</th>
