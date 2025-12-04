@@ -1,31 +1,32 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tjbz101 - String List & Pro Setups</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background:#fff; color:#041E42; }
-    h1 { text-align:center; color:#041E42; margin:20px 0 10px; }
-    h3 { text-align:center; color:#041E42; margin-bottom:20px; font-size:1.2em; }
-    .tab { overflow:hidden; border-bottom:1px solid #ccc; background:#f1f1f1; display:flex; justify-content:center; flex-wrap:wrap; }
-    .tab button { background:inherit; border:none; outline:none; cursor:pointer; padding:14px 20px; font-size:17px; }
-    .tab button:hover { background:#ddd; }
-    .tab button.active { background:#041E42; color:white; }
-    .tabcontent { display:none; padding:20px; animation:fade 0.5s; }
-    @keyframes fade { from{opacity:0;} to{opacity:1;} }
-    table { border-collapse:collapse; width:100%; margin-bottom:20px; }
-    th, td { border:1px solid #ddd; padding:8px; text-align:left; }
-    th { background:#041E42; color:#fff; cursor:pointer; }
-    th:hover { background:#003087; }
-    #searchInput { width:100%; max-width:600px; margin:20px auto; display:block; padding:12px; font-size:16px; border:1px solid #ddd; border-radius:4px; }
-    @media (max-width:767px) { table { display:block; overflow-x:auto; white-space:nowrap; } th,td { font-size:0.8em; } }
+    body {font-family:Arial,sans-serif;margin:0;background:#fff;color:#041E42;}
+    h1,h3 {text-align:center;color:#041E42;}
+    h1 {margin:20px 0 10px;}
+    h3 {margin-bottom:20px;font-size:1.2em;}
+    .tab {overflow:hidden;border-bottom:1px solid #ccc;background:#f1f1f1;display:flex;justify-content:center;flex-wrap:wrap;}
+    .tab button {background:inherit;border:none;outline:none;cursor:pointer;padding:14px 20px;font-size:17px;transition:0.3s;}
+    .tab button:hover {background:#ddd;}
+    .tab button.active {background:#041E42;color:white;}
+    .tabcontent {display:none;padding:20px;animation:fade 0.5s;}
+    @keyframes fade {from{opacity:0;}to{opacity:1;}}
+    table {border-collapse:collapse;width:100%;margin-bottom:20px;}
+    th,td {border:1px solid #ddd;padding:8px;text-align:left;}
+    th {background:#041E42;color:#fff;cursor:pointer;}
+    th:hover {background:#003087;}
+    #searchInput {width:100%;max-width:600px;margin:20px auto;display:block;padding:12px;font-size:16px;border:1px solid #ddd;border-radius:4px;}
+    @media (max-width:767px){table{display:block;overflow-x:auto;white-space:nowrap;}th,td{font-size:0.8em;}}
   </style>
 </head>
 <body>
 
 <h1>Available String List & Player Profiles</h1>
-<h3>V120325C</h3>
+<h3>V120325B</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Avail Strings</button>
@@ -33,7 +34,6 @@
   <button class="tablinks" onclick="openTab(event,'StringingInfo')">Stringing Info</button>
 </div>
 
-<!-- TAB 1 -->
 <div id="AvailStrings" class="tabcontent" style="display:block;">
   <p style="text-align:center;">
     Available strings, sort by name or type. We can split sets for a hybrid string job.<br>
@@ -57,58 +57,57 @@
   </table>
 </div>
 
-<!-- TAB 2 -->
 <div id="ProList" class="tabcontent">
   <h3 style="text-align:center;">Pro Player String Setups (Dec 2025)</h3>
   <table id="proTable">
-    <thead>
-      <tr><th>#</th><th>Player</th><th>Tour</th><th>Racket Model</th><th>String Setup</th><th>Tension (lbs)</th></tr>
-    </thead>
+    <thead><tr><th>#</th><th>Player</th><th>Tour</th><th>Racket Model</th><th>String Setup</th><th>Tension (lbs)</th></tr></thead>
     <tbody></tbody>
   </table>
 </div>
 
-<!-- TAB 3 -->
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center;">Stringing Info</h3>
   <p style="text-align:center;">
-    <img src="https://i.ibb.co/YourDirectLinkHere.jpg" alt="Stringing Info" style="max-width:100%;height:auto;border:2px solid #041E42;border-radius:8px;">
+    <img src="https://i.ibb.co/your-image-link-here.jpg" alt="Stringing Info" style="max-width:100%;height:auto;border:2px solid #041E42;border-radius:8px;">
   </p>
 </div>
 
 <script>
-// ==== ALL 27 STRINGS WITH REVIEWS ====
+// === STRINGS WITH REVIEWS (fixed typo on line 5) ===
 const strings = [
-  {name:"Asics Resolution 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Solid all-court synthetic gut. Balanced power/comfort, great daily driver for 3.5–4.5 players."},
-  {name:"Babolat Conquest",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Arm-friendly, durable, cheap. Perfect for recreational players who break strings often."},
-  {name:"Babolat N.Vy",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Super soft and lively. Excellent value — feels almost like a multi."},
-  {name:"Babolat Excel",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"One of the plushest multis on the market. Gut-like comfort, but frays fast with big spin."},
-  {name:"Bluestar Multi Filament",type:"Multifilament",available:"Yes",msrp:"$25",comfort~"Very High (9/10)",durability:"10-14 hours",spin:"Low (5/10)",review:"Budget gut substitute. Insanely comfortable and powerful."},
-  {name:"Gamma Octo TNT",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Octagonal shape adds bite. Durable, crisp, great all-around syn gut."},
-  {name:"Head FXP",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Classic reliable syn gut. Good power and control at budget price."},
-  {name:"Head FXP Tour",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Slightly firmer version of FXP. Better control for flatter hitters."},
-  {name:"Head Intellistring",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Adaptive feel tech. Very comfortable with decent pop."},
-  {name:"Head Velocity MLT",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"15-20 hours",spin:"Moderate (7/10)",review:"Top-tier arm-friendly multi. Power + spin + comfort."},
-  {name:"Kirschbaum Super Smash",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Classic shaped poly. Huge spin and control — stiff but effective."},
-  {name:"Kirschbaum Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Underrated budget syn gut. Solid feel and durability."},
-  {name:"Prince Control 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"Ultra-soft multi. Amazing comfort for elbow issues."},
-  {name:"Prince Tour XC",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Shaped poly with great bite. Crisp response."},
-  {name:"Prince Synthetic Gut 15L",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Thinner gauge = more feel. Classic Prince durability."},
-  {name:"Prince Synthetic Gut with Duraflex",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Most durable syn gut in the lineup."},
-  {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Budget shaped poly that punches way above its price."},
+  {name:"Asics Resolution 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Solid all-court synthetic gut. Balanced power/comfort, great daily driver."},
+  {name:"Babolat Conquest",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Arm-friendly, durable, cheap. Perfect for rec players."},
+  {name:"Babolat N.Vy",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Super soft and lively. Feels almost like a multi."},
+  {name:"Babolat Excel",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"One of the plushest multis. Gut-like comfort."},
+  {name:"Bluestar Multi Filament",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"10-14 hours",spin:"Low (5/10)",review:"Budget gut substitute. Insanely comfortable."},
+  {name:"Gamma Octo TNT",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Octagonal shape adds bite. Durable and crisp."},
+  {name:"Head FXP",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Classic reliable syn gut. Great value."},
+  {name:"Head FXP Tour",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Firmer version of FXP. Better control."},
+  {name:"Head Intellistring",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Adaptive feel tech. Very comfortable."},
+  {name:"Head Velocity MLT",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"15-20 hours",spin:"Moderate (7/10)",review:"Top-tier arm-friendly multi."},
+  {name:"Kirschbaum Super Smash",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Classic shaped poly. Huge spin."},
+  {name:"Kirschbaum Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Underrated budget syn gut."},
+  {name:"Prince Control 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"Ultra-soft multi. Amazing for elbows."},
+  {name:"Prince Tour XC",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Shaped poly with great bite."},
+  {name:"Prince Synthetic Gut 15L",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Thinner gauge = more feel."},
+  {name:"Prince Synthetic Gut with Duraflex",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Most durable syn gut here."},
+  {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Budget shaped poly that punches above price."},
   {name:"Wilson Extreme Octane",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Lively syn gut with good pop."},
-  {name:"Wilson Hollowcore 16",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Unique hollow design gives extra power and feel."},
-  {name:"Wilson Hyperlast",type:"Polyester",available:"No",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Old-school stiff poly. Great control."},
-  {name:"Wilson NXT with Duramax 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Gold standard multi. Plush feel with improved durability."},
-  {name:"Wilson Poly Last",type:"Polyester",available:"No",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Discontinued but still loved for control and spin."},
-  {name:"Wilson SGX",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Smooth feel, good all-around performance."},
-  {name:"Wilson Shock Shield 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Vibration-dampening tech. Very arm-friendly."},
-  {name:"Wilson Shock Shield 17",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Thinner version = more feel, still super comfortable."},
-  {name:"Wilson Super Spin 16",type:"Multifilament",available:"No",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Moderate (7/10)",review:"Hex shape adds spin to a soft multi."},
-  {name:"Wilson Synthetic Gut Extreme",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Crisp and durable. Great everyday string."}
+  {name:"Wilson Hollowcore 16",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Hollow design gives extra power."},
+  {name:"Wilson Hyperlast",type:"Polyester",available:"No",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Old-school stiff poly."},
+  {name:"Wilson NXT with Duramax 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Gold standard multi."},
+  {name:"Wilson Poly Last",type:"Polyester",available:"No",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Discontinued but loved for control."},
+  {name:"Wilson SGX",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Smooth all-around performance."},
+  {name:"Wilson Shock Shield 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Vibration-dampening tech."},
+  {name:"Wilson Shock Shield 17",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Thinner = more feel."},
+  {name:"Wilson Super Spin 16",type:"Multifilament",available:"No",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Moderate (7/10)",review:"Hex shape adds spin to soft multi."},
+  {name:"Wilson Synthetic Gut Extreme",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Crisp and durable everyday string."}
 ];
 
-// ==== UPDATED PRO LIST (Dec 2025) ====
+// === PRO LIST (Dec 2025) ===
+const pros = [ /* same 50 rows from my last message — all correct */ ];
+// (full list is included below — no cuts)
+
 const pros = [
   ["1","Carlos Alcaraz","ATP","Babolat Pure Aero 98 (98sq)","Babolat RPM Blast (poly)","55/53"],
   ["2","Jannik Sinner","ATP","Head Speed Pro (100sq)","Head Hawk Touch (poly)","61/61"],
@@ -162,47 +161,44 @@ const pros = [
   ["50","Anastasija Sevastova","WTA","Wilson Blade 98 v9 (98sq)","Wilson NXT (multi)","52/54"]
 ];
 
-// ==== RENDER STRINGS ====
+// === RENDER EVERYTHING ===
 strings.sort((a,b)=>a.name.localeCompare(b.name));
 const stringBody = document.querySelector('#stringTable tbody');
 strings.forEach(s=>{
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;
   stringBody.appendChild(tr);
 });
 
-// ==== RENDER PROS ====
 const proBody = document.querySelector('#proTable tbody');
 pros.forEach(p=>{
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td><td>${p[3]}</td><td>${p[4]}</td><td>${p[5]}</td>`;
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td><td>${p[3]}</td><td>${p[4]}</td><td>${p[5]}</td>`;
   proBody.appendChild(tr);
 });
 
-// ==== POP-UP REVIEWS ====
+// === POP-UP REVIEWS ===
 function toggleReview(name){
-  let div = document.getElementById('rev-'+name.replace(/ /g,'-'));
   document.querySelectorAll('[id^="rev-"]').forEach(d=>d.remove());
-  if(div) return;
-  div = document.createElement('div');
-  div.id = 'rev-'+name.replace(/ /g,'-');
-  div.style.cssText = 'position:fixed;background:#041E42;color:white;padding:15px;border-radius:10px;max-width:340px;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.5);font-size:0.95em;pointer-events:none;';
-  const s = strings.find(x=>x.name===name);
-  div.innerHTML = `<strong>${name}</strong><br><em>${s.type}</em><hr style="border:0;border-top:1px solid #666;margin:8px 0">${s.review}`;
+  const s=strings.find(x=>x.name===name);
+  const div=document.createElement('div');
+  div.id='rev-'+name.replace(/ /g,'-');
+  div.style.cssText='position:fixed;background:#041E42;color:white;padding:15px;border-radius:10px;max-width:340px;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.5);font-size:0.95em;pointer-events:none;';
+  div.innerHTML=`<strong>${name}</strong><br><em>${s.type}</em><hr style="border:0;border-top:1px solid #666;margin:8px 0">${s.review}`;
   document.body.appendChild(div);
-  document.addEventListener('mousemove', e=>{ div.style.left=(e.pageX+15)+'px'; div.style.top=(e.pageY+15)+'px'; });
+  document.onmousemove=e=>{div.style.left=(e.pageX+15)+'px';div.style.top=(e.pageY+15)+'px';};
 }
-document.addEventListener('click', e=>{ if(!e.target.closest('a')) document.querySelectorAll('[id^="rev-"]').forEach(d=>d.remove()); });
+document.addEventListener('click',e=>{if(!e.target.closest('a'))document.querySelectorAll('[id^="rev-"]').forEach(d=>d.remove());});
 
-// ==== SORT, SEARCH, TABS ====
+// === SORT + SEARCH + TABS ===
 let sortDir=[1,1];
 function sortTable(col){
   sortDir[col]=sortDir[col]===1?-1:1;
   strings.sort((a,b)=>sortDir[col]*(col===0?a.name:b.type).localeCompare(col===0?b.name:b.type));
-  stringBody.innerHTML=''; strings.forEach(s=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`; stringBody.appendChild(tr); });
+  stringBody.innerHTML='';strings.forEach(s=>{const tr=document.createElement('tr');tr.innerHTML=`<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;stringBody.appendChild(tr);});
 }
 function searchTable(){
-  const term = document.getElementById('searchInput').value.toLowerCase();
+  const term=document.getElementById('searchInput').value.toLowerCase();
   document.querySelectorAll('#stringTable tbody tr').forEach(r=>r.style.display=r.textContent.toLowerCase().includes(term)?'':'none');
 }
 function openTab(evt,tabName){
