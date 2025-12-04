@@ -125,40 +125,53 @@ pros.forEach(p=>{
 
 // Tablet + Desktop proof pop-up
 let currentPopup = null;
-function toggleReview(name){
-  if(currentPopup) currentPopup.remove();
-  const s = strings.find(x=>x.name===name);
+
+// FINAL TABLET-PROOF POP-UP (replace just this function)
+function toggleReview(name) {
+  // Remove old popup
+  document.querySelectorAll('.string-popup').forEach(p => p.remove());
+
+  const s = strings.find(x => x.name === name);
+  if (!s) return;
   const div = document.createElement('div');
-  div.style.cssText = 'position:fixed;background:#041E42;color:white;padding:15px;border-radius:10px;max-width:340px;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,0.5);font-size:0.95em;pointer-events:none;opacity:0;transition:opacity 0.2s;';
+  div.className = 'string-popup';
+  div.style.cssText = `
+    position:fixed;
+    background:#041E42;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    max-width:320px;
+    z-index:9999;
+    box-shadow:0 8px 25px rgba(0,0,0,0.6);
+    font-size:0.95em;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity 0.2s;
+    left:20px;
+    top:20px;
+  `;
   div.innerHTML = `<strong>${name}</strong><br><em>${s.type}</em><hr style="border:0;border-top:1px solid #666;margin:8px 0">${s.review}`;
   document.body.appendChild(div);
-  currentPopup = div;
 
-  function position(e){
-    const x = e.touches ? e.touches[0].pageX : e.pageX;
-    const y = e.touches ? e.touches[0].pageY : e.pageY;
-    div.style.left = (x + 15) + 'px';
-    div.style.top = (y + 15) + 'px';
+  // Force show + position (works on first tap)
+  setTimeout(() => {
     div.style.opacity = '1';
-  }
-  setTimeout(()=>position(event || window.event), 50);
+    div.style.left = '50%';
+    div.style.top = '50%';
+    div.style.transform = 'translate(-50%, -50%)';
+  }, 10);
 
-  const moveHandler = e => position(e);
-  document.addEventListener('mousemove', moveHandler);
-  document.addEventListener('touchmove', moveHandler);
-
-  const closeHandler = e => {
-    if(!e.target.closest('a')){
-      div.remove();
-      currentPopup = null;
-      document.removeEventListener('mousemove', moveHandler);
-      document.removeEventListener('touchmove', moveHandler);
-      document.removeEventListener('click', closeHandler);
-      document.removeEventListener('touchstart', closeHandler);
-    }
+  // Close when tapping anywhere else
+  const close = () => {
+    div.remove();
+    document.removeEventListener('click', close);
+    document.removeEventListener('touchstart', close);
   };
-  document.addEventListener('click', closeHandler);
-  document.addEventListener('touchstart', closeHandler);
+  setTimeout(() => {
+    document.addEventListener('click', close);
+    document.addEventListener('touchstart', close);
+  }, 100);
 }
 
 // Sort, search, tabs
