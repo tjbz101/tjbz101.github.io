@@ -15,7 +15,7 @@
       border-bottom: 1px solid #ccc;
       background-color: #f1f1f1;
       display: flex;
-      justify-content: center;
+      justify-content: left;
       flex-wrap: wrap;
     }
     .tab button {
@@ -108,11 +108,8 @@
   <div id="StringingInfo" class="tabcontent">
     <h3 style="text-align:center;">Stringing Info</h3>
     <p style="text-align:center;">
-      <img src="https://via.placeholder.com/800x1200.png?text=Your+Stringing+Info+Image+Here" 
+      <img src="https://imgur.com/a/nQunAEb" 
            alt="Stringing Info" style="max-width:100%; height:auto; border:2px solid #041E42; border-radius:8px;">
-    </p>
-    <p style="text-align:center;font-size:0.9em;color:#666;">
-      Replace the src URL above with your actual image link
     </p>
   </div>
 
