@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -26,11 +26,11 @@
 <body>
 
 <h1>Available String List & Player Profiles</h1>
-<h3>V120325C</h3>
+<h3>V120325D</h3>
 
 <div class="tab">
-  <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Avail Strings</button>
-  <button class="tablinks" onclick="openTab(event,'ProList')">Pro List</button>
+  <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
+  <button class="tablinks" onclick="openTab(event,'ProList')">Pro Profiles</button>
   <button class="tablinks" onclick="openTab(event,'StringingInfo')">Stringing Info</button>
 </div>
 
@@ -68,7 +68,7 @@
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center;">Stringing Info</h3>
   <p style="text-align:center;">
-    <img src="https://i.ibb.co/replace-with-your-direct-link.jpg" alt="Stringing Info" style="max-width:100%;height:auto;border:2px solid #041E42;border-radius:8px;">
+    <img src="(https://i.ibb.co/p6Gd1WyQ/IMG-0513.jpg)" alt="Stringing Info" style="max-width:100%;height:auto;border:2px solid #041E42;border-radius:8px;">
   </p>
 </div>
 
