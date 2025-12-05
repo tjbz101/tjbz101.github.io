@@ -95,107 +95,98 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    String Simulator (Type + Tension + Gauge)
+    Ultimate String Job Simulator
   </h3>
-
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
-    String type, tension, and gauge — all three matter. 
+    String type, gauge, tension, pattern & head size — everything that actually changes feel.
   </p>
 
   <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
-    <div style="margin:18px 0;">
+    <!-- Mains -->
+    <div style="margin:15px 0;">
       <strong>Mains:</strong>
       <select id="mainType"><option value="poly">Poly</option><option value="multi">Multi</option><option value="syn">Syn Gut</option><option value="gut">Gut</option></select>
-      <select id="mainGauge"><option value="16">16 / 1.30</option><option value="16L">16L / 1.28</option><option value="17" selected>17 / 1.25</option><option value="18">18 / 1.20</option></select>
-      <span id="mainTension" style="font-weight:bold; color:#c00;">50</span> lbs
-      <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5" style="width:280px; max-width:55%;">
+      <select id="mainGauge"><option value="16">16g</option><option value="16L">16L</option><option value="17" selected>17g</option><option value="18">18g</option></select>
+      <span id="mainTension" style="font-weight:bold;color:#c00;">50</span> lbs
+      <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5" style="width:260px;">
     </div>
 
-    <div style="margin:18px 0;">
+    <!-- Crosses -->
+    <div style="margin:15px 0;">
       <strong>Crosses:</strong>
       <select id="crossType"><option value="poly">Poly</option><option value="multi" selected>Multi</option><option value="syn">Syn Gut</option><option value="gut">Gut</option></select>
-      <select id="crossGauge"><option value="16">16 / 1.30</option><option value="16L">16L / 1.28</option><option value="17">17 / 1.25</option><option value="18" selected>18 / 1.20</option></select>
-      <span id="crossTension" style="font-weight:bold; color:#0066cc;">54</span> lbs
-      <input type="range" id="crossSlider" min="38" max="68" value="54" step="0.5" style="width:280px; max-width:55%;">
+      <select id="crossGauge"><option value="16">16g</option><option value="16L">16L</option><option value="17">17g</option><option value="18" selected>18g</option></select>
+      <span id="crossTension" style="font-weight:bold;color:#0066cc;">54</span> lbs
+      <input type="range" id="crossSlider" min="38" max="68" value="54" step="0.5" style="width:260px;">
+    </div>
+
+    <!-- Pattern & Head Size -->
+    <div style="margin:25px 0;">
+      <strong>Pattern:</strong>
+      <select id="pattern">
+        <option value="1619" selected>16×19 (open)</option>
+        <option value="1819">18×19</option>
+        <option value="1820">18×20 (dense)</option>
+      </select>
+
+      <strong style="margin-left:30px;">Head Size:</strong>
+      <select id="headsize">
+        <option value="95">95 in²</option>
+        <option value="98" selected>98 in²</option>
+        <option value="100">100 in²</option>
+        <option value="105">105 in²</option>
+        <option value="110">110 in²</option>
+        <option value="115">115 in²</option>
+        <option value="125">125+ in²</option>
+      </select>
     </div>
   </div>
 
-  <!-- Bars (same as before) -->
-  <div style="display:flex; justify-content:center; align-items:end; gap:35px; max-width:1000px; margin:40px auto; padding:30px 20px; background:#f8f9fa; border-radius:18px; box-shadow:0 8px 30px rgba(0,0,0,0.15); flex-wrap:nowrap; overflow-x:auto;">
-    <div style="text-align:center; min-width:110px;">
-      <div style="font-weight:bold; color:#041E42;">Power</div>
-      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:10px auto; overflow:hidden; position:relative;">
-        <div id="powerFill" style="height:82%; background:#4CAF50; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0; width:100%;"></div>
-      </div>
-      <div id="powerValue" style="color:#4CAF50; font-weight:bold; font-size:1.3em;">82%</div>
-    </div>
-    <div style="text-align:center; min-width:110px;">
-      <div style="font-weight:bold; color:#041E42;">Comfort</div>
-      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:10px auto; overflow:hidden; position:relative;">
-        <div id="comfortFill" style="height:88%; background:#2196F3; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0; width:100%;"></div>
-      </div>
-      <div id="comfortValue" style="color:#2196F3; font-weight:bold; font-size:1.3em;">88%</div>
-    </div>
-    <div style="text-align:center; min-width:110px;">
-      <div style="font-weight:bold; color:#041E42;">Durability</div>
-      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:10px auto; overflow:hidden; position:relative;">
-        <div id="durabilityFill" style="height:72%; background:#FF9800; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0; width:100%;"></div>
-      </div>
-      <div id="durabilityValue" style="color:#FF9800; font-weight:bold; font-size:1.3em;">72%</div>
-    </div>
-    <div style="text-align:center; min-width:110px;">
-      <div style="font-weight:bold; color:#041E42;">Spin</div>
-      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:10px auto; overflow:hidden; position:relative;">
-        <div id="spinFill" style="height:92%; background:#9C27B0; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0; width:100%;"></div>
-      </div>
-      <div id="spinValue" style="color:#9C27B0; font-weight:bold; font-size:1.3em;">92%</div>
-    </div>
-    <div style="text-align:center; min-width:110px;">
-      <div style="font-weight:bold; color:#041E42;">Control</div>
-      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:10px auto; overflow:hidden; position:relative;">
-        <div id="controlFill" style="height:90%; background:#F44336; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0; width:100%;"></div>
-      </div>
-      <div id="controlValue" style="color:#F44336; font-weight:bold; font-size:1.3em;">90%</div>
-    </div>
+  <!-- Bars -->
+  <div style="display:flex;justify-content:center;align-items:end;gap:35px;max-width:1100px;margin:40px auto;padding:30px 20px;background:#f8f9fa;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.15);flex-wrap:nowrap;overflow-x:auto;">
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Power</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="powerFill" style="height:82%;background:#4CAF50;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="powerValue" style="color:#4CAF50;font-weight:bold;font-size:1.3em;">82%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Comfort</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="comfortFill" style="height:88%;background:#2196F3;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="comfortValue" style="color:#2196F3;font-weight:bold;font-size:1.3em;">88%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Durability</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="durabilityFill" style="height:72%;background:#FF9800;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="durabilityValue" style="color:#FF9800;font-weight:bold;font-size:1.3em;">72%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Spin</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="spinFill" style="height:92%;background:#9C27B0;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="spinValue" style="color:#9C27B0;font-weight:bold;font-size:1.3em;">92%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Control</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="controlFill" style="height:90%;background:#F44336;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="controlValue" style="color:#F44336;font-weight:bold;font-size:1.3em;">90%</div></div>
   </div>
 
-  <p style="text-align:center; color:#041E42; margin-top:40px; font-size:1.1em; font-style:italic;">
-     Try Luxilon ALU Power Rough 17 @ 48 / VS Touch 16 @ 52 — you’ll see why the pros do it.
+  <p style="text-align:center;color:#041E42;margin-top:40px;font-size:1.1em;font-style:italic;">
+    Now you know exactly what your racket will feel — before I even cut the string.
   </p>
 
   <script>
-    const base = {
-      poly:  {p:48,c:32,d:92,s:96,k:94},
-      multi: {p:86,c:93,d:52,s:54,k:64},
-      syn:   {p:72,c:81,d:74,s:62,k:71},
-      gut:   {p:93,c:96,d:38,s:48,k:58}
-    };
+    const base = {poly:{p:48,c:32,d:92,s:96,k:94},multi:{p:86,c:93,d:52,s:54,k:64},syn:{p:72,c:81,d:74,s:62,k:71},gut:{p:93,c:96,d:38,s:48,k:58}};
     const perLb = {p:-1.1,c:-0.9,d:+0.7,s:+1.4,k:+1.7};
-    const gaugeEffect = { "16":0, "16L":2, "17":5, "18":9 }; // thinner = more power/spin/comfort
+    const gaugeEffect = {"16":0,"16L":2,"17":5,"18":9};
+    const patternEffect = {"1619":{s:+12,p:+8,k:-6,d:-8},"1819":{s:+4,p:+2,k:+2,d:+2},"1820":{s:-8,p:-6,k:+12,d:+10}};
+    const headsizeEffect = {95:{k:+10,s:+5,p:-8},98:{k:+5,s:+2,p:-3},100:{p:+5,k:-2},105:{p:+12,k:-6},110:{p:+18,k:-10},115:{p:+25,k:-14},125:{p:+35,k:-18}};
 
-    function calc() {
+    function calc(){
       const m = base[document.getElementById('mainType').value];
       const c = base[document.getElementById('crossType').value];
       const mg = gaugeEffect[document.getElementById('mainGauge').value];
       const cg = gaugeEffect[document.getElementById('crossGauge').value];
+      const pat = patternEffect[document.getElementById('pattern').value];
+      const hs = headsizeEffect[document.getElementById('headsize').value];
       const mt = parseFloat(document.getElementById('mainSlider').value);
       const ct = parseFloat(document.getElementById('crossSlider').value);
       document.getElementById('mainTension').textContent = mt;
       document.getElementById('crossTension').textContent = ct;
       const avgT = (mt + ct) / 2;
       const diff = avgT - 55;
-      const gaugeBonus = (mg + cg) / 2; // average gauge effect
+      const gaugeBonus = (mg + cg) / 2;
 
       const r = {
-        p: Math.round((m.p + c.p)/2 + perLb.p * diff + gaugeBonus),
-        c: Math.round((m.c + c.c)/2 + perLb.c * diff + gaugeBonus),
-        d: Math.round((m.d + c.d)/2 + perLb.d * diff - gaugeBonus * 0.8),
-        s: Math.round((m.s + c.s)/2 + perLb.s * diff + gaugeBonus * 1.2),
-        k: Math.round((m.k + c.k)/2 + perLb.k * diff + gaugeBonus * 0.6)
+        p: Math.round((m.p + c.p)/2 + perLb.p * diff + gaugeBonus + (pat.p||0) + (hs.p||0)),
+        c: Math.round((m.c + c.c)/2 + perLb.c * diff + gaugeBonus + (pat.c||0) + (hs.c||0)),
+        d: Math.round((m.d + c.d)/2 + perLb.d * diff - gaugeBonus * 0.8 + (pat.d||0) + (hs.d||0)),
+        s: Math.round((m.s + c.s)/2 + perLb.s * diff + gaugeBonus * 1.2 + (pat.s||0) + (hs.s||0)),
+        k: Math.round((m.k + c.k)/2 + perLb.k * diff + gaugeBonus * 0.6 + (pat.k||0) + (hs.k||0))
       };
 
-      ['power','comfort','durability','spin','control'].forEach(a => {
+      ['power','comfort','durability','spin','control'].forEach(a=>{
         let v = r[a[0]];
         v = Math.max(10, Math.min(100, v));
         document.getElementById(a+'Fill').style.height = v+'%';
@@ -203,7 +194,7 @@
       });
     }
 
-    ['mainType','mainGauge','mainSlider','crossType','crossGauge','crossSlider'].forEach(id => {
+    ['mainType','mainGauge','mainSlider','crossType','crossGauge','crossSlider','pattern','headsize'].forEach(id=>{
       document.getElementById(id).addEventListener('input', calc);
       document.getElementById(id).addEventListener('change', calc);
     });
