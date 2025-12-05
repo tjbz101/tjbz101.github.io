@@ -95,14 +95,14 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    Hybrid Tension Simulator
+    Pro-Level Hybrid Tension Simulator
   </h3>
   
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333; line-height:1.7;">
     Choose string types and set independent main/cross tensions — exactly how the top 100 do it.
   </p>
 
-  <!-- String Type + Tension Controls -->
+  <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
     <div style="margin:15px 0;">
       <strong style="color:#041E42;">Mains:</strong>
@@ -112,9 +112,9 @@
         <option value="syn">Synthetic Gut</option>
         <option value="gut">Natural Gut</option>
       </select>
-      <span style="font-weight:bold; color:#c00;" id="mainTension">52</span> lbs
+      <span id="mainTension" style="font-weight:bold; color:#c00;">52</span> lbs
       <input type="range" id="mainSlider" min="40" max="70" value="52" step="0.5"
-             style="width:300px; max-width:60%; vertical-align:middle; margin:0 10px;">
+             style="width:300px; max-width:60%; margin:0 10px; vertical-align:middle;">
     </div>
 
     <div style="margin:15px 0;">
@@ -125,15 +125,14 @@
         <option value="syn">Synthetic Gut</option>
         <option value="gut">Natural Gut</option>
       </select>
-      <span style="font-weight:bold; color:#0066cc;" id="crossTension">56</span> lbs
+      <span id="crossTension" style="font-weight:bold; color:#0066cc;">56</span> lbs
       <input type="range" id="crossSlider" min="40" max="70" value="56" step="0.5"
-             style="width:300px; max-width:60%; vertical-align:middle; margin:0 10px;">
+             style="width:300px; max-width:60%; margin:0 10px; vertical-align:middle;">
     </div>
   </div>
 
-  <!-- Horizontal Bars -->
+  <!-- Bars -->
   <div style="display:flex; justify-content:center; align-items:end; gap:35px; max-width:1000px; margin:40px auto; padding:30px 20px; background:#f8f9fa; border-radius:18px; box-shadow:0 8px 30px rgba(0,0,0,0.15); flex-wrap:nowrap; overflow-x:auto;">
-    overflow-x:auto;">
     <div style="text-align:center; min-width:110px;">
       <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Power</div>
       <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
@@ -141,8 +140,6 @@
       </div>
       <div id="powerValue" style="color:#4CAF50; font-weight:bold; margin-top:12px; font-size:1.3em;">78%</div>
     </div>
-    <div style="text-align:center; min-width:110px;">
-      <div>
     <div style="text-align:center; min-width:110px;">
       <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Comfort</div>
       <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
@@ -174,11 +171,10 @@
   </div>
 
   <p style="text-align:center; color:#041E42; margin-top:40px; font-size:1.1em; font-style:italic;">
-    This is how the top 100 actually play. Try RPM Blast 48 / VS Touch 52 — watch the magic.
+    Try RPM Blast 48 / VS Touch 52 — watch the magic.
   </p>
 
   <script>
-    // Base attributes at 55/55 lbs for each string type
     const base = {
       poly:  {p:48, c:32, d:92, s:96, k:94},
       multi: {p:86, c:93, d:52, s:54, k:64},
@@ -186,56 +182,40 @@
       gut:   {p:93, c:96, d:38, s:48, k:58}
     };
 
-    // Tension effect per 1 lb change (averaged from real playtests)
-    const perLb = {
-      power:      -1.1,
-      comfort:    -0.9,
-      durability: +0.7,
-      spin:       +1.4,
-      control:    +1.7
-    };
+    const perLb = { p:-1.1, c:-0.9, d:+0.7, s:+1.4, k:+1.7 };
 
-    function calculate() {
-      const main = base[document.getElementById('mainType').value];
-      const cross = base[document.getElementById('crossType').value];
-      const mainT = parseFloat(document.getElementById('mainSlider').value);
-      const crossT = parseFloat(document.getElementById('crossSlider').value);
-      const avgT = (mainT + crossT) / 2;
-
+    function calc() {
+      const m = base[document.getElementById('mainType').value];
+      const c = base[document.getElementById('crossType').value];
+      const mt = parseFloat(document.getElementById('mainSlider').value);
+      const ct = parseFloat(document.getElementById('crossSlider').value);
+      document.getElementById('mainTension').textContent = mt;
+      document.getElementById('crossTension').textContent = ct;
+      const avgT = (mt + ct) / 2;
       const diff = avgT - 55;
 
-      const result = {
-        power:      Math.round(main.p + cross.p)/2 + perLb.power * diff),
-        comfort:    Math.round(main.c + cross.c)/2 + perLb.comfort * diff),
-        durability: Math.round(main.d + cross.d)/2 + perLb.durability * diff),
-        spin:       Math.round(main.s + cross.s)/2 + perLb.spin * diff),
-        control:    Math.round(main.k + cross.k)/2 + perLb.control * diff)
+      const r = {
+        p: Math.round((m.p + c.p)/2 + perLb.p * diff),
+        c: Math.round((m.c + c.c)/2 + perLb.c * diff),
+        d: Math.round((m.d + c.d)/2 + perLb.d * diff),
+        s: Math.round((m.s + c.s)/2 + perLb.s * diff),
+        k: Math.round((m.k + c.k)/2 + perLb.k * diff)
       };
 
-      // Clamp 10–100%
-      ['power','comfort','durability','spin','control'].forEach(attr => {
-        let val = result[attr];
-        if (val < 10) val = 10;
-        if (val > 100) val = 100;
-        document.getElementById(attr + 'Fill').style.height = val + '%';
-        document.getElementById(attr + 'Value').textContent = val + '%';
+      ['power','comfort','durability','spin','control'].forEach(a => {
+        let v = r[a[0]];
+        if(v<10) v=10; if(v>100) v=100;
+        document.getElementById(a+'Fill').style.height = v+'%';
+        document.getElementById(a+'Value').textContent = v+'%';
       });
     }
 
-    // Update displayed tensions
-    document.getElementById('mainSlider').addEventListener('input', e => {
-      document.getElementById('mainTension').textContent = e.target.value;
-      calculate();
-    });
-    document.getElementById('crossSlider').addEventListener('input', e => {
-      document.getElementById('crossTension').textContent = e.target.value;
-      calculate();
-    });
-    document.getElementById('mainType').addEventListener('change', calculate);
-    document.getElementById('crossType').addEventListener('change', calculate);
+    document.getElementById('mainSlider').addEventListener('input', calc);
+    document.getElementById('crossSlider').addEventListener('input', calc);
+    document.getElementById('mainType').addEventListener('change', calc);
+    document.getElementById('crossType').addEventListener('change', calc);
 
-    // Init
-    calculate();
+    calc(); // initial
   </script>
 </div>
 
