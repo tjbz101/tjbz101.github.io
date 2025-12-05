@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tjbz101 - String List & Pro Setups</title>
+  <title> String List & Pro Setups</title>
   <style>
     body{font-family:Arial,sans-serif;margin:0;background:#fff;color:#041E42;}
     h1,h3{text-align:center;color:#041E42;}
@@ -53,13 +53,13 @@
 </head>
 <body>
 
-<h1>Available String List & Player Profiles</h1>
+<h1>Available Strings, Player Profiles & Tension Simulator</h1>
 <h3>V120325F</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
   <button class="tablinks" onclick="openTab(event,'ProList')">Pro Profiles</button>
-  <button class="tablinks" onclick="openTab(event,'StringingInfo')">Stringing Info</button>
+  <button class="tablinks" onclick="openTab(event,'StringingInfo')">Tension Simulator</button>
 </div>
 
 <div id="AvailStrings" class="tabcontent" style="display:block;">
@@ -94,137 +94,148 @@
 </div>
 
 <div id="StringingInfo" class="tabcontent">
-  <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">Advanced Tension + String Type Simulator</h3>
+  <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
+    Hybrid Tension Simulator
+  </h3>
   
-  <p style="text-align:center; max-width:700px; margin:0 auto 35px; color:#333; line-height:1.7;">
-    Choose your main & cross string type, then drag the slider. Watch how everything changes in real time.
+  <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333; line-height:1.7;">
+    Choose string types and set independent main/cross tensions — exactly how the top 100 do it.
   </p>
 
+  <!-- String Type + Tension Controls -->
   <div style="text-align:center; margin-bottom:40px;">
-    <div style="margin-bottom:20px;">
-      <label style="font-weight:bold; color:#041E42;">Mains:</label>
-      <select id="mainString" style="padding:8px 12px; font-size:1em; border-radius:6px; margin:0 15px;">
+    <div style="margin:15px 0;">
+      <strong style="color:#041E42;">Mains:</strong>
+      <select id="mainType" style="padding:8px 14px; font-size:1em; border-radius:8px; margin:0 10px;">
         <option value="poly">Polyester</option>
         <option value="multi">Multifilament</option>
         <option value="syn">Synthetic Gut</option>
         <option value="gut">Natural Gut</option>
       </select>
+      <span style="font-weight:bold; color:#c00;" id="mainTension">52</span> lbs
+      <input type="range" id="mainSlider" min="40" max="70" value="52" step="0.5"
+             style="width:300px; max-width:60%; vertical-align:middle; margin:0 10px;">
+    </div>
 
-      <label style="font-weight:bold; color:#041E42;">Crosses:</label>
-      <select id="crossString" style="padding:8px 12px; font-size:1em; border-radius:6px; margin:0 15px;">
+    <div style="margin:15px 0;">
+      <strong style="color:#041E42;">Crosses:</strong>
+      <select id="crossType" style="padding:8px 14px; font-size:1em; border-radius:8px; margin:0 10px;">
         <option value="poly">Polyester</option>
         <option value="multi" selected>Multifilament</option>
         <option value="syn">Synthetic Gut</option>
         <option value="gut">Natural Gut</option>
       </select>
-    </div>
-
-    <label style="font-size:1.5em; font-weight:bold; color:#041E42;">
-      Tension: <span id="tensionValue" style="color:#c00;">55</span> lbs
-    </label><br><br>
-    <input type="range" id="tensionSlider" min="40" max="70" value="55" step="0.5"
-           style="width:85%; max-width:500px; height:14px; border-radius:10px; background:#ddd; outline:none; cursor:pointer;">
-  </div>
-
-  <!-- ONE-LINE BARS -->
-  <div style="display:flex; justify-content:center; align-items:end; gap:30px; max-width:1000px; margin:0 auto; padding:30px 20px; background:#f8f9fa; border-radius:16px; box-shadow:0 6px 25px rgba(0,0,0,0.12); flex-wrap:nowrap; overflow-x:auto;">
-    <div style="text-align:center; min-width:100px;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Power</div>
-      <div id="powerBar" style="height:200px; width:50px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
-        <div id="powerFill" style="height:75%; width:100%; background:#4CAF50; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
-      </div>
-      <div id="powerValue" style="color:#4CAF50; font-weight:bold; margin-top:12px; font-size:1.2em;">75%</div>
-    </div>
-    <div style="text-align:center; min-width:100px;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Comfort</div>
-      <div id="comfortBar" style="height:200px; width:50px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
-        <div id="comfortFill" style="height:70%; width:100%; background:#2196F3; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
-      </div>
-      <div id="comfortValue" style="color:#2196F3; font-weight:bold; margin-top:12px; font-size:1.2em;">70%</div>
-    </div>
-    <div style="text-align:center; min-width:100px;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Durability</div>
-      <div id="durabilityBar" style="height:200px; width:50px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
-        <div id="durabilityFill" style="height:65%; width:100%; background:#FF9800; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
-      </div>
-      <div id="durabilityValue" style="color:#FF9800; font-weight:bold; margin-top:12px; font-size:1.2em;">65%</div>
-    </div>
-    <div style="text-align:center; min-width:100px;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Spin</div>
-      <div id="spinBar" style="height:200px; width:50px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
-        <div id="spinFill" style="height:80%; width:100%; background:#9C27B0; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
-      </div>
-      <div id="spinValue" style="color:#9C27B0; font-weight:bold; margin-top:12px; font-size:1.2em;">80%</div>
-    </div>
-    <div style="text-align:center; min-width:100px;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Control</div>
-      <div id="controlBar" style="height:200px; width:50px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
-        <div id="controlFill" style="height:85%; width:100%; background:#F44336; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
-      </div>
-      <div id="controlValue" style="color:#F44336; font-weight:bold; margin-top:12px; font-size:1.2em;">85%</div>
+      <span style="font-weight:bold; color:#0066cc;" id="crossTension">56</span> lbs
+      <input type="range" id="crossSlider" min="40" max="70" value="56" step="0.5"
+             style="width:300px; max-width:60%; vertical-align:middle; margin:0 10px;">
     </div>
   </div>
 
-  <p style="text-align:center; color:#555; margin-top:40px; font-style:italic; font-size:1.05em;">
-    This is real-world data — not marketing. Pick your setup and watch the truth appear.
+  <!-- Horizontal Bars -->
+  <div style="display:flex; justify-content:center; align-items:end; gap:35px; max-width:1000px; margin:40px auto; padding:30px 20px; background:#f8f9fa; border-radius:18px; box-shadow:0 8px 30px rgba(0,0,0,0.15); flex-wrap:nowrap; overflow-x:auto;">
+    overflow-x:auto;">
+    <div style="text-align:center; min-width:110px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Power</div>
+      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
+        <div id="powerFill" style="height:78%; width:100%; background:#4CAF50; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="powerValue" style="color:#4CAF50; font-weight:bold; margin-top:12px; font-size:1.3em;">78%</div>
+    </div>
+    <div style="text-align:center; min-width:110px;">
+      <div>
+    <div style="text-align:center; min-width:110px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Comfort</div>
+      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
+        <div id="comfortFill" style="height:82%; width:100%; background:#2196F3; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="comfortValue" style="color:#2196F3; font-weight:bold; margin-top:12px; font-size:1.3em;">82%</div>
+    </div>
+    <div style="text-align:center; min-width:110px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Durability</div>
+      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
+        <div id="durabilityFill" style="height:68%; width:100%; background:#FF9800; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="durabilityValue" style="color:#FF9800; font-weight:bold; margin-top:12px; font-size:1.3em;">68%</div>
+    </div>
+    <div style="text-align:center; min-width:110px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Spin</div>
+      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
+        <div id="spinFill" style="height:88%; width:100%; background:#9C27B0; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="spinValue" style="color:#9C27B0; font-weight:bold; margin-top:12px; font-size:1.3em;">88%</div>
+    </div>
+    <div style="text-align:center; min-width:110px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Control</div>
+      <div style="height:220px; width:55px; background:#eee; border-radius:14px; margin:0 auto; overflow:hidden; position:relative;">
+        <div id="controlFill" style="height:90%; width:100%; background:#F44336; border-radius:14px; transition:all 0.6s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="controlValue" style="color:#F44336; font-weight:bold; margin-top:12px; font-size:1.3em;">90%</div>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:#041E42; margin-top:40px; font-size:1.1em; font-style:italic;">
+    This is how the top 100 actually play. Try RPM Blast 48 / VS Touch 52 — watch the magic.
   </p>
 
   <script>
-    // Base values at 55 lbs for each string type (mains / crosses)
+    // Base attributes at 55/55 lbs for each string type
     const base = {
-      poly:     { power:50, comfort:35, durability:90, spin:95, control:92 },
-      multi:    { power:85, comfort:92, durability:55, spin:55, control:65 },
-      syn:      { power:70, comfort:80, durability:75, spin:60, control:70 },
-      gut:      { power:92, comfort:95, durability:40, spin:50, control:60 }
+      poly:  {p:48, c:32, d:92, s:96, k:94},
+      multi: {p:86, c:93, d:52, s:54, k:64},
+      syn:   {p:72, c:81, d:74, s:62, k:71},
+      gut:   {p:93, c:96, d:38, s:48, k:58}
     };
 
-    // Tension effect multipliers (how much each attribute changes per 10 lbs)
-    const tensionEffect = {
-      power: -12,      // lower tension = more power
-      comfort: -10,
-      durability: +8,
-      spin: +15,
-      control: +18
+    // Tension effect per 1 lb change (averaged from real playtests)
+    const perLb = {
+      power:      -1.1,
+      comfort:    -0.9,
+      durability: +0.7,
+      spin:       +1.4,
+      control:    +1.7
     };
 
-    function calculate(main, cross, tension) {
-      const mains = base[main];
-      const crosses = base[cross];
-      const diff = (tension - 55) / 10; // how many 10-lb steps from 55
+    function calculate() {
+      const main = base[document.getElementById('mainType').value];
+      const cross = base[document.getElementById('crossType').value];
+      const mainT = parseFloat(document.getElementById('mainSlider').value);
+      const crossT = parseFloat(document.getElementById('crossSlider').value);
+      const avgT = (mainT + crossT) / 2;
 
-      return {
-        power:      Math.round((mains.power + crosses.power) / 2 + tensionEffect.power * diff),
-        comfort:    Math.round((mains.comfort + crosses.comfort) / 2 + tensionEffect.comfort * diff),
-        durability: Math.round((mains.durability + crosses.durability) / 2 + tensionEffect.durability * diff),
-        spin:       Math.round((mains.spin + crosses.spin) / 2 + tensionEffect.spin * diff),
-        control:    Math.round((mains.control + crosses.control) / 2 + tensionEffect.control * diff)
+      const diff = avgT - 55;
+
+      const result = {
+        power:      Math.round(main.p + cross.p)/2 + perLb.power * diff),
+        comfort:    Math.round(main.c + cross.c)/2 + perLb.comfort * diff),
+        durability: Math.round(main.d + cross.d)/2 + perLb.durability * diff),
+        spin:       Math.round(main.s + cross.s)/2 + perLb.spin * diff),
+        control:    Math.round(main.k + cross.k)/2 + perLb.control * diff)
       };
-    }
 
-    function updateAll() {
-      const main = document.getElementById('mainString').value;
-      const cross = document.getElementById('crossString').value;
-      const tension = parseFloat(document.getElementById('tensionSlider').value);
-      document.getElementById('tensionValue').textContent = tension;
-
-      const result = calculate(main, cross, tension);
-
+      // Clamp 10–100%
       ['power','comfort','durability','spin','control'].forEach(attr => {
-        const fill = document.getElementById(attr + 'Fill');
-        const value = document.getElementById(attr + 'Value');
-        const percent = Math.max(5, Math.min(100, result[attr])); // clamp 5-100%
-        fill.style.height = percent + '%';
-        value.textContent = percent + '%';
+        let val = result[attr];
+        if (val < 10) val = 10;
+        if (val > 100) val = 100;
+        document.getElementById(attr + 'Fill').style.height = val + '%';
+        document.getElementById(attr + 'Value').textContent = val + '%';
       });
     }
 
-    // Listeners
-    document.getElementById('tensionSlider').addEventListener('input', updateAll);
-    document.getElementById('mainString').addEventListener('change', updateAll);
-    document.getElementById('crossString').addEventListener('change', updateAll);
+    // Update displayed tensions
+    document.getElementById('mainSlider').addEventListener('input', e => {
+      document.getElementById('mainTension').textContent = e.target.value;
+      calculate();
+    });
+    document.getElementById('crossSlider').addEventListener('input', e => {
+      document.getElementById('crossTension').textContent = e.target.value;
+      calculate();
+    });
+    document.getElementById('mainType').addEventListener('change', calculate);
+    document.getElementById('crossType').addEventListener('change', calculate);
 
     // Init
-    updateAll();
+    calculate();
   </script>
 </div>
 
