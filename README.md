@@ -54,7 +54,7 @@
 <body>
 
 <h1>Available String List & Player Profiles</h1>
-<h3>V120325D</h3>
+<h3>V120325E</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -94,89 +94,73 @@
 </div>
 
 <div id="StringingInfo" class="tabcontent">
-  <h3 style="text-align:center; color:#041E42; margin-bottom:30px;">Interactive Tension Simulator</h3>
+  <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">Interactive Tension Simulator</h3>
   
+  <p style="text-align:center; max-width:700px; margin:0 auto 35px; color:#333; line-height:1.7;">
+    Drag the slider to see how tension affects power, comfort, spin, and control.<br>
+    Most players find their sweet spot between <strong>48–58 lbs</strong> — let’s find yours.
+  </p>
+
   <div style="text-align:center; margin-bottom:40px;">
-    <label for="tensionSlider" style="font-size:1.2em; font-weight:bold; color:#041E42;">Drag to set tension: <span id="tensionValue">55</span> lbs</label><br>
-    <input type="range" id="tensionSlider" min="40" max="70" value="55" step="0.5" style="width:80%; max-width:400px; height:8px; border-radius:5px; background:#ddd; outline:none;">
+    <label for="tensionSlider" style="font-size:1.4em; font-weight:bold; color:#041E42;">
+      Tension: <span id="tensionValue" style="color:#c00;">55</span> lbs
+    </label><br><br>
+    <input type="range" id="tensionSlider" min="40" max="70" value="55" step="0.5"
+           style="width:85%; max-width:500px; height:12px; border-radius:8px; background:#ddd; outline:none; cursor:pointer;">
   </div>
 
-  <canvas id="tensionChart" width="600" height="300" style="max-width:100%; height:auto; border:1px solid #ddd; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);"></canvas>
+  <canvas id="tensionChart" width="600" height="320" style="max-width:100%; height:auto; margin:0 auto; display:block; border-radius:12px; box-shadow:0 6px 25px rgba(0,0,0,0.15);"></canvas>
 
-  <p style="text-align:center; color:#555; margin-top:20px; font-size:0.95em;">
-    Slide to see how tension trades power for control. Your sweet spot? Let's find it together.
+  <p style="text-align:center; color:#555; margin-top:30px; font-style:italic;">
+    Ready to feel the difference? Bring your racket — I’ll string it exactly how you want it.
   </p>
 
-  <!-- Your Gamma image below -->
-  <h4 style="text-align:center; color:#041E42; margin:40px 0 20px;">The Machine Behind It</h4>
-  <p style="text-align:center;">
-    <img src="https://i.ibb.co/p6Gd1WyQ/IMG-0513.jpg" alt="Gamma ELS 7500 Stringing Machine" style="max-width:100%; height:auto; border:2px solid #041E42; border-radius:8px;">
-  </p>
-
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Chart.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
   
   <script>
-    // Tension data (low tension = high power/comfort, low control/spin)
-    const tensionData = {
+    const data = {
       labels: ['Power', 'Comfort', 'Durability', 'Spin', 'Control'],
-      lowTension: [90, 85, 80, 50, 40],  // Values at 40lbs (high power, low control)
-      highTension: [50, 45, 60, 90, 95]  // Values at 70lbs (low power, high control)
+      low:   [90, 88, 82, 45, 38],   // 40 lbs
+      high:  [42, 40, 62, 92, 95]    // 70 lbs
     };
 
     const ctx = document.getElementById('tensionChart').getContext('2d');
-    let chart = new Chart(ctx, {
+    const chart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: tensionData.labels,
+        labels: data.labels,
         datasets: [{
-          label: 'Attribute Level (%)',
-          data: tensionData.lowTension,
+          data: data.low,
           backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#9C27B0', '#F44336'],
-          borderRadius: 8,
-          borderSkipped: false
+          borderRadius: 10,
+          borderSkipped: false,
+          barThickness: 50
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                return `${context.label}: ${context.parsed.y}%`;
-              }
-            }
-          }
-        },
+        plugins: { legend: { display: false } },
         scales: {
-          y: {
-            beginAtZero: true,
-            max: 100,
-            ticks: { stepSize: 20 }
-          }
+          y: { beginAtZero: true, max: 100, grid: { color: '#eee' }, ticks: { font: { size: 14 } } },
+          x: { grid: { display: false }, ticks: { font: { size: 15, weight: 'bold' } } }
         },
-        animation: {
-          duration: 500,
-          easing: 'easeOutQuart'
-        }
+        animation: { duration: 600, easing: 'easeOutQuart' }
       }
     });
 
-    // Slider listener
     document.getElementById('tensionSlider').addEventListener('input', (e) => {
-      const value = parseFloat(e.target.value);
-      document.getElementById('tensionValue').textContent = value;
+      const val = parseFloat(e.target.value);
+      document.getElementById('tensionValue').textContent = val;
 
-      // Interpolate data between low/high tension
-      const factor = (value - 40) / 30;  // Normalize 40-70 to 0-1
-      const newData = tensionData.labels.map((_, i) => {
-        return Math.round(tensionData.lowTension[i] + factor * (tensionData.highTension[i] - tensionData.lowTension[i]));
-      });
+      const ratio = (val - 40) / 30;  // 40 → 0, 70 → 1
+      const newData = data.labels.map((_, i) =>
+        Math.round(data.low[i] + ratio * (data.high[i] - data.low[i]))
+      );
 
       chart.data.datasets[0].data = newData;
-      chart.update('none');  // Smooth animation
+      chart.update();
     });
   </script>
 </div>
