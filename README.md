@@ -95,7 +95,62 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center;">Stringing Info</h3>
+  <div id="StringingInfo" class="tabcontent">
+  <h3 style="text-align:center; color:#041E42;">Tennis String & Tension Guide</h3>
+
+  <!-- String Types Table -->
+  <h4 style="text-align:center; color:#041E42; margin-top:30px;">String Types Compared</h4>
+  <div style="overflow-x:auto;">
+    <table style="width:100%; max-width:900px; margin:20px auto; border-collapse:collapse; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+      <thead>
+        <tr style="background:#041E42; color:white;">
+          <th style="padding:12px;"></th>
+          <th>Natural Gut</th>
+          <th>Synthetic Gut</th>
+          <th>Polyester</th>
+          <th>Multifilament</th>
+        </tr>
+      </thead>
+      <tbody style="text-align:center; font-size:0.95em;">
+        <tr><td style="background:#f0f0f0; font-weight:bold;">Power</td><td>★★★★★</td><td>★★★</td><td>★★</td><td>★★★★</td></tr>
+        <tr><td style="background:#f0f0f0; font-weight:bold;">Comfort</td><td>★★★★★</td><td>★★★★</td><td>★★</td><td>★★★★★</td></tr>
+        <tr><td style="background:#f0f0f0; font-weight:bold;">Tension Maint.</td><td>★★★★★</td><td>★★★</td><td>★★</td><td>★★★★</td></tr>
+        <tr><td style="background:#f0f0f0; font-weight:bold;">Control</td><td>★★</td><td>★★★</td><td>★★★★★</td><td>★★★</td></tr>
+        <tr><td style="background:#f0f0f0; font-weight:bold;">Cost</td><td>$$$$$</td><td>$</td><td>$$</td><td>$$$</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tension Effects -->
+  <h4 style="text-align:center; color:#041E42; margin-top:40px;">Tension Effects</h4>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin:30px 0;">
+    <div style="background:#e3f2fd; padding:20px; border-radius:12px; flex:1; min-width:280px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+      <h4 style="color:#1565c0; margin-top:0;">Low Tension<br><small>40 – 48 lbs</small></h4>
+      <p style="margin:10px 0; line-height:1.6;">
+        ↑ Power<br>
+        ↑ Comfort<br>
+        ↑ Durability<br>
+        ↓ Spin & Control
+      </p>
+    </div>
+    <div style="background:#ffebee; padding:20px; border-radius:12px; flex:1; min-width:280px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+      <h4 style="color:#c62828; margin-top:0;">High Tension<br><small>57 – 70+ lbs</small></h4>
+      <p style="margin:10px 0; line-height:1.6;">
+        ↑ Control<br>
+        ↑ Spin<br>
+        ↓ Power<br>
+        ↓ Comfort
+      </p>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:#555; font-style:italic; margin-top:30px;">
+    Not sure what you need? Just tell me how you want the ball to feel — I’ll dial it in.
+  </p>
+</div>
+  
   <p style="text-align:center;">
+    
     <img src="https://i.ibb.co/p6Gd1WyQ/IMG-0513.jpg" alt="Stringing Info" style="max-width:100%;height:auto;border:2px solid #041E42;border-radius:8px;">
   </p>
 </div>
