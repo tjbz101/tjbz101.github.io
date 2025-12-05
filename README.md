@@ -97,73 +97,76 @@
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">Interactive Tension Simulator</h3>
   
   <p style="text-align:center; max-width:700px; margin:0 auto 35px; color:#333; line-height:1.7;">
-    Drag the slider to see how tension affects power, comfort, spin, and control.<br>
-    Most players find their sweet spot between <strong>48–58 lbs</strong> — let’s find yours.
+    Drag the slider to watch how tension trades power for control in real time.<br>
+    Your perfect feel is waiting — let’s find it.
   </p>
 
   <div style="text-align:center; margin-bottom:40px;">
-    <label for="tensionSlider" style="font-size:1.4em; font-weight:bold; color:#041E42;">
+    <label style="font-size:1.5em; font-weight:bold; color:#041E42;">
       Tension: <span id="tensionValue" style="color:#c00;">55</span> lbs
     </label><br><br>
     <input type="range" id="tensionSlider" min="40" max="70" value="55" step="0.5"
-           style="width:85%; max-width:500px; height:12px; border-radius:8px; background:#ddd; outline:none; cursor:pointer;">
+           style="width:85%; max-width:500px; height:14px; border-radius:10px; background:#ddd; outline:none; cursor:pointer;">
   </div>
 
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:600px; margin:0 auto 30px; padding:20px; background:#f8f9fa; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-    <div style="flex:1; min-width:100px; text-align:center;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Power</div>
-      <div id="powerBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
-        <div style="height:0%; width:100%; background:#4CAF50; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+  <!-- ONE-LINE HORIZONTAL BARS -->
+  <div style="display:flex; justify-content:center; align-items:end; gap:25px; max-width:900px; margin:0 auto; padding:30px 20px; background:#f8f9fa; border-radius:16px; box-shadow:0 6px 25px rgba(0,0,0,0.12); flex-wrap:nowrap; overflow-x:auto;">
+    <div style="text-align:center; min-width:90px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Power</div>
+      <div id="powerBar" style="height:180px; width:40px; background:#eee; border-radius:12px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:90%; width:100%; background:#4CAF50; border-radius:12px; transition:height 0.6s ease; position:absolute; bottom:0;"></div>
       </div>
-      <div id="powerValue" style="color:#4CAF50; font-weight:bold;">90%</div>
+      <div id="powerValue" style="color:#4CAF50; font-weight:bold; margin-top:10px; font-size:1.1em;">90%</div>
     </div>
-    <div style="flex:1; min-width:100px; text-align:center;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Comfort</div>
-      <div id="comfortBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
-        <div style="height:0%; width:100%; background:#2196F3; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+
+    <div style="text-align:center; min-width:90px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Comfort</div>
+      <div id="comfortBar" style="height:180px; width:40px; background:#eee; border-radius:12px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:88%; width:100%; background:#2196F3; border-radius:12px; transition:height 0.6s ease; position:absolute; bottom:0;"></div>
       </div>
-      <div id="comfortValue" style="color:#2196F3; font-weight:bold;">88%</div>
+      <div id="comfortValue" style="color:#2196F3; font-weight:bold; margin-top:10px; font-size:1.1em;">88%</div>
     </div>
-    <div style="flex:1; min-width:100px; text-align:center;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Durability</div>
-      <div id="durabilityBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
-        <div style="height:0%; width:100%; background:#FF9800; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+
+    <div style="text-align:center; min-width:90px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Durability</div>
+      <div id="durabilityBar" style="height:180px; width:40px; background:#eee; border-radius:12px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:82%; width:100%; background:#FF9800; border-radius:12px; transition:height 0.6s ease; position:absolute; bottom:0;"></div>
       </div>
-      <div id="durabilityValue" style="color:#FF9800; font-weight:bold;">82%</div>
+      <div id="durabilityValue" style="color:#FF9800; font-weight:bold; margin-top:10px; font-size:1.1em;">82%</div>
     </div>
-    <div style="flex:1; min-width:100px; text-align:center;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Spin</div>
-      <div id="spinBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
-        <div style="height:0%; width:100%; background:#9C27B0; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+
+    <div style="text-align:center; min-width:90px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Spin</div>
+      <div id="spinBar" style="height:180px; width:40px; background:#eee; border-radius:12px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:45%; width:100%; background:#9C27B0; border-radius:12px; transition:height 0.6s ease; position:absolute; bottom:0;"></div>
       </div>
-      <div id="spinValue" style="color:#9C27B0; font-weight:bold;">45%</div>
+      <div id="spinValue" style="color:#9C27B0; font-weight:bold; margin-top:10px; font-size:1.1em;">45%</div>
     </div>
-    <div style="flex:1; min-width:100px; text-align:center;">
-      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Control</div>
-      <div id="controlBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
-        <div style="height:0%; width:100%; background:#F44336; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+
+    <div style="text-align:center; min-width:90px;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:8px;">Control</div>
+      <div id="controlBar" style="height:180px; width:40px; background:#eee; border-radius:12px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:38%; width:100%; background:#F44336; border-radius:12px; transition:height 0.6s ease; position:absolute; bottom:0;"></div>
       </div>
-      <div id="controlValue" style="color:#F44336; font-weight:bold;">38%</div>
+      <div id="controlValue" style="color:#F44336; font-weight:bold; margin-top:10px; font-size:1.1em;">38%</div>
     </div>
   </div>
 
-  <p style="text-align:center; color:#555; margin-top:30px; font-style:italic;">
-    Ready to feel the difference? Bring your racket — I’ll string it exactly how you want it.
+  <p style="text-align:center; color:#555; margin-top:40px; font-style:italic; font-size:1.05em;">
+    Bring your racket. We’ll dial in your exact feel — no guesswork.
   </p>
 
   <script>
-    const low = [90, 88, 82, 45, 38];  // Power, Comfort, Durability, Spin, Control at 40lbs
-    const high = [42, 40, 62, 92, 95]; // at 70lbs
-    const labels = ['power', 'comfort', 'durability', 'spin', 'control'];
+    const low = [90, 88, 82, 45, 38];   // 40 lbs
+    const high = [42, 40, 62, 92, 95];  // 70 lbs
+    const ids = ['power', 'comfort', 'durability', 'spin', 'control'];
 
-    function updateBars(value) {
-      const ratio = (value - 40) / 30;  // 0 to 1 scale
-      labels.forEach((label, i) => {
-        const bar = document.getElementById(label + 'Bar').querySelector('div');
-        const val = document.getElementById(label + 'Value');
-        const newVal = Math.round(low[i] + ratio * (high[i] - low[i]));
-        bar.style.height = newVal + '%';
-        val.textContent = newVal + '%';
+    function updateBars(val) {
+      const ratio = (val - 40) / 30;
+      ids.forEach((id, i) => {
+        const percent = Math.round(low[i] + ratio * (high[i] - low[i]));
+        document.querySelector(`#${id}Bar div`).style.height = percent + '%';
+        document.getElementById(id + 'Value').textContent = percent + '%';
       });
     }
 
@@ -173,7 +176,7 @@
       updateBars(val);
     });
 
-    // Init at 55lbs
+    // Start at 55 lbs
     updateBars(55);
   </script>
 </div>
