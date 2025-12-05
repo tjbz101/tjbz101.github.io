@@ -53,12 +53,12 @@
 </head>
 <body>
 
-<h1>Available Strings, Player Profiles & Tension Simulator</h1>
+<h1>The Tennis Shop </h1>
 <h3>V120325F</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
-  <button class="tablinks" onclick="openTab(event,'ProList')">Pro Profiles</button>
+  <button class="tablinks" onclick="openTab(event,'ProList')">Player Profiles</button>
   <button class="tablinks" onclick="openTab(event,'StringingInfo')">Tension Simulator</button>
 </div>
 
@@ -161,7 +161,7 @@
   </div>
 
   <p style="text-align:center; color:#041E42; margin-top:40px; font-size:1.1em; font-style:italic;">
-    This is the real deal. Tour-level accuracy. Try Luxilon ALU Power Rough 17 @ 48 / VS Touch 16 @ 52 — you’ll see why the pros do it.
+     Try Luxilon ALU Power Rough 17 @ 48 / VS Touch 16 @ 52 — you’ll see why the pros do it.
   </p>
 
   <script>
