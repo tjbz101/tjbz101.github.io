@@ -54,7 +54,7 @@
 <body>
 
 <h1>Available String List & Player Profiles</h1>
-<h3>V120325E</h3>
+<h3>V120325F</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -109,59 +109,72 @@
            style="width:85%; max-width:500px; height:12px; border-radius:8px; background:#ddd; outline:none; cursor:pointer;">
   </div>
 
-  <canvas id="tensionChart" width="600" height="320" style="max-width:100%; height:auto; margin:0 auto; display:block; border-radius:12px; box-shadow:0 6px 25px rgba(0,0,0,0.15);"></canvas>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:600px; margin:0 auto 30px; padding:20px; background:#f8f9fa; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+    <div style="flex:1; min-width:100px; text-align:center;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Power</div>
+      <div id="powerBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:0%; width:100%; background:#4CAF50; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="powerValue" style="color:#4CAF50; font-weight:bold;">90%</div>
+    </div>
+    <div style="flex:1; min-width:100px; text-align:center;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Comfort</div>
+      <div id="comfortBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:0%; width:100%; background:#2196F3; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="comfortValue" style="color:#2196F3; font-weight:bold;">88%</div>
+    </div>
+    <div style="flex:1; min-width:100px; text-align:center;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Durability</div>
+      <div id="durabilityBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:0%; width:100%; background:#FF9800; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="durabilityValue" style="color:#FF9800; font-weight:bold;">82%</div>
+    </div>
+    <div style="flex:1; min-width:100px; text-align:center;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Spin</div>
+      <div id="spinBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:0%; width:100%; background:#9C27B0; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="spinValue" style="color:#9C27B0; font-weight:bold;">45%</div>
+    </div>
+    <div style="flex:1; min-width:100px; text-align:center;">
+      <div style="font-weight:bold; color:#041E42; margin-bottom:10px;">Control</div>
+      <div id="controlBar" style="height:150px; width:20px; background:#eee; border-radius:10px; margin:0 auto; overflow:hidden; position:relative;">
+        <div style="height:0%; width:100%; background:#F44336; border-radius:10px; transition:height 0.5s ease; position:absolute; bottom:0;"></div>
+      </div>
+      <div id="controlValue" style="color:#F44336; font-weight:bold;">38%</div>
+    </div>
+  </div>
 
   <p style="text-align:center; color:#555; margin-top:30px; font-style:italic;">
     Ready to feel the difference? Bring your racket — I’ll string it exactly how you want it.
   </p>
 
-  <!-- Chart.js from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
-  
   <script>
-    const data = {
-      labels: ['Power', 'Comfort', 'Durability', 'Spin', 'Control'],
-      low:   [90, 88, 82, 45, 38],   // 40 lbs
-      high:  [42, 40, 62, 92, 95]    // 70 lbs
-    };
+    const low = [90, 88, 82, 45, 38];  // Power, Comfort, Durability, Spin, Control at 40lbs
+    const high = [42, 40, 62, 92, 95]; // at 70lbs
+    const labels = ['power', 'comfort', 'durability', 'spin', 'control'];
 
-    const ctx = document.getElementById('tensionChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: data.labels,
-        datasets: [{
-          data: data.low,
-          backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#9C27B0', '#F44336'],
-          borderRadius: 10,
-          borderSkipped: false,
-          barThickness: 50
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { beginAtZero: true, max: 100, grid: { color: '#eee' }, ticks: { font: { size: 14 } } },
-          x: { grid: { display: false }, ticks: { font: { size: 15, weight: 'bold' } } }
-        },
-        animation: { duration: 600, easing: 'easeOutQuart' }
-      }
-    });
+    function updateBars(value) {
+      const ratio = (value - 40) / 30;  // 0 to 1 scale
+      labels.forEach((label, i) => {
+        const bar = document.getElementById(label + 'Bar').querySelector('div');
+        const val = document.getElementById(label + 'Value');
+        const newVal = Math.round(low[i] + ratio * (high[i] - low[i]));
+        bar.style.height = newVal + '%';
+        val.textContent = newVal + '%';
+      });
+    }
 
     document.getElementById('tensionSlider').addEventListener('input', (e) => {
       const val = parseFloat(e.target.value);
       document.getElementById('tensionValue').textContent = val;
-
-      const ratio = (val - 40) / 30;  // 40 → 0, 70 → 1
-      const newData = data.labels.map((_, i) =>
-        Math.round(data.low[i] + ratio * (data.high[i] - data.low[i]))
-      );
-
-      chart.data.datasets[0].data = newData;
-      chart.update();
+      updateBars(val);
     });
+
+    // Init at 55lbs
+    updateBars(55);
   </script>
 </div>
 
