@@ -94,12 +94,91 @@
 </div>
 
 <div id="StringingInfo" class="tabcontent">
-  <h3 style="text-align:center;">Stringing Info</h3>
+  <h3 style="text-align:center; color:#041E42; margin-bottom:30px;">Interactive Tension Simulator</h3>
   
-  <p style="text-align:center;">
-    
-    <img src="https://i.ibb.co/p6Gd1WyQ/IMG-0513.jpg" alt="Stringing Info" style="max-width:100%;height:auto;border:2px solid #041E42;border-radius:8px;">
+  <div style="text-align:center; margin-bottom:40px;">
+    <label for="tensionSlider" style="font-size:1.2em; font-weight:bold; color:#041E42;">Drag to set tension: <span id="tensionValue">55</span> lbs</label><br>
+    <input type="range" id="tensionSlider" min="40" max="70" value="55" step="0.5" style="width:80%; max-width:400px; height:8px; border-radius:5px; background:#ddd; outline:none;">
+  </div>
+
+  <canvas id="tensionChart" width="600" height="300" style="max-width:100%; height:auto; border:1px solid #ddd; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);"></canvas>
+
+  <p style="text-align:center; color:#555; margin-top:20px; font-size:0.95em;">
+    Slide to see how tension trades power for control. Your sweet spot? Let's find it together.
   </p>
+
+  <!-- Your Gamma image below -->
+  <h4 style="text-align:center; color:#041E42; margin:40px 0 20px;">The Machine Behind It</h4>
+  <p style="text-align:center;">
+    <img src="https://i.ibb.co/p6Gd1WyQ/IMG-0513.jpg" alt="Gamma ELS 7500 Stringing Machine" style="max-width:100%; height:auto; border:2px solid #041E42; border-radius:8px;">
+  </p>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
+  <script>
+    // Tension data (low tension = high power/comfort, low control/spin)
+    const tensionData = {
+      labels: ['Power', 'Comfort', 'Durability', 'Spin', 'Control'],
+      lowTension: [90, 85, 80, 50, 40],  // Values at 40lbs (high power, low control)
+      highTension: [50, 45, 60, 90, 95]  // Values at 70lbs (low power, high control)
+    };
+
+    const ctx = document.getElementById('tensionChart').getContext('2d');
+    let chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: tensionData.labels,
+        datasets: [{
+          label: 'Attribute Level (%)',
+          data: tensionData.lowTension,
+          backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#9C27B0', '#F44336'],
+          borderRadius: 8,
+          borderSkipped: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.label}: ${context.parsed.y}%`;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: { stepSize: 20 }
+          }
+        },
+        animation: {
+          duration: 500,
+          easing: 'easeOutQuart'
+        }
+      }
+    });
+
+    // Slider listener
+    document.getElementById('tensionSlider').addEventListener('input', (e) => {
+      const value = parseFloat(e.target.value);
+      document.getElementById('tensionValue').textContent = value;
+
+      // Interpolate data between low/high tension
+      const factor = (value - 40) / 30;  // Normalize 40-70 to 0-1
+      const newData = tensionData.labels.map((_, i) => {
+        return Math.round(tensionData.lowTension[i] + factor * (tensionData.highTension[i] - tensionData.lowTension[i]));
+      });
+
+      chart.data.datasets[0].data = newData;
+      chart.update('none');  // Smooth animation
+    });
+  </script>
 </div>
 
 <script>
