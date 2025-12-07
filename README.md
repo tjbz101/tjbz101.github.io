@@ -95,39 +95,38 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    Ultimate String Job Simulator
+    String Job Simulator - pick a string
   </h3>
+
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
-    String type, gauge, tension, pattern & head size — everything that actually changes feel.
+    Pick any string from our stock (or generic type), set gauge, tension, pattern & head size. 
+    Watch the bars update with real-world feel.
   </p>
 
   <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
-    <!-- Mains -->
-    <div style="margin:15px 0;">
+    <div style="margin:18px 0;">
       <strong>Mains:</strong>
-      <select id="mainType"><option value="poly">Poly</option><option value="multi">Multi</option><option value="syn">Syn Gut</option><option value="gut">Gut</option></select>
+      <select id="mainString"></select>
       <select id="mainGauge"><option value="16">16g</option><option value="16L">16L</option><option value="17" selected>17g</option><option value="18">18g</option></select>
       <span id="mainTension" style="font-weight:bold;color:#c00;">50</span> lbs
-      <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5" style="width:260px;">
+      <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5" style="width:280px;">
     </div>
 
-    <!-- Crosses -->
-    <div style="margin:15px 0;">
+    <div style="margin:18px 0;">
       <strong>Crosses:</strong>
-      <select id="crossType"><option value="poly">Poly</option><option value="multi" selected>Multi</option><option value="syn">Syn Gut</option><option value="gut">Gut</option></select>
+      <select id="crossString"></select>
       <select id="crossGauge"><option value="16">16g</option><option value="16L">16L</option><option value="17">17g</option><option value="18" selected>18g</option></select>
       <span id="crossTension" style="font-weight:bold;color:#0066cc;">54</span> lbs
-      <input type="range" id="crossSlider" min="38" max="68" value="54" step="0.5" style="width:260px;">
+      <input type="range" id="crossSlider" min="38" max="68" value="54" step="0.5" style="width:280px;">
     </div>
 
-    <!-- Pattern & Head Size -->
     <div style="margin:25px 0;">
       <strong>Pattern:</strong>
       <select id="pattern">
-        <option value="1619" selected>16×19 (open)</option>
+        <option value="1619" selected>16×19</option>
         <option value="1819">18×19</option>
-        <option value="1820">18×20 (dense)</option>
+        <option value="1820">18×20</option>
       </select>
 
       <strong style="margin-left:30px;">Head Size:</strong>
@@ -143,7 +142,7 @@
     </div>
   </div>
 
-  <!-- Bars -->
+  <!-- Bars (same beautiful layout) -->
   <div style="display:flex;justify-content:center;align-items:end;gap:35px;max-width:1100px;margin:40px auto;padding:30px 20px;background:#f8f9fa;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.15);flex-wrap:nowrap;overflow-x:auto;">
     <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Power</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="powerFill" style="height:82%;background:#4CAF50;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="powerValue" style="color:#4CAF50;font-weight:bold;font-size:1.3em;">82%</div></div>
     <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Comfort</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="comfortFill" style="height:88%;background:#2196F3;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="comfortValue" style="color:#2196F3;font-weight:bold;font-size:1.3em;">88%</div></div>
@@ -153,19 +152,68 @@
   </div>
 
   <p style="text-align:center;color:#041E42;margin-top:40px;font-size:1.1em;font-style:italic;">
-    Now you know exactly what your racket will feel — before I even cut the string.
+    Your exact strings. Your exact setup. Your exact feel — before the first hit.
   </p>
 
   <script>
-    const base = {poly:{p:48,c:32,d:92,s:96,k:94},multi:{p:86,c:93,d:52,s:54,k:64},syn:{p:72,c:81,d:74,s:62,k:71},gut:{p:93,c:96,d:38,s:48,k:58}};
-    const perLb = {p:-1.1,c:-0.9,d:+0.7,s:+1.4,k:+1.7};
+    // Your 27 strings + generic fallbacks
+    const stringData = {
+      "Polyester":      {p:50,c:35,d:90,s:94,k:93},
+      "Multifilament":  {p:86,c:93,d:52,s:54,k:64},
+      "Synthetic Gut":  {p:72,c:81,d:74,s:62,k:71},
+      "Natural Gut":    {p:93,c:96,d:38,s:48,k:58},
+      "Asics Resolution 16":   {p:70,c:80,d:72,s:60,k:70},
+      "Babolat Conquest":       {p:72,c:82,d:75,s:58,k:68},
+      "Babolat N.Vy":          {p:75,c:85,d:65,s:55,k:65},
+      "Babolat Excel":          {p:88,c:94,d:50,s:52,k:62},
+      "Bluestar Multi Filament":{p:87,c:93,d:55,s:54,k:64},
+      "Gamma Octo TNT":        {p:74,c:83,d:78,s:62,k:72},
+      "Head FXP":              {p:71,c:81,d:73,s:59,k:69},
+      "Head FXP Tour":         {p:69,c:79,d:75,s:63,k:74},
+      "Head Intellistring":    {p:73,c:84,d:70,s:57,k:67},
+      "Head Velocity MLT":      {p:88,c:94,d:54,s:56,k:66},
+      "Kirschbaum Super Smash": {p:48,c:30,d:94,s:98,k:96},
+      "Kirschbaum Synthetic Gut":{p:70,c:80,d:76,s:60,k:70},
+      "Prince Control 15":      {p:87,c:92,d:52,s:53,k:63},
+      "Prince Tour XC":         {p:50,c:34,d:91,s:95,k:94},
+      "Prince Synthetic Gut 15L":{p:71,c:81,d:74,s:59,k:69},
+      "Prince Synthetic Gut with Duraflex":{p:73,c:83,d:80,s:58,k:68},
+      "Tourna Premier Poly":    {p:52,c:37,d:89,s:93,k:91},
+      "Wilson Extreme Octane":  {p:76,c:85,d:70,s:62,k:72},
+      "Wilson Hollowcore 16":  {p:78,c:87,d:68,s:60,k:70},
+      "Wilson Hyperlast":       {p:49,c:32,d:92,s:96,k:95},
+      "Wilson NXT with Duramax 15":{p:89,c:95,d:56,s:55,k:65},
+      "Wilson Poly Last":       {p:48,c:30,d:93,s:97,k:96},
+      "Wilson SGX":            {p:72,c:82,d:75,s:60,k:70},
+      "Wilson Shock Shield 16": {p:74,c:86,d:72,s:58,k:68},
+      "Wilson Shock Shield 17": {p:75,c:88,d:68,s:57,k:67},
+      "Wilson Super Spin 16":  {p:85,c:90,d:50,s:70,k:65},
+      "Wilson Synthetic Gut Extreme":{p:73,c:83,d:76,s:61,k:71}
+    };
+
+    // Populate dropdowns
+    const stringsList = Object.keys(stringData).sort();
+    const selects = [document.getElementById('mainString'), document.getElementById('crossString')];
+    selects.forEach(sel => {
+      stringsList.forEach(str => {
+        const opt = document.createElement('option');
+        opt.value = str;
+        opt.textContent = str;
+        sel.appendChild(opt);
+      });
+      // Set defaults
+      sel.value = sel.id === 'mainString' ? "Generic Polyester" : "Generic Multifilament";
+    });
+
+    // Rest of the math (gauge, pattern, headsize, tension) — same as last version
     const gaugeEffect = {"16":0,"16L":2,"17":5,"18":9};
     const patternEffect = {"1619":{s:+12,p:+8,k:-6,d:-8},"1819":{s:+4,p:+2,k:+2,d:+2},"1820":{s:-8,p:-6,k:+12,d:+10}};
     const headsizeEffect = {95:{k:+10,s:+5,p:-8},98:{k:+5,s:+2,p:-3},100:{p:+5,k:-2},105:{p:+12,k:-6},110:{p:+18,k:-10},115:{p:+25,k:-14},125:{p:+35,k:-18}};
+    const perLb = {p:-1.1,c:-0.9,d:+0.7,s:+1.4,k:+1.7};
 
     function calc(){
-      const m = base[document.getElementById('mainType').value];
-      const c = base[document.getElementById('crossType').value];
+      const m = stringData[document.getElementById('mainString').value];
+      const c = stringData[document.getElementById('crossString').value];
       const mg = gaugeEffect[document.getElementById('mainGauge').value];
       const cg = gaugeEffect[document.getElementById('crossGauge').value];
       const pat = patternEffect[document.getElementById('pattern').value];
@@ -194,7 +242,7 @@
       });
     }
 
-    ['mainType','mainGauge','mainSlider','crossType','crossGauge','crossSlider','pattern','headsize'].forEach(id=>{
+    ['mainString','mainGauge','mainSlider','crossString','crossGauge','crossSlider','pattern','headsize'].forEach(id=>{
       document.getElementById(id).addEventListener('input', calc);
       document.getElementById(id).addEventListener('change', calc);
     });
@@ -202,7 +250,6 @@
     calc(); // init
   </script>
 </div>
-
 <script>
 const strings = [
   {name:"Asics Resolution 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Solid all-court synthetic gut. Balanced power/comfort."},
