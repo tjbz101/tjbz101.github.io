@@ -181,6 +181,7 @@
       "1Generic Multifilament":   {p:86,c:93,d:52,s:54,k:64},
       "1Generic Synthetic Gut":   {p:72,c:81,d:74,s:62,k:71},
       "1Generic Natural Gut":     {p:93,c:96,d:38,s:48,k:58},
+      "AG International Poly 17": {p:52,c:36,d:90,s:94,k:92},
       "Asics Resolution 16":      {p:70,c:80,d:72,s:60,k:70},
       "Babolat Conquest":          {p:72,c:82,d:75,s:58,k:68},
       "Babolat N.Vy":             {p:75,c:85,d:65,s:55,k:65},
@@ -302,6 +303,7 @@
 
 <script>
 const strings = [
+{name:"AG International Poly 17",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Aggressive co-poly at a killer price. Great snapback, bite, and tension maintenance — perfect for spin monsters on a budget."},
   {name:"Asics Resolution 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Solid all-court synthetic gut. Balanced power/comfort."},
   {name:"Babolat Conquest",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Arm-friendly, durable, cheap. Rec player favorite."},
   {name:"Babolat N.Vy",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Super soft and lively — feels almost like a multi."},
