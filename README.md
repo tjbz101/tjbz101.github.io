@@ -95,13 +95,14 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    Ultimate String Job Simulator — Your Exact Inventory + Presets
+    Ultimate String Job Simulator — Your Exact Inventory + Pro Presets
   </h3>
 
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
-    Pick any string from your shop, set gauge/tension/pattern/head size, or hit a preset below.
+    Pick any string from your shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
+  <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
     <div style="margin:18px 0;">
       <strong>Mains:</strong>
@@ -150,6 +151,7 @@
     </div>
   </div>
 
+  <!-- Bars -->
   <div style="display:flex;justify-content:center;align-items:end;gap:35px;max-width:1100px;margin:40px auto;padding:30px 20px;background:#f8f9fa;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.15);flex-wrap:nowrap;overflow-x:auto;">
     <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Power</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="powerFill" style="height:86%;background:#4CAF50;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="powerValue" style="color:#4CAF50;font-weight:bold;font-size:1.3em;">86%</div></div>
     <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Comfort</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="comfortFill" style="height:93%;background:#2196F3;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="comfortValue" style="color:#2196F3;font-weight:bold;font-size:1.3em;">93%</div></div>
@@ -158,6 +160,7 @@
     <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Control</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="controlFill" style="height:64%;background:#F44336;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="controlValue" style="color:#F44336;font-weight:bold;font-size:1.3em;">64%</div></div>
   </div>
 
+  <!-- Presets -->
   <div style="text-align:center; margin:40px 0;">
     <strong style="color:#041E42;">Pro Presets:</strong><br><br>
     <button onclick="loadPreset('alcaraz')" class="preset">Alcaraz</button>
@@ -256,26 +259,26 @@
       });
     }
 
-    // Presets
+    // Presets — now use exact internal keys (1Generic...)
     function loadPreset(p){
       const presets = {
-        alcaraz:  {main:'Babolat RPM Blast',mg:'17',mt:55,ct:53, pattern:'1619', head:'98'},
-        sinner:   {main:'Head Hawk Touch',mg:'17',mt:61,ct:61, pattern:'1619', head:'100'},
-        swiatek:  {main:'Tecnifibre Razor Code',mg:'17',mt:53,ct:53, pattern:'1619', head:'98'},
-        federer:  {main:'Wilson Natural Gut',mg:'16',mt:55,ct:52, cross:'Luxilon ALU Power Rough',cg:'16'},
-        comfort:  {main:'1Generic Multifilament',mg:'16',mt:48,ct:48, pattern:'1619', head:'100'},
-        spin:     {main:'1Generic Polyester',mg:'17',mt:46,ct:44, pattern:'1619', head:'98'}
+        alcaraz:  {main:"1Generic Polyester",mg:"17",mt:55,ct:53,pattern:"1619",head:"98"},
+        sinner:   {main:"1Generic Polyester",mg:"17",mt:61,ct:61,pattern:"1619",head:"100"},
+        swiatek:  {main:"1Generic Polyester",mg:"17",mt:53,ct:53,pattern:"1619",head:"98"},
+        federer:  {main:"1Generic Natural Gut",mg:"16",mt:55,ct:52,cross:"1Generic Polyester",cg:"16"},
+        comfort:  {main:"1Generic Multifilament",mg:"16",mt:48,ct:48,pattern:"1619",head:"100"},
+        spin:     {main:"1Generic Polyester",mg:"17",mt:46,ct:44,pattern:"1619",head:"98"}
       };
       const pre = presets[p];
       if(pre){
-        document.getElementById('mainString').value = pre.main || document.getElementById('mainString').value;
+        document.getElementById('mainString').value = pre.main;
         document.getElementById('mainGauge').value = pre.mg;
         document.getElementById('mainSlider').value = pre.mt;
-        document.getElementById('crossString').value = pre.cross || document.getElementById('crossString').value;
-        document.getElementById('crossGauge').value = pre.cg || document.getElementById('crossGauge').value;
+        document.getElementById('crossString').value = pre.cross || pre.main;
+        document.getElementById('crossGauge').value = pre.cg || pre.mg;
         document.getElementById('crossSlider').value = pre.ct || pre.mt;
-        document.getElementById('pattern').value = pre.pattern || '1619';
-        document.getElementById('headsize').value = pre.head || '98';
+        if(pre.pattern) document.getElementById('pattern').value = pre.pattern;
+        if(pre.head) document.getElementById('headsize').value = pre.head;
         calc();
       }
     }
