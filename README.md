@@ -95,12 +95,11 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    String Job Simulator - pick a string
+    Ultimate String Job Simulator — Your Exact Inventory + Presets
   </h3>
 
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
-    Pick any string from our stock (or generic type), set gauge, tension, pattern & head size. 
-    Watch the bars update with real-world feel.
+    Pick any string from your stock, set gauge/tension/pattern/head size, or hit a preset below.
   </p>
 
   <!-- Controls -->
@@ -108,17 +107,17 @@
     <div style="margin:18px 0;">
       <strong>Mains:</strong>
       <select id="mainString"></select>
-      <select id="mainGauge"><option value="16">16g</option><option value="16L">16L</option><option value="17" selected>17g</option><option value="18">18g</option></select>
-      <span id="mainTension" style="font-weight:bold;color:#c00;">50</span> lbs
+      <select id="mainGauge"><option value="16" selected>16g</option><option value="16L">16L</option><option value="17">17g</option><option value="18">18g</option></select>
+      <span id="mainTension" style="font-weight:bold;color:#0066cc;">50</span> lbs
       <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5" style="width:280px;">
     </div>
 
     <div style="margin:18px 0;">
       <strong>Crosses:</strong>
       <select id="crossString"></select>
-      <select id="crossGauge"><option value="16">16g</option><option value="16L">16L</option><option value="17">17g</option><option value="18" selected>18g</option></select>
-      <span id="crossTension" style="font-weight:bold;color:#0066cc;">54</span> lbs
-      <input type="range" id="crossSlider" min="38" max="68" value="54" step="0.5" style="width:280px;">
+      <select id="crossGauge"><option value="16" selected>16g</option><option value="16L">16L</option><option value="17">17g</option><option value="18">18g</option></select>
+      <span id="crossTension" style="font-weight:bold;color:#0066cc;">50</span> lbs
+      <input type="range" id="crossSlider" min="38" max="68" value="50" step="0.5" style="width:280px;">
     </div>
 
     <div style="margin:25px 0;">
@@ -142,19 +141,81 @@
     </div>
   </div>
 
-  <!-- Bars (same beautiful layout) -->
+  <!-- Bars -->
   <div style="display:flex;justify-content:center;align-items:end;gap:35px;max-width:1100px;margin:40px auto;padding:30px 20px;background:#f8f9fa;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.15);flex-wrap:nowrap;overflow-x:auto;">
-    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Power</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="powerFill" style="height:82%;background:#4CAF50;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="powerValue" style="color:#4CAF50;font-weight:bold;font-size:1.3em;">82%</div></div>
-    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Comfort</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="comfortFill" style="height:88%;background:#2196F3;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="comfortValue" style="color:#2196F3;font-weight:bold;font-size:1.3em;">88%</div></div>
-    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Durability</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="durabilityFill" style="height:72%;background:#FF9800;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="durabilityValue" style="color:#FF9800;font-weight:bold;font-size:1.3em;">72%</div></div>
-    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Spin</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="spinFill" style="height:92%;background:#9C27B0;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="spinValue" style="color:#9C27B0;font-weight:bold;font-size:1.3em;">92%</div></div>
-    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Control</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="controlFill" style="height:90%;background:#F44336;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="controlValue" style="color:#F44336;font-weight:bold;font-size:1.3em;">90%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Power</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="powerFill" style="height:86%;background:#4CAF50;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="powerValue" style="color:#4CAF50;font-weight:bold;font-size:1.3em;">86%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Comfort</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="comfortFill" style="height:93%;background:#2196F3;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="comfortValue" style="color:#2196F3;font-weight:bold;font-size:1.3em;">93%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Durability</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="durabilityFill" style="height:52%;background:#FF9800;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="durabilityValue" style="color:#FF9800;font-weight:bold;font-size:1.3em;">52%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Spin</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="spinFill" style="height:54%;background:#9C27B0;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="spinValue" style="color:#9C27B0;font-weight:bold;font-size:1.3em;">54%</div></div>
+    <div style="text-align:center;min-width:110px;"><div style="font-weight:bold;color:#041E42;">Control</div><div style="height:220px;width:55px;background:#eee;border-radius:14px;margin:10px auto;overflow:hidden;position:relative;"><div id="controlFill" style="height:64%;background:#F44336;border-radius:14px;transition:all .6s ease;position:absolute;bottom:0;width:100%;"></div></div><div id="controlValue" style="color:#F44336;font-weight:bold;font-size:1.3em;">64%</div></div>
   </div>
 
-  <p style="text-align:center;color:#041E42;margin-top:40px;font-size:1.1em;font-style:italic;">
-    Your exact strings. Your exact setup. Your exact feel — before the first hit.
-  </p>
+  <!-- Presets + Copy Button -->
+  <div style="text-align:center; margin:40px 0;">
+    <strong style="color:#041E42;">Quick Presets:</strong><br><br>
+    <button onclick="loadPreset('alcaraz()" class="preset">Alcaraz (RPM Blast 17g 55/53)</button>
+    <button onclick="loadPreset('sinner')" class="preset">Sinner (Hawk Touch 61)</button>
+    <button onclick="loadPreset('swiatek')" class="preset">Swiatek (Razor Code 53)</button>
+    <button onclick="loadPreset('federer')" class="preset">Federer Classic (Gut/Poly)</button>
+    <button onclick="loadPreset('armfriendly')" class="preset">Max Comfort</button>
+    <button onclick="loadPreset('maxspin')" class="preset">Max Spin</button>
+  </div>
 
+  <button onclick="copySetup()" style="display:block;margin:30px auto;padding:12px 30px;font-size:1.1em;background:#041E42;color:white;border:none;border-radius:30px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.2);">
+    📋 Copy My Setup to Clipboard
+  </button>
+
+  <script>
+    // Your full 27-string + renamed generics database
+    const stringData = {
+      "1Generic Polyester":       {p:50,c:35,d:90,s:94,k:93},
+      "1Generic Multifilament":   {p:86,c:93,d:52,s:54,k:64},
+      "1Generic Synthetic Gut":   {p:72,c:81,d:74,s:62,k:71},
+      "1Generic Natural Gut":     {p:93,c:96,d:38,s:48,k:58},
+      "Asics Resolution 16":      {p:70,c:80,d:72,s:60,k:70},
+      "Babolat Conquest":          {p:72,c:82,d:75,s:58,k:68},
+      "Babolat N.Vy":             {p:75,c:85,d:65,s:55,k:65},
+      "Babolat Excel":            {p:88,c:94,d:50,s:52,k:62},
+      "Bluestar Multi Filament":  {p:87,c:93,d:55,s:54,k:64},
+      "Gamma Octo TNT":           {p:74,c:83,d:78,s:62,k:72},
+      "Head FXP":                {p:71,c:81,d:73,s:59,k:69},
+      "Head FXP Tour":            {p:69,c:79,d:75,s:63,k:74},
+      "Head Intellistring":       {p:73,c:84,d:70,s:57,k:67},
+      "Head Velocity MLT":         {p:88,c:94,d:54,s:56,k:66},
+      "Kirschbaum Super Smash":   {p:48,c:30,d:94,s:98,k:96},
+      "Kirschbaum Synthetic Gut": {p:70,c:80,d:76,s:60,k:70},
+      "Prince Control 15":        {p:87,c:92,d:52,s:53,k:63},
+      "Prince Tour XC":           {p:50,c:34,d:91,s:95,k:94},
+      "Prince Synthetic Gut 15L": {p:71,c:81,d:74,s:59,k:69},
+      "Prince Synthetic Gut with Duraflex": {p:73,c:83,d:80,s:58,k:68},
+      "Tourna Premier Poly":      {p:52,c:37,d:89,s:93,k:91},
+      "Wilson Extreme Octane":    {p:76,c:85,d:70,s:62,k:72},
+      "Wilson Hollowcore 16":     {p:78,c:87,d:68,s:60,k:70},
+      "Wilson Hyperlast":         {p:49,c:32,d:92,s:96,k:95},
+      "Wilson NXT with Duramax 15":{p:89,c:95,d:56,s:55,k:65},
+      "Wilson Poly Last":         {p:48,c:30,d:93,s:97,k:96},
+      "Wilson SGX":              {p:72,c:82,d:75,s:60,k:70},
+      "Wilson Shock Shield 16":   {p:74,c:86,d:72,s:58,k:68},
+      "Wilson Shock Shield 17":   {p:75,c:88,d:68,s:57,k:67},
+      "Wilson Super Spin 16":     {p:85,c:90,d:50,s:70,k:65},
+      "Wilson Synthetic Gut Extreme":{p:73,c:83,d:76,s:61,k:71}
+    };
+
+    // Populate dropdowns
+    const list = Object.keys(stringData).sort();
+    ['mainString','crossString'].forEach(id => {
+      const sel = document.getElementById(id);
+      list.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s.replace('1Generic ',''); // hide the 1 in display
+        sel.appendChild(opt);
+      });
+      sel.value = '1Generic Multifilament';
+    });
+
+    const gaugeEffect = {"16":0,"16L":2,"17":5,"18":9};
+    const patternEffect = {"1619":{s:+12,p:+8,k:-6,d:-8},"1819":{s:+4,p:+2,k:+2,d:+2},"1820":{s:-8,p:-6,k:+
   <script>
     // Your 27 strings + generic fallbacks
     const stringData = {
