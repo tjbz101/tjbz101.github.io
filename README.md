@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120325F</h3>
+<h3>V120325G</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -95,11 +95,11 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    Ultimate String Job Simulator — Your Exact Inventory + Pro Presets
+    String Job Simulator + Pro Presets
   </h3>
 
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
-    Pick any string from your shop, set gauge/tension/pattern/head size, or hit a pro preset below.
+    Pick any string from the shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
   <!-- Controls -->
