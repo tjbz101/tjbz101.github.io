@@ -367,7 +367,7 @@ tensionGuideOpen = false;
   </script>
 </div>
 
-<!-- TAB 4 — INTERACTIVE TENSION LOSS SIMULATOR (FIXED) -->
+<!-- TAB 4 — INTERACTIVE TENSION LOSS (FULLY MOBILE RESPONSIVE) -->
 <div id="TensionLoss" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin:40px 0 20px;">
     How Fast Do Strings Lose Tension?
@@ -384,16 +384,17 @@ tensionGuideOpen = false;
       Hours Played: <span id="hoursPlayed" style="color:#c00;">0</span> hrs
     </label><br><br>
     <input type="range" id="tensionSlider" min="0" max="20" value="0" step="1"
-           style="width:80%; max-width:600px; height:16px; border-radius:10px; background:#ddd; outline:none; cursor:pointer;">
+           style="width:85%; max-width:600px; height:16px; border-radius:10px; background:#ddd; outline:none; cursor:pointer;">
   </div>
 
-  <!-- Chart -->
-  <div style="max-width:900px; margin:0 auto 40px; padding:20px;">
-    <canvas id="tensionLossChart" height="260"></canvas>
+  <!-- Responsive Chart Container -->
+  <div style="max-width:900px; margin:0 auto 40px; padding:15px; height:340px;">
+    <canvas id="tensionLossChart"></canvas>
   </div>
 
   <p style="text-align:center; color:#555; font-style:italic;">
-    Fresh strings = peak performance.
+    Fresh strings = peak performance. Dead strings = dead shots.<br>
+    Let me keep yours alive.
   </p>
 </div>
 
@@ -426,6 +427,7 @@ tensionGuideOpen = false;
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: { legend: { position: 'bottom' } },
           scales: {
             y: { min: 30, max: 105, title: { display: true, text: '% Tension Remaining' } },
@@ -442,7 +444,6 @@ tensionGuideOpen = false;
       dataset.data = retention[key].map((v, idx) => idx <= hours ? v : null);
       dataset.pointRadius = retention[key].map((_, idx) => idx === hours ? 10 : 4);
       dataset.pointBackgroundColor = retention[key].map((_, idx) => idx === hours ? '#ffffff' : dataset.borderColor);
-      dataset.pointBorderColor = dataset.borderColor;
       dataset.pointBorderWidth = retention[key].map((_, idx) => idx === hours ? 3 : 1);
     });
 
@@ -453,12 +454,11 @@ tensionGuideOpen = false;
     updateChart(parseInt(e.target.value));
   });
 
-  // Auto-create chart when tab opens
+  // Load chart when tab opens
   document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', () => {
     setTimeout(() => updateChart(parseInt(document.getElementById('tensionSlider').value || 0)), 300);
   });
 
-  // Init
   updateChart(0);
 </script>
 
