@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120325I</h3>
+<h3>V120325J</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -95,82 +95,20 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    String Job Simulator + Pro Presets
+    ### String Job Simulator + Pro Presets
   </h3>
 
-    <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
-    Pick any string from your shop, set gauge/tension/pattern/head size, or hit a pro preset below.
+  <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
+    Pick any string from the shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
-  <!-- Recommended Tension Button + Pop-up -->
+  <!-- Recommended Tension Button -->
   <div style="text-align:center; margin:30px 0;">
     <button onclick="showTensionGuide()" 
             style="padding:14px 36px; font-size:1.15em; background:#041E42; color:white; border:none; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
       Recommended Tension by Head Size
     </button>
   </div>
-
-  <div id="tensionGuidePopup" style="display:none; position:fixed; background:#041E42; color:white; padding:20px; border-radius:16px; max-width:380px; z-index:9999; box-shadow:0 10px 40px rgba(0,0,0,0.6); font-size:0.98em; line-height:1.6; pointer-events:none; opacity:0; transition:opacity 0.3s;">
-    <strong style="font-size:1.3em; display:block; margin-bottom:12px;">Recommended Starting Tensions</strong>
-    Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
-    <table style="width:100%; margin:18px 0; border-collapse:collapse; font-size:0.95em;">
-      <thead>
-        <tr style="border-bottom:2px solid #666;">
-          <th align="left">Head Size</th>
-          <th align="center">Poly</th>
-          <th align="center">Multi / Syn</th>
-          <th align="center">Gut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>95–98 in²</td><td align="center">50–56</td><td align="center">54–60</td><td align="center">56–62</td></tr>
-        <tr><td>99–100</td><td align="center">48–54</td><td align="center">52–58</td><td align="center">54–60</td></tr>
-        <tr><td>101–105</td><td align="center">46–52</td><td align="center">50–56</td><td align="center">52–58</td></tr>
-        <tr><td>106–115</td><td align="center">44–50</td><td align="center">48–54</td><td align="center">50–56</td></tr>
-        <tr><td>116+</td><td align="center">42–48</td><td align="center">46–52</td><td align="center">48–54</td></tr>
-      </tbody>
-    </table>
-    <em>These are proven starting points — 99% of players love them on the first hit.</em>
-  </div>
-
-  <script>
-    let tensionGuideOpen = false;
-    function showTensionGuide(){
-      const popup = document.getElementById('tensionGuidePopup');
-      if(tensionGuideOpen){
-        popup.style.opacity = '0';
-        setTimeout(() => popup.style.display = 'none', 300);
-        tensionGuideOpen = false;
-        return;
-      }
-      popup.style.display = 'block';
-      tensionGuideOpen = true;
-      const pos = (e) => {
-        const x = e.touches ? e.touches[0].pageX : e.pageX;
-        const y = e.touches ? e.touches[0].pageY : e.pageY;
-        popup.style.left = (x + 20) + 'px';
-        popup.style.top = (y + 20) + 'px';
-        popup.style.opacity = '1';
-      };
-      setTimeout(() => pos(event || window.event), 50);
-      const move = (e) => pos(e);
-      document.addEventListener('mousemove', move);
-      document.addEventListener('touchmove', move);
-      const close = () => {
-        popup.style.opacity = '0';
-        setTimeout(() => popup.style.display = 'none', 300);
-        tensionGuideOpen = false;
-        document.removeEventListener('mousemove', move);
-        document.removeEventListener('touchmove', move);
-        document.removeEventListener('click', close);
-        document.removeEventListener('touchstart', close);
-      };
-      setTimeout(() => {
-        document.addEventListener('click', close);
-        document.addEventListener('touchstart', close);
-      }, 100);
-    }
-  </script>
 
   <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
@@ -233,25 +171,95 @@
   <!-- Presets -->
   <div style="text-align:center; margin:40px 0;">
     <strong style="color:#041E42;">Pro Presets:</strong><br><br>
-    <button onclick="loadPreset('alcaraz')" class="preset">Alcaraz</button>
-    <button onclick="loadPreset('sinner')" class="preset">Sinner</button>
-    <button onclick="loadPreset('swiatek')" class="preset">Swiatek</button>
-    <button onclick="loadPreset('federer')" class="preset">Federer Gut/Poly</button>
-    <button onclick="loadPreset('comfort')" class="preset">Max Comfort</button>
-    <button onclick="loadPreset('spin')" class="preset">Max Spin</button>
+    <button onclick="loadPreset('alcaraz')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Alcaraz</button>
+    <button onclick="loadPreset('sinner')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Sinner</button>
+    <button onclick="loadPreset('swiatek')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Swiatek</button>
+    <button onclick="loadPreset('federer')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Federer Gut/Poly</button>
+    <button onclick="loadPreset('comfort')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Max Comfort</button>
+    <button onclick="loadPreset('spin')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Max Spin</button>
   </div>
 
   <button onclick="copySetup()" style="display:block;margin:30px auto;padding:12px 30px;font-size:1.1em;background:#041E42;color:white;border:none;border-radius:30px;cursor:pointer;">
     Copy My Setup
   </button>
 
+  <!-- Tension Guide Pop-up -->
+  <div id="tensionGuidePopup" style="display:none; position:fixed; background:#041E42; color:white; padding:20px; border-radius:16px; max-width:380px; z-index:9999; box-shadow:0 10px 40px rgba(0,0,0,0.6); font-size:0.98em; line-height:1.6; pointer-events:none; opacity:0; transition:opacity 0.3s;">
+    <strong style="font-size:1.3em; display:block; margin-bottom:12px;">Recommended Starting Tensions</strong>
+    
+    Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
+    
+    <table style="width:100%; margin:18px 0; border-collapse:collapse; font-size:0.95em;">
+      <thead>
+        <tr style="border-bottom:2px solid #666;">
+          <th align="left">Head Size</th>
+          <th align="center">Poly</th>
+          <th align="center">Multi / Syn</th>
+          <th align="center">Gut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>95–98 in²</td><td align="center">50–56</td><td align="center">54–60</td><td align="center">56–62</td></tr>
+        <tr><td>99–100</td><td align="center">48–54</td><td align="center">52–58</td><td align="center">54–60</td></tr>
+        <tr><td>101–105</td><td align="center">46–52</td><td align="center">50–56</td><td align="center">52–58</td></tr>
+        <tr><td>106–115</td><td align="center">44–50</td><td align="center">48–54</td><td align="center">50–56</td></tr>
+        <tr><td>116+</td><td align="center">42–48</td><td align="center">46–52</td><td align="center">48–54</td></tr>
+      </tbody>
+    </table>
+    
+    <em>These are proven starting points — 99% of players love them on the first hit.</em>
+  </div>
+
+  <!-- Tension Guide Script -->
+  <script>
+    let tensionGuideOpen = false;
+    function showTensionGuide(){
+      const popup = document.getElementById('tensionGuidePopup');
+      if(tensionGuideOpen){
+        popup.style.opacity = '0';
+        setTimeout(() => popup.style.display = 'none', 300);
+        tensionGuideOpen = false;
+        return;
+      }
+      popup.style.display = 'block';
+      tensionGuideOpen = true;
+
+      const pos = (e) => {
+        const x = e.touches ? e.touches[0].pageX : e.pageX;
+        const y = e.touches ? e.touches[0].pageY : e.pageY;
+        popup.style.left = (x + 20) + 'px';
+        popup.style.top = (y + 20) + 'px';
+        popup.style.opacity = '1';
+      };
+      setTimeout(() => pos(event || window.event), 50);
+
+      const move = (e) => pos(e);
+      document.addEventListener('mousemove', move);
+      document.addEventListener('touchmove', move);
+
+      const close = () => {
+        popup.style.opacity = '0';
+        setTimeout(() => popup.style.display = 'none', 300);
+        tensionGuideOpen = false;
+        document.removeEventListener('mousemove', move);
+        document.removeEventListener('touchmove', move);
+        document.removeEventListener('click', close);
+        document.removeEventListener('touchstart', close);
+      };
+      setTimeout(() => {
+        document.addEventListener('click', close);
+        document.addEventListener('touchstart', close);
+      }, 100);
+    }
+  </script>
+
+  <!-- Main Simulator Script (your current working one) -->
   <script>
     const stringData = {
       "1Generic Polyester":       {p:50,c:35,d:90,s:94,k:93},
       "1Generic Multifilament":   {p:86,c:93,d:52,s:54,k:64},
       "1Generic Synthetic Gut":   {p:72,c:81,d:74,s:62,k:71},
       "1Generic Natural Gut":     {p:93,c:96,d:38,s:48,k:58},
-      "AG International Poly 17": {p:52,c:36,d:90,s:94,k:92},
       "Asics Resolution 16":      {p:70,c:80,d:72,s:60,k:70},
       "Babolat Conquest":          {p:72,c:82,d:75,s:58,k:68},
       "Babolat N.Vy":             {p:75,c:85,d:65,s:55,k:65},
@@ -330,7 +338,7 @@
       });
     }
 
-    // Presets — now use exact internal keys (1Generic...)
+    // Presets
     function loadPreset(p){
       const presets = {
         alcaraz:  {main:"1Generic Polyester",mg:"17",mt:55,ct:53,pattern:"1619",head:"98"},
@@ -371,6 +379,7 @@
   </script>
 </div>
 
+  
 <script>
 const strings = [
 {name:"AG International Poly 17",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Aggressive co-poly at a killer price. Great snapback, bite, and tension maintenance — perfect for spin monsters on a budget."},
