@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120325H</h3>
+<h3>V120325I</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -102,6 +102,7 @@
     Pick any string from your shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
+  <!-- Recommended Tension Button + Pop-up -->
   <div style="text-align:center; margin:30px 0;">
     <button onclick="showTensionGuide()" 
             style="padding:14px 36px; font-size:1.15em; background:#041E42; color:white; border:none; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
@@ -109,12 +110,9 @@
     </button>
   </div>
 
-  <!-- Tension Guide Pop-up (same style as string reviews) -->
   <div id="tensionGuidePopup" style="display:none; position:fixed; background:#041E42; color:white; padding:20px; border-radius:16px; max-width:380px; z-index:9999; box-shadow:0 10px 40px rgba(0,0,0,0.6); font-size:0.98em; line-height:1.6; pointer-events:none; opacity:0; transition:opacity 0.3s;">
     <strong style="font-size:1.3em; display:block; margin-bottom:12px;">Recommended Starting Tensions</strong>
-    
     Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
-    
     <table style="width:100%; margin:18px 0; border-collapse:collapse; font-size:0.95em;">
       <thead>
         <tr style="border-bottom:2px solid #666;">
@@ -132,7 +130,6 @@
         <tr><td>116+</td><td align="center">42–48</td><td align="center">46–52</td><td align="center">48–54</td></tr>
       </tbody>
     </table>
-    
     <em>These are proven starting points — 99% of players love them on the first hit.</em>
   </div>
 
@@ -141,13 +138,13 @@
     function showTensionGuide(){
       const popup = document.getElementById('tensionGuidePopup');
       if(tensionGuideOpen){
-        popup.style.display = 'none';
+        popup.style.opacity = '0';
+        setTimeout(() => popup.style.display = 'none', 300);
         tensionGuideOpen = false;
         return;
       }
       popup.style.display = 'block';
       tensionGuideOpen = true;
-
       const pos = (e) => {
         const x = e.touches ? e.touches[0].pageX : e.pageX;
         const y = e.touches ? e.touches[0].pageY : e.pageY;
@@ -156,16 +153,15 @@
         popup.style.opacity = '1';
       };
       setTimeout(() => pos(event || window.event), 50);
-
-      document.addEventListener('mousemove', pos);
-      document.addEventListener('touchmove', pos);
-
+      const move = (e) => pos(e);
+      document.addEventListener('mousemove', move);
+      document.addEventListener('touchmove', move);
       const close = () => {
         popup.style.opacity = '0';
         setTimeout(() => popup.style.display = 'none', 300);
         tensionGuideOpen = false;
-        document.removeEventListener('mousemove', pos);
-        document.removeEventListener('touchmove', pos);
+        document.removeEventListener('mousemove', move);
+        document.removeEventListener('touchmove', move);
         document.removeEventListener('click', close);
         document.removeEventListener('touchstart', close);
       };
@@ -175,9 +171,6 @@
       }, 100);
     }
   </script>
-  <!-- <<< END INSERT >>> -->
-
-  <!-- Controls (your existing mains/crosses dropdowns & sliders go here) -->
 
   <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
