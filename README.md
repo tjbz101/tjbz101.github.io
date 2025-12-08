@@ -437,27 +437,17 @@ function openTab(evt,tabName){
 }
 </script>
 <script>
-  // Auto-open tab from URL parameter
-  const urlParams = new URLSearchParams(window.location.search);
-  const openTabId = urlParams.get('tab');
-  if (openTabId) {
-    setTimeout(() => {
-      const btn = document.querySelector(`button[onclick*=" '${openTabId}'"]`);
-      if (btn) btn.click();
-    }, 100);
-  }
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const openTabId = urlParams.get('tab');
-  if (openTabId) {
-    setTimeout(() => {
-      const btn = document.querySelector(`button[onclick*="openTab(event, '${openTabId}'"]`);
-      if (btn) btn.click();
-    }, 500);  // Increased delay to 500ms for reliable load
-  }
-});
+  // Auto-open tab from URL parameter — works every time
+  window.addEventListener('load', () => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get('tab');
+    if (tab) {
+      setTimeout(() => {
+        const button = document.querySelector(`button[onclick*="'${tab}'"]`);
+        if (button) button.click();
+      }, 300);
+    }
+  });
 </script>
 </body>
 </html>
