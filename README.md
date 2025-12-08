@@ -448,15 +448,14 @@ function openTab(evt,tabName){
   }
 </script>
 <script>
-// Auto-open tab from URL parameter (fires after DOM loads)
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const openTabId = urlParams.get('tab');
   if (openTabId) {
     setTimeout(() => {
-      const btn = document.querySelector(`button[onclick*="openTab(event, '${openTabId}')"]`);
+      const btn = document.querySelector(`button[onclick*="openTab(event, '${openTabId}'"]`);
       if (btn) btn.click();
-    }, 200);  // Slight delay for tabs to render
+    }, 500);  // Increased delay to 500ms for reliable load
   }
 });
 </script>
