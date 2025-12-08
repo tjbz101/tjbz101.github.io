@@ -166,62 +166,53 @@ tensionGuideOpen = false;
 });
 </script>
 
-  <!-- Controls -->
-      <!-- CROSSES — Upgraded Slider + Number Input -->
-    <div style="margin:18px 0; text-align:center;">
-      <strong>Crosses:</strong>
-      <select id="crossString"></select>
-      <select id="crossGauge">
-        <option value="16" selected>16g</option>
-        <option value="16L">16L</option>
-        <option value="17">17g</option>
-        <option value="18">18g</option>
-      </select>
-      <div style="display:inline-block; width:180px; margin:0 10px; position:relative;">
-        <input type="number" id="crossTensionInput" min="38" max="68" step="0.5" value="50"
-               style="width:100%; padding:10px; font-size:1.1em; text-align:center; border:2px solid #041E42; border-radius:8px;">
-        <span style="position:absolute; right:8px; top:50%; transform:translateY(-50%); color:#666; pointer-events:none;">lbs</span>
-      </div>
-      <input type="range" id="crossSlider" min="38" max="68" value="50" step="0.5"
-             style="width:280px; height:40px; -webkit-appearance:none; background:#ddd; border-radius:20px; outline:none;">
-      <style>
-        #crossSlider::-webkit-slider-thumb {
-          -webkit-appearance:none; appearance:none;
-          width:36px; height:36px; background:#041E42; border-radius:50%; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3);
-        }
-        #crossSlider::-moz-range-thumb {
-          width:36px; height:36px; background:#041E42; border:none; border-radius:50%; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3);
-        }
-      </style>
-    </div>
+  <!-- Controls --><!-- MAINS — Fat Slider Only -->
+<div style="margin:25px 0; text-align:center;">
+  <strong style="font-size:1.3em; color:#041E42;">Mains</strong><br>
+  <select id="mainString" style="margin:10px 0; padding:10px; font-size:1.1em; border-radius:8px;"></select>
+  <select id="mainGauge" style="margin:10px 5px; padding:10px;">
+    <option value="16" selected>16g</option>
+    <option value="16L">16L</option>
+    <option value="17">17g</option>
+    <option value="18">18g</option>
+  </select><br>
+  <span id="mainTension" style="font-size:1.8em; font-weight:bold; color:#c00;">50</span> lbs<br>
+  <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5"
+         style="width:320px; max-width:90%; height:50px; -webkit-appearance:none; background:#ddd; border-radius:25px; outline:none;">
+  <style>
+    #mainSlider::-webkit-slider-thumb {
+      -webkit-appearance:none; appearance:none;
+      width:48px; height:48px; background:#041E42; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
+    }
+    #mainSlider::-moz-range-thumb {
+      width:48px; height:48px; background:#041E42; border:none; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
+    }
+  </style>
+</div>
 
-        <!-- CROSSES — Upgraded Slider + Number Input -->
-    <div style="margin:18px 0; text-align:center;">
-      <strong>Crosses:</strong>
-      <select id="crossString"></select>
-      <select id="crossGauge">
-        <option value="16" selected>16g</option>
-        <option value="16L">16L</option>
-        <option value="17">17g</option>
-        <option value="18">18g</option>
-      </select>
-      <div style="display:inline-block; width:180px; margin:0 10px; position:relative;">
-        <input type="number" id="crossTensionInput" min="38" max="68" step="0.5" value="50"
-               style="width:100%; padding:10px; font-size:1.1em; text-align:center; border:2px solid #041E42; border-radius:8px;">
-        <span style="position:absolute; right:8px; top:50%; transform:translateY(-50%); color:#666; pointer-events:none;">lbs</span>
-      </div>
-      <input type="range" id="crossSlider" min="38" max="68" value="50" step="0.5"
-             style="width:280px; height:40px; -webkit-appearance:none; background:#ddd; border-radius:20px; outline:none;">
-      <style>
-        #crossSlider::-webkit-slider-thumb {
-          -webkit-appearance:none; appearance:none;
-          width:36px; height:36px; background:#041E42; border-radius:50%; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3);
-        }
-        #crossSlider::-moz-range-thumb {
-          width:36px; height:36px; background:#041E42; border:none; border-radius:50%; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3);
-        }
-      </style>
-    </div>
+<!-- CROSSES — Fat Slider Only -->
+<div style="margin:25px 0; text-align:center;">
+  <strong style="font-size:1.3em; color:#041E42;">Crosses</strong><br>
+  <select id="crossString" style="margin:10px 0; padding:10px; font-size:1.1em; border-radius:8px;"></select>
+  <select id="crossGauge" style="margin:10px 5px; padding:10px;">
+    <option value="16" selected>16g</option>
+    <option value="16L">16L</option>
+    <option value="17">17g</option>
+    <option value="18">18g</option>
+  </select><br>
+  <span id="crossTension" style="font-size:1.8em; font-weight:bold; color:#0066cc;">50</span> lbs<br>
+  <input type="range" id="crossSlider" min="38" max="68" value="50" step="0.5"
+         style="width:320px; max-width:90%; height:50px; -webkit-appearance:none; background:#ddd; border-radius:25px; outline:none;">
+  <style>
+    #crossSlider::-webkit-slider-thumb {
+      -webkit-appearance:none; appearance:none;
+      width:48px; height:48px; background:#041E42; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
+    }
+    #crossSlider::-moz-range-thumb {
+      width:48px; height:48px; background:#041E42; border:none; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
+    }
+  </style>
+</div>
 
     <div style="margin:25px 0;">
       <strong>Pattern:</strong>
@@ -391,29 +382,6 @@ tensionGuideOpen = false;
       document.getElementById(id).addEventListener('input', calc);
       document.getElementById(id).addEventListener('change', calc);
     });
-
-    calc();
-    // Sync number inputs ↔ sliders
-    document.getElementById('mainTensionInput').addEventListener('input', e => {
-      const val = parseFloat(e.target.value) || 50;
-      document.getElementById('mainSlider').value = val;
-      calc();
-    });
-    document.getElementById('crossTensionInput').addEventListener('input', e => {
-      const val = parseFloat(e.target.value) || 50;
-      document.getElementById('crossSlider').value = val;
-      calc();
-    });
-    document.getElementById('mainSlider').addEventListener('input', e => {
-      document.getElementById('mainTensionInput').value = e.target.value;
-      calc();
-    });
-    document.getElementById('crossSlider').addEventListener('input', e => {
-      document.getElementById('crossTensionInput').value = e.target.value;
-      calc();
-    });
-    // ←←← END PASTE →→→
-
     calc();  
   </script>
 </div>
