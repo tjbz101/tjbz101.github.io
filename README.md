@@ -54,13 +54,12 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825F</h3>
+<h3>V120825E</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
-  <button class="tablinks" onclick="openTab(event,'ProList')">Pro Profiles</button>
-  <button class="tablinks" onclick="openTab(event,'StringingInfo')">String Job Simulator</button>
-  <button class="tablinks" onclick="openTab(event,'TensionLoss')">Tension Loss</button>
+  <button class="tablinks" onclick="openTab(event,'ProList')">Player Profiles</button>
+  <button class="tablinks" onclick="openTab(event,'StringingInfo')">Tension Simulator</button>
 </div>
 
 <div id="AvailStrings" class="tabcontent" style="display:block;">
@@ -166,53 +165,33 @@ tensionGuideOpen = false;
 });
 </script>
 
-  <!-- Controls --><!-- MAINS — Fat Slider Only -->
-<div style="margin:25px 0; text-align:center;">
-  <strong style="font-size:1.3em; color:#041E42;">Mains</strong><br>
-  <select id="mainString" style="margin:10px 0; padding:10px; font-size:1.1em; border-radius:8px;"></select>
-  <select id="mainGauge" style="margin:10px 5px; padding:10px;">
-    <option value="16" selected>16g</option>
-    <option value="16L">16L</option>
-    <option value="17">17g</option>
-    <option value="18">18g</option>
-  </select><br>
-  <span id="mainTension" style="font-size:1.8em; font-weight:bold; color:#c00;">50</span> lbs<br>
-  <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5"
-         style="width:320px; max-width:90%; height:50px; -webkit-appearance:none; background:#ddd; border-radius:25px; outline:none;">
-  <style>
-    #mainSlider::-webkit-slider-thumb {
-      -webkit-appearance:none; appearance:none;
-      width:48px; height:48px; background:#041E42; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
-    }
-    #mainSlider::-moz-range-thumb {
-      width:48px; height:48px; background:#041E42; border:none; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
-    }
-  </style>
-</div>
+  <!-- Controls -->
+  <div style="text-align:center; margin-bottom:40px;">
+    <div style="margin:18px 0;">
+      <strong>Mains:</strong>
+      <select id="mainString"></select>
+      <select id="mainGauge">
+        <option value="16" selected>16g</option>
+        <option value="16L">16L</option>
+        <option value="17">17g</option>
+        <option value="18">18g</option>
+      </select>
+      <span id="mainTension" style="font-weight:bold;color:#0066cc;">50</span> lbs
+      <input type="range" id="mainSlider" min="38" max="68" value="50" step="0.5" style="width:280px;">
+    </div>
 
-<!-- CROSSES — Fat Slider Only -->
-<div style="margin:25px 0; text-align:center;">
-  <strong style="font-size:1.3em; color:#041E42;">Crosses</strong><br>
-  <select id="crossString" style="margin:10px 0; padding:10px; font-size:1.1em; border-radius:8px;"></select>
-  <select id="crossGauge" style="margin:10px 5px; padding:10px;">
-    <option value="16" selected>16g</option>
-    <option value="16L">16L</option>
-    <option value="17">17g</option>
-    <option value="18">18g</option>
-  </select><br>
-  <span id="crossTension" style="font-size:1.8em; font-weight:bold; color:#0066cc;">50</span> lbs<br>
-  <input type="range" id="crossSlider" min="38" max="68" value="50" step="0.5"
-         style="width:320px; max-width:90%; height:50px; -webkit-appearance:none; background:#ddd; border-radius:25px; outline:none;">
-  <style>
-    #crossSlider::-webkit-slider-thumb {
-      -webkit-appearance:none; appearance:none;
-      width:48px; height:48px; background:#041E42; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
-    }
-    #crossSlider::-moz-range-thumb {
-      width:48px; height:48px; background:#041E42; border:none; border-radius:50%; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.4);
-    }
-  </style>
-</div>
+    <div style="margin:18px 0;">
+      <strong>Crosses:</strong>
+      <select id="crossString"></select>
+      <select id="crossGauge">
+        <option value="16" selected>16g</option>
+        <option value="16L">16L</option>
+        <option value="17">17g</option>
+        <option value="18">18g</option>
+      </select>
+      <span id="crossTension" style="font-weight:bold;color:#0066cc;">50</span> lbs
+      <input type="range" id="crossSlider" min="38" max="68" value="50" step="0.5" style="width:280px;">
+    </div>
 
     <div style="margin:25px 0;">
       <strong>Pattern:</strong>
@@ -382,106 +361,12 @@ tensionGuideOpen = false;
       document.getElementById(id).addEventListener('input', calc);
       document.getElementById(id).addEventListener('change', calc);
     });
-    calc();  
+
+    calc();
   </script>
 </div>
 
-<!-- TAB 4 — INTERACTIVE TENSION LOSS (FULLY MOBILE RESPONSIVE) -->
-<div id="TensionLoss" class="tabcontent">
-  <h3 style="text-align:center; color:#041E42; margin:40px 0 20px;">
-    How Fast Do Strings Lose Tension?
-  </h3>
-
-  <p style="text-align:center; max-width:800px; margin:0 auto 30px; color:#333; line-height:1.7;">
-    Drag the slider — watch poly die in 8 hours while gut barely flinches.<br>
-    This is why pros restring every match… and why you should too.
-  </p>
-
-  <!-- Slider -->
-  <div style="text-align:center; margin:40px 0;">
-    <label style="font-size:1.4em; font-weight:bold; color:#041E42;">
-      Hours Played: <span id="hoursPlayed" style="color:#c00;">0</span> hrs
-    </label><br><br>
-    <input type="range" id="tensionSlider" min="0" max="20" value="0" step="1"
-           style="width:85%; max-width:600px; height:16px; border-radius:10px; background:#ddd; outline:none; cursor:pointer;">
-  </div>
-
-  <!-- Responsive Chart Container -->
-  <div style="max-width:900px; margin:0 auto 40px; padding:15px; height:340px;">
-    <canvas id="tensionLossChart"></canvas>
-  </div>
-
-  <p style="text-align:center; color:#555; font-style:italic;">
-    Fresh strings = peak performance. Dead strings = dead shots.<br>
-    Let me keep yours alive.
-  </p>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const retention = {
-    Polyester:     [100,88,78,70,63,58,54,51,48,46,44,42,40,38,37,36,35,34,33,32,31],
-    Multifilament: [100,96,92,89,86,84,82,80,78,77,76,75,74,73,72,71,70,69,68,67,66],
-    SyntheticGut:  [100,94,89,85,82,80,78,76,74,73,72,71,70,69,68,67,66,65,64,63,62],
-    NaturalGut:    [100,98,96,94,93,92,91,90,89,88,88,87,87,86,86,85,85,84,84,83,83]
-  };
-
-  let tensionChart = null;
-
-  function updateChart(hours) {
-    document.getElementById('hoursPlayed').textContent = hours;
-
-    if (!tensionChart) {
-      const ctx = document.getElementById('tensionLossChart').getContext('2d');
-      tensionChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: Array.from({length: 21}, (_, i) => i + ' hrs'),
-          datasets: [
-            { label: 'Polyester',     data: [], borderColor: '#9C27B0', backgroundColor: 'rgba(156,39,176,0.12)', fill: true, tension: 0.4 },
-            { label: 'Multifilament', data: [], borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.12)', fill: true, tension: 0.4 },
-            { label: 'Synthetic Gut', data: [], borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.12)', fill: true, tension: 0.4 },
-            { label: 'Natural Gut',   data: [], borderColor: '#FF9800', backgroundColor: 'rgba(255,152,0,0.12)', fill: true, tension: 0.4 }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom' } },
-          scales: {
-            y: { min: 30, max: 105, title: { display: true, text: '% Tension Remaining' } },
-            x: { title: { display: true, text: 'Hours Played' } }
-          },
-          animation: { duration: 0 }
-        }
-      });
-    }
-
-    const types = ['Polyester','Multifilament','SyntheticGut','NaturalGut'];
-    tensionChart.data.datasets.forEach((dataset, i) => {
-      const key = types[i];
-      dataset.data = retention[key].map((v, idx) => idx <= hours ? v : null);
-      dataset.pointRadius = retention[key].map((_, idx) => idx === hours ? 10 : 4);
-      dataset.pointBackgroundColor = retention[key].map((_, idx) => idx === hours ? '#ffffff' : dataset.borderColor);
-      dataset.pointBorderWidth = retention[key].map((_, idx) => idx === hours ? 3 : 1);
-    });
-
-    tensionChart.update();
-  }
-
-  document.getElementById('tensionSlider').addEventListener('input', e => {
-    updateChart(parseInt(e.target.value));
-  });
-
-  // Load chart when tab opens
-  document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', () => {
-    setTimeout(() => updateChart(parseInt(document.getElementById('tensionSlider').value || 0)), 300);
-  });
-
-  updateChart(0);
-</script>
-
-
+  
 <script>
 const strings = [
 {name:"AG International Poly 17",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Aggressive co-poly at a killer price. Great snapback, bite, and tension maintenance — perfect for spin monsters on a budget."},
