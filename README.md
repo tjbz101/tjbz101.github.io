@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825E</h3>
+<h3>V120825F</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -367,7 +367,7 @@ tensionGuideOpen = false;
   </script>
 </div>
 
-<!-- TAB 4 — INTERACTIVE TENSION LOSS SIMULATOR -->
+<!-- TAB 4 — INTERACTIVE TENSION LOSS SIMULATOR (FIXED) -->
 <div id="TensionLoss" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin:40px 0 20px;">
     How Fast Do Strings Lose Tension?
@@ -400,68 +400,69 @@ tensionGuideOpen = false;
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-// Tension retention data (real-world averages)
-const retention = {
-  Polyester:     [100, 88, 78, 70, 63, 58, 54, 51, 48, 46, 44, 42, 40, 38, 37, 36, 35, 34, 33, 32, 31],
-  Multifilament: [100, 96, 92, 89, 86, 84, 82, 80, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66],
-  SyntheticGut:  [100, 94, 89, 85, 82, 80, 78, 76, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62],
-  NaturalGut:    [100, 98, 96, 94, 93, 92, 91, 90, 89, 88, 88, 87, 87, 86, 86, 85, 85, 84, 84, 83, 83]
-};
+  const retention = {
+    Polyester:     [100,88,78,70,63,58,54,51,48,46,44,42,40,38,37,36,35,34,33,32,31],
+    Multifilament: [100,96,92,89,86,84,82,80,78,77,76,75,74,73,72,71,70,69,68,67,66],
+    SyntheticGut:  [100,94,89,85,82,80,78,76,74,73,72,71,70,69,68,67,66,65,64,63,62],
+    NaturalGut:    [100,98,96,94,93,92,91,90,89,88,88,87,87,86,86,85,85,84,84,83,83]
+  };
 
-let tensionChart = null;
+  let tensionChart = null;
 
-function updateChart(hours) {
-  document.getElementById('hoursPlayed').textContent = hours;
+  function updateChart(hours) {
+    document.getElementById('hoursPlayed').textContent = hours;
 
-  if (!tensionChart) {
-    const ctx = document.getElementById('tensionLossChart').getContext('2d');
-    tensionChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: Array.from({length: 21}, (_, i) => i + ' hrs'),
-        datasets: [
-          { label: 'Polyester',     data: retention.Polyester,     borderColor: '#9C27B0', backgroundColor: 'rgba(156,39,176,0.12)', tension: 0.4, fill: true },
-          { label: 'Multifilament', data: retention.Multifilament, borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.12)', tension: 0.4, fill: true },
-          { label: 'Synthetic Gut', data: retention.SyntheticGut,  borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.12)', tension: 0.4, fill: true },
-          { label: 'Natural Gut',   data: retention.NaturalGut,    borderColor: '#FF9800', backgroundColor: 'rgba(255,152,0,0.12)', tension: 0.4, fill: true }
-        ]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: 'bottom' } },
-        scales: {
-          y: { min: 30, max: 105, title: { display: true, text: '% Tension Remaining' } },
-          x: { title: { display: true, text: 'Hours Played' } }
+    if (!tensionChart) {
+      const ctx = document.getElementById('tensionLossChart').getContext('2d');
+      tensionChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: Array.from({length: 21}, (_, i) => i + ' hrs'),
+          datasets: [
+            { label: 'Polyester',     data: [], borderColor: '#9C27B0', backgroundColor: 'rgba(156,39,176,0.12)', fill: true, tension: 0.4 },
+            { label: 'Multifilament', data: [], borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.12)', fill: true, tension: 0.4 },
+            { label: 'Synthetic Gut', data: [], borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.12)', fill: true, tension: 0.4 },
+            { label: 'Natural Gut',   data: [], borderColor: '#FF9800', backgroundColor: 'rgba(255,152,0,0.12)', fill: true, tension: 0.4 }
+          ]
         },
-        animation: { duration: 0 } // instant update when sliding
-      }
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } },
+          scales: {
+            y: { min: 30, max: 105, title: { display: true, text: '% Tension Remaining' } },
+            x: { title: { display: true, text: 'Hours Played' } }
+          },
+          animation: { duration: 0 }
+        }
+      });
+    }
+
+    const types = ['Polyester','Multifilament','SyntheticGut','NaturalGut'];
+    tensionChart.data.datasets.forEach((dataset, i) => {
+      const key = types[i];
+      dataset.data = retention[key].map((v, idx) => idx <= hours ? v : null);
+      dataset.pointRadius = retention[key].map((_, idx) => idx === hours ? 10 : 4);
+      dataset.pointBackgroundColor = retention[key].map((_, idx) => idx === hours ? '#ffffff' : dataset.borderColor);
+      dataset.pointBorderColor = dataset.borderColor;
+      dataset.pointBorderWidth = retention[key].map((_, idx) => idx === hours ? 3 : 1);
     });
+
+    tensionChart.update();
   }
 
-  // Update data at current hour
-  tensionChart.data.datasets.forEach((dataset, i) => {
-    const key = ['Polyester','Multifilament','SyntheticGut','NaturalGut'][i];
-    dataset.data = retention[key].map((v, idx) => idx <= hours ? v : null);
-    dataset.pointBackgroundColor = idx === hours ? '#ffffff' : dataset.borderColor;
-    dataset.pointBorderColor = dataset.borderColor;
-    dataset.pointRadius = idx === hours ? 8 : 4;
+  document.getElementById('tensionSlider').addEventListener('input', e => {
+    updateChart(parseInt(e.target.value));
   });
-  tensionChart.update();
-}
 
-// Slider
-document.getElementById('tensionSlider').addEventListener('input', (e) => {
-  updateChart(parseInt(e.target.value));
-});
+  // Auto-create chart when tab opens
+  document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', () => {
+    setTimeout(() => updateChart(parseInt(document.getElementById('tensionSlider').value || 0)), 300);
+  });
 
-// Auto-open chart when tab is clicked
-document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', () => {
-  setTimeout(() => updateChart(parseInt(document.getElementById('tensionSlider').value)), 300);
-});
-
-// Init at 0 hrs
-updateChart(0);
+  // Init
+  updateChart(0);
 </script>
+
 
 <script>
 const strings = [
