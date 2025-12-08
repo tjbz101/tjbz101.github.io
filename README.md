@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825B</h3>
+<h3>V120825C</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -102,9 +102,9 @@
     Pick any string from the shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
-<!-- Recommended Tension Button -->
+<!-- Recommended Tension Button (keep where you have it now) -->
 <div style="text-align:center; margin:30px 0;">
-<button onclick="showTensionGuide()"
+<button id="tensionGuideBtn"
 style="padding:14px 36px; font-size:1.15em; background:#041E42; color:white; border:none; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
 Recommended Tension by Head Size
 </button>
@@ -183,8 +183,9 @@ Recommended Tension by Head Size
     Copy My Setup
   </button>
 
- <!-- Tension Guide Pop-up — FIXED: content now visible on all devices -->
-<div id="tensionGuidePopup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#041E42; color:white; padding:30px; border-radius:18px; max-width:440px; width:92%; z-index:9999; box-shadow:0 15px 50px rgba(0,0,0,0.7); font-size:1em; line-height:1.6; text-align:center; pointer-events:auto;">
+ <!-- Tension Guide Pop-up — 100% visible on all devices -->
+<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9998; justify-content:center; align-items:center;">
+<div style="background:#041E42; color:white; padding:30px; border-radius:18px; max-width:440px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.8); text-align:center; font-size:1em; line-height:1.6;">
 <strong style="font-size:1.4em; display:block; margin-bottom:15px;">Recommended Starting Tensions</strong>
 
 Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
@@ -192,10 +193,10 @@ Head size changes everything. Bigger heads deflect more — drop tension for con
 <table style="width:100%; margin:25px 0; border-collapse:collapse; font-size:1em; background:#0a2d5e; border-radius:12px; overflow:hidden;">
 <thead>
 <tr style="background:#0a2d5e;">
-<th style="padding:12px; text-align:left; border-bottom:2px solid #666;">Head Size</th>
-<th style="padding:12px; border-bottom:2px solid #666;">Poly</th>
-<th style="padding:12px; border-bottom:2px solid #666;">Multi / Syn</th>
-<th style="padding:12px; border-bottom:2px solid #666;">Gut</th>
+<th style="padding:12px; text-align:left;">Head Size</th>
+<th style="padding:12px;">Poly</th>
+<th style="padding:12px;">Multi / Syn</th>
+<th style="padding:12px;">Gut</th>
 </tr>
 </thead>
 <tbody style="background:#041E42;">
@@ -209,37 +210,29 @@ Head size changes everything. Bigger heads deflect more — drop tension for con
 
 <em style="display:block; margin-top:15px; opacity:0.9;">These are proven starting points — 99% of players love them on the first hit.</em>
 </div>
+</div>
 
 <script>
 let tensionGuideOpen = false;
-function showTensionGuide(){
-const popup = document.getElementById('tensionGuidePopup');
+document.getElementById('tensionGuideBtn').addEventListener('click', function(e){
+e.stopPropagation();
+const overlay = document.getElementById('tensionGuidePopup');
 if(tensionGuideOpen){
-popup.style.opacity = '0';
-setTimeout(() => popup.style.display = 'none', 300);
+overlay.style.display = 'none';
 tensionGuideOpen = false;
 return;
 }
-
-popup.style.display = 'block';
-setTimeout(() => popup.style.opacity = '1', 10);
+overlay.style.display = 'flex';
 tensionGuideOpen = true;
+});
 
-const close = (e) => {
-if (!popup.contains(e.target) && e.target !== document.querySelector('button[onclick="showTensionGuide()"]')) {
-popup.style.opacity = '0';
-setTimeout(() => popup.style.display = 'none', 300);
+// Close when clicking outside
+document.getElementById('tensionGuidePopup').addEventListener('click', function(e){
+if(e.target === this){
+this.style.display = 'none';
 tensionGuideOpen = false;
-document.removeEventListener('click', close);
-document.removeEventListener('touchstart', close);
 }
-};
-
-setTimeout(() => {
-document.addEventListener('click', close);
-document.addEventListener('touchstart', close);
-}, 100);
-}
+});
 </script>
 
   <!-- Main Simulator Script (your current working one) -->
