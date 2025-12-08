@@ -58,8 +58,9 @@
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
-  <button class="tablinks" onclick="openTab(event,'ProList')">Player Profiles</button>
-  <button class="tablinks" onclick="openTab(event,'StringingInfo')">Tension Simulator</button>
+  <button class="tablinks" onclick="openTab(event,'ProList')">Pro Profiles</button>
+  <button class="tablinks" onclick="openTab(event,'StringingInfo')">String Job Simulator</button>
+  <button class="tablinks" onclick="openTab(event,'TensionLoss')">Tension Loss</button>
 </div>
 
 <div id="AvailStrings" class="tabcontent" style="display:block;">
@@ -366,7 +367,60 @@ tensionGuideOpen = false;
   </script>
 </div>
 
-  
+<!-- TAB 4 — TENSION LOSS OVER TIME -->
+<div id="TensionLoss" class="tabcontent">
+  <h3 style="text-align:center; color:#041E42; margin:40px 0 20px;">
+    Tension Loss Over the First 10 Hours
+  </h3>
+
+  <p style="text-align:center; max-width:800px; margin:0 auto 30px; color:#333; line-height:1.7;">
+    This is why pros restring every match — poly drops off a cliff after 6–8 hours.<br>
+    Multifilament and natural gut hold tension way longer.
+  </p>
+
+  <div style="max-width:900px; margin:0 auto; padding:20px;">
+    <canvas id="tensionLossChart" height="320"></canvas>
+  </div>
+
+  <p style="text-align:center; margin-top:30px; color:#555; font-style:italic;">
+    Want your strings to feel fresh every time you play?<br>Come see me — I’ll make it happen.
+  </p>
+</div>
+
+<!-- Chart.js + Tension Loss Graph (loads only when needed) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Only create the chart when the tab is opened
+  document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', function() {
+    setTimeout(() => {
+      if (document.getElementById('tensionLossChart').getContext && !window.tensionChartCreated) {
+        const ctx = document.getElementById('tensionLossChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Fresh', '2 hrs', '4 hrs', '6 hrs', '8 hrs', '10 hrs'],
+            datasets: [
+              { label: 'Polyester',     data: [100, 88, 78, 70, 63, 58], borderColor: '#9C27B0', backgroundColor: 'rgba(156,39,176,0.12)', tension: 0.4, fill: true },
+              { label: 'Multifilament', data: [100, 96, 92, 89, 86, 84], borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.12)', tension: 0.4, fill: true },
+              { label: 'Synthetic Gut', data: [100, 94, 89, 85, 82, 80], borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.12)', tension: 0.4, fill: true },
+              { label: 'Natural Gut',   data: [100, 98, 96, 94, 93, 92], borderColor: '#FF9800', backgroundColor: 'rgba(255,152,0,0.12)', tension: 0.4, fill: true }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { position: 'bottom' } },
+            scales: {
+              y: { min: 50, max: 105, title: { display: true, text: '% of Original Tension' } },
+              x: { title: { display: true, text: 'Hours Played' } }
+            }
+          }
+        });
+        window.tensionChartCreated = true;
+      }
+    }, 200);
+  });
+</script>
+
 <script>
 const strings = [
 {name:"AG International Poly 17",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Aggressive co-poly at a killer price. Great snapback, bite, and tension maintenance — perfect for spin monsters on a budget."},
