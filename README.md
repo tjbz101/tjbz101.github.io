@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120325J</h3>
+<h3>V120825A</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -95,7 +95,7 @@
 
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
-    ### String Job Simulator + Pro Presets
+    String Job Simulator + Pro Presets
   </h3>
 
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333;">
@@ -103,12 +103,12 @@
   </p>
 
   <!-- Recommended Tension Button -->
-  <div style="text-align:center; margin:30px 0;">
-    <button onclick="showTensionGuide()" 
-            style="padding:14px 36px; font-size:1.15em; background:#041E42; color:white; border:none; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
-      Recommended Tension by Head Size
-    </button>
-  </div>
+<div style="text-align:center; margin:30px 0;">
+<button onclick="showTensionGuide()"
+style="padding:14px 36px; font-size:1.15em; background:#041E42; color:white; border:none; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
+Recommended Tension by Head Size
+</button>
+</div>
 
   <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
@@ -183,75 +183,65 @@
     Copy My Setup
   </button>
 
-  <!-- Tension Guide Pop-up -->
-  <div id="tensionGuidePopup" style="display:none; position:fixed; background:#041E42; color:white; padding:20px; border-radius:16px; max-width:380px; z-index:9999; box-shadow:0 10px 40px rgba(0,0,0,0.6); font-size:0.98em; line-height:1.6; pointer-events:none; opacity:0; transition:opacity 0.3s;">
-    <strong style="font-size:1.3em; display:block; margin-bottom:12px;">Recommended Starting Tensions</strong>
-    
-    Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
-    
-    <table style="width:100%; margin:18px 0; border-collapse:collapse; font-size:0.95em;">
-      <thead>
-        <tr style="border-bottom:2px solid #666;">
-          <th align="left">Head Size</th>
-          <th align="center">Poly</th>
-          <th align="center">Multi / Syn</th>
-          <th align="center">Gut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>95–98 in²</td><td align="center">50–56</td><td align="center">54–60</td><td align="center">56–62</td></tr>
-        <tr><td>99–100</td><td align="center">48–54</td><td align="center">52–58</td><td align="center">54–60</td></tr>
-        <tr><td>101–105</td><td align="center">46–52</td><td align="center">50–56</td><td align="center">52–58</td></tr>
-        <tr><td>106–115</td><td align="center">44–50</td><td align="center">48–54</td><td align="center">50–56</td></tr>
-        <tr><td>116+</td><td align="center">42–48</td><td align="center">46–52</td><td align="center">48–54</td></tr>
-      </tbody>
-    </table>
-    
-    <em>These are proven starting points — 99% of players love them on the first hit.</em>
-  </div>
+  <!-- Tension Guide Pop-up — Centered & Mobile-Friendly -->
+<div id="tensionGuidePopup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#041E42; color:white; padding:25px; border-radius:18px; max-width:420px; width:90%; z-index:9999; box-shadow:0 15px 50px rgba(0,0,0,0.7); font-size:1em; line-height:1.6; text-align:center;">
+<strong style="font-size:1.4em; display:block; margin-bottom:15px;">Recommended Starting Tensions</strong>
 
-  <!-- Tension Guide Script -->
-  <script>
-    let tensionGuideOpen = false;
-    function showTensionGuide(){
-      const popup = document.getElementById('tensionGuidePopup');
-      if(tensionGuideOpen){
-        popup.style.opacity = '0';
-        setTimeout(() => popup.style.display = 'none', 300);
-        tensionGuideOpen = false;
-        return;
-      }
-      popup.style.display = 'block';
-      tensionGuideOpen = true;
+Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
 
-      const pos = (e) => {
-        const x = e.touches ? e.touches[0].pageX : e.pageX;
-        const y = e.touches ? e.touches[0].pageY : e.pageY;
-        popup.style.left = (x + 20) + 'px';
-        popup.style.top = (y + 20) + 'px';
-        popup.style.opacity = '1';
-      };
-      setTimeout(() => pos(event || window.event), 50);
+<table style="width:100%; margin:20px 0; border-collapse:collapse; font-size:0.98em;">
+<thead>
+<tr style="border-bottom:2px solid #666;">
+<th align="left">Head Size</th>
+<th align="center">Poly</th>
+<th align="center">Multi / Syn</th>
+<th align="center">Gut</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>95–98 in²</td><td align="center">50–56</td><td align="center">54–60</td><td align="center">56–62</td></tr>
+<tr><td>99–100</td><td align="center">48–54</td><td align="center">52–58</td><td align="center">54–60</td></tr>
+<tr><td>101–105</td><td align="center">46–52</td><td align="center">50–56</td><td align="center">52–58</td></tr>
+<tr><td>106–115</td><td align="center">44–50</td><td align="center">48–54</td><td align="center">50–56</td></tr>
+<tr><td>116+</td><td align="center">42–48</td><td align="center">46–52</td><td align="center">48–54</td></tr>
+</tbody>
+</table>
 
-      const move = (e) => pos(e);
-      document.addEventListener('mousemove', move);
-      document.addEventListener('touchmove', move);
+<em>These are proven starting points — 99% of players love them on the first hit.</em>
+</div>
 
-      const close = () => {
-        popup.style.opacity = '0';
-        setTimeout(() => popup.style.display = 'none', 300);
-        tensionGuideOpen = false;
-        document.removeEventListener('mousemove', move);
-        document.removeEventListener('touchmove', move);
-        document.removeEventListener('click', close);
-        document.removeEventListener('touchstart', close);
-      };
-      setTimeout(() => {
-        document.addEventListener('click', close);
-        document.addEventListener('touchstart', close);
-      }, 100);
-    }
-  </script>
+<script>
+let tensionGuideOpen = false;
+function showTensionGuide(){
+const popup = document.getElementById('tensionGuidePopup');
+if(tensionGuideOpen){
+popup.style.opacity = '0';
+setTimeout(() => popup.style.display = 'none', 300);
+tensionGuideOpen = false;
+return;
+}
+
+popup.style.display = 'block';
+popup.style.opacity = '1';
+tensionGuideOpen = true;
+
+// Close when tapping/clicking anywhere outside
+const close = (e) => {
+if (!e.target.closest('#tensionGuidePopup') && !e.target.onclick?.toString().includes('showTensionGuide')) {
+popup.style.opacity = '0';
+setTimeout(() => popup.style.display = 'none', 300);
+tensionGuideOpen = false;
+document.removeEventListener('click', close);
+document.removeEventListener('touchstart', close);
+}
+};
+
+setTimeout(() => {
+document.addEventListener('click', close);
+document.addEventListener('touchstart', close);
+}, 100);
+}
+</script>
 
   <!-- Main Simulator Script (your current working one) -->
   <script>
