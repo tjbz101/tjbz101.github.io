@@ -246,6 +246,7 @@ tensionGuideOpen = false;
       "1Generic Multifilament":   {p:86,c:93,d:52,s:54,k:64},
       "1Generic Synthetic Gut":   {p:72,c:81,d:74,s:62,k:71},
       "1Generic Natural Gut":     {p:93,c:96,d:38,s:48,k:58},
+      "AG International Poly 17": {p:52,c:36,d:90,s:94,k:92},
       "Asics Resolution 16":      {p:70,c:80,d:72,s:60,k:70},
       "Babolat Conquest":          {p:72,c:82,d:75,s:58,k:68},
       "Babolat N.Vy":             {p:75,c:85,d:65,s:55,k:65},
