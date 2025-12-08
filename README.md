@@ -110,6 +110,58 @@ Recommended Tension by Head Size
 </button>
 </div>
 
+<!-- Tension Guide Pop-up — 100% visible on all devices -->
+<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9998; justify-content:center; align-items:center;">
+<div style="background:#041E42; color:white; padding:30px; border-radius:18px; max-width:440px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.8); text-align:center; font-size:1em; line-height:1.6;">
+<strong style="font-size:1.4em; display:block; margin-bottom:15px;">Recommended Starting Tensions</strong>
+
+Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
+
+<table style="width:100%; margin:25px 0; border-collapse:collapse; font-size:1em; background:#0a2d5e; border-radius:12px; overflow:hidden;">
+<thead>
+<tr style="background:#0a2d5e;">
+<th style="padding:12px; text-align:left;">Head Size</th>
+<th style="padding:12px;">Poly</th>
+<th style="padding:12px;">Multi / Syn</th>
+<th style="padding:12px;">Gut</th>
+</tr>
+</thead>
+<tbody style="background:#041E42;">
+<tr><td style="padding:12px;">95–98 in²</td><td>50–56</td><td>54–60</td><td>56–62</td></tr>
+<tr><td style="padding:12px;">99–100</td><td>48–54</td><td>52–58</td><td>54–60</td></tr>
+<tr><td style="padding:12px;">101–105</td><td>46–52</td><td>50–56</td><td>52–58</td></tr>
+<tr><td style="padding:12px;">106–115</td><td>44–50</td><td>48–54</td><td>50–56</td></tr>
+<tr><td style="padding:12px;">116+</td><td>42–48</td><td>46–52</td><td>48–54</td></tr>
+</tbody>
+</table>
+
+<em style="display:block; margin-top:15px; opacity:0.9;">These are proven starting points — 99% of players love them on the first hit.</em>
+</div>
+</div>
+
+<script>
+let tensionGuideOpen = false;
+document.getElementById('tensionGuideBtn').addEventListener('click', function(e){
+e.stopPropagation();
+const overlay = document.getElementById('tensionGuidePopup');
+if(tensionGuideOpen){
+overlay.style.display = 'none';
+tensionGuideOpen = false;
+return;
+}
+overlay.style.display = 'flex';
+tensionGuideOpen = true;
+});
+
+// Close when clicking outside
+document.getElementById('tensionGuidePopup').addEventListener('click', function(e){
+if(e.target === this){
+this.style.display = 'none';
+tensionGuideOpen = false;
+}
+});
+</script>
+
   <!-- Controls -->
   <div style="text-align:center; margin-bottom:40px;">
     <div style="margin:18px 0;">
@@ -183,58 +235,7 @@ Recommended Tension by Head Size
     Copy My Setup
   </button>
 
- <!-- Tension Guide Pop-up — 100% visible on all devices -->
-<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9998; justify-content:center; align-items:center;">
-<div style="background:#041E42; color:white; padding:30px; border-radius:18px; max-width:440px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.8); text-align:center; font-size:1em; line-height:1.6;">
-<strong style="font-size:1.4em; display:block; margin-bottom:15px;">Recommended Starting Tensions</strong>
-
-Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
-
-<table style="width:100%; margin:25px 0; border-collapse:collapse; font-size:1em; background:#0a2d5e; border-radius:12px; overflow:hidden;">
-<thead>
-<tr style="background:#0a2d5e;">
-<th style="padding:12px; text-align:left;">Head Size</th>
-<th style="padding:12px;">Poly</th>
-<th style="padding:12px;">Multi / Syn</th>
-<th style="padding:12px;">Gut</th>
-</tr>
-</thead>
-<tbody style="background:#041E42;">
-<tr><td style="padding:12px;">95–98 in²</td><td>50–56</td><td>54–60</td><td>56–62</td></tr>
-<tr><td style="padding:12px;">99–100</td><td>48–54</td><td>52–58</td><td>54–60</td></tr>
-<tr><td style="padding:12px;">101–105</td><td>46–52</td><td>50–56</td><td>52–58</td></tr>
-<tr><td style="padding:12px;">106–115</td><td>44–50</td><td>48–54</td><td>50–56</td></tr>
-<tr><td style="padding:12px;">116+</td><td>42–48</td><td>46–52</td><td>48–54</td></tr>
-</tbody>
-</table>
-
-<em style="display:block; margin-top:15px; opacity:0.9;">These are proven starting points — 99% of players love them on the first hit.</em>
-</div>
-</div>
-
-<script>
-let tensionGuideOpen = false;
-document.getElementById('tensionGuideBtn').addEventListener('click', function(e){
-e.stopPropagation();
-const overlay = document.getElementById('tensionGuidePopup');
-if(tensionGuideOpen){
-overlay.style.display = 'none';
-tensionGuideOpen = false;
-return;
-}
-overlay.style.display = 'flex';
-tensionGuideOpen = true;
-});
-
-// Close when clicking outside
-document.getElementById('tensionGuidePopup').addEventListener('click', function(e){
-if(e.target === this){
-this.style.display = 'none';
-tensionGuideOpen = false;
-}
-});
-</script>
-
+ 
   <!-- Main Simulator Script (your current working one) -->
   <script>
     const stringData = {
