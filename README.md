@@ -66,7 +66,7 @@
   <p style="text-align:center;">
     Available strings, sort by name or type. We can split sets for a hybrid string job.<br>
     You provide strings → $20 | Pick from below → $25<br>
-    Currently stringing on a Gamma ELS 7500 stringer (50 years experience).
+    Currently stringing on a Gamma ELS 7500 stringer (40 years experience).
   </p>
   <input type="text" id="searchInput" placeholder="Search by name or type..." onkeyup="searchTable()">
   <table id="stringTable">
@@ -138,7 +138,7 @@ Head size changes everything. Bigger heads deflect more — drop tension for con
 </table>
 
 <em style="display:block; margin-top:20px; color:#bbbbbb; font-size:0.95em;">
-These are proven starting points — 99% of players love them on the first hit.
+These are proven starting points ~ reach out with any questions.
 </em>
 </div>
 </div>
