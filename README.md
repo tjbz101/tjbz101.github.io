@@ -367,58 +367,100 @@ tensionGuideOpen = false;
   </script>
 </div>
 
-<!-- TAB 4 — TENSION LOSS OVER TIME -->
+<!-- TAB 4 — INTERACTIVE TENSION LOSS SIMULATOR -->
 <div id="TensionLoss" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin:40px 0 20px;">
-    Tension Loss Over the First 10 Hours
+    How Fast Do Strings Lose Tension?
   </h3>
 
   <p style="text-align:center; max-width:800px; margin:0 auto 30px; color:#333; line-height:1.7;">
-    This is why pros restring every match — poly drops off a cliff after 6–8 hours.<br>
-    Multifilament and natural gut hold tension way longer.
+    Drag the slider — watch poly die in 8 hours while gut barely flinches.<br>
+    This is why pros restring every match… and why you should too.
   </p>
 
-  <div style="max-width:900px; margin:0 auto; padding:20px;">
-    <canvas id="tensionLossChart" height="320"></canvas>
+  <!-- Slider -->
+  <div style="text-align:center; margin:40px 0;">
+    <label style="font-size:1.4em; font-weight:bold; color:#041E42;">
+      Hours Played: <span id="hoursPlayed" style="color:#c00;">0</span> hrs
+    </label><br><br>
+    <input type="range" id="tensionSlider" min="0" max="20" value="0" step="1"
+           style="width:80%; max-width:600px; height:16px; border-radius:10px; background:#ddd; outline:none; cursor:pointer;">
   </div>
 
-  <p style="text-align:center; margin-top:30px; color:#555; font-style:italic;">
-    Want your strings to feel fresh every time you play?<br>Come see me — I’ll make it happen.
+  <!-- Chart -->
+  <div style="max-width:900px; margin:0 auto 40px; padding:20px;">
+    <canvas id="tensionLossChart" height="340"></canvas>
+  </div>
+
+  <p style="text-align:center; color:#555; font-style:italic;">
+    Fresh strings = peak performance. Dead strings = dead shots.<br>
+    Let me keep yours alive.
   </p>
 </div>
 
-<!-- Chart.js + Tension Loss Graph (loads only when needed) -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  // Only create the chart when the tab is opened
-  document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', function() {
-    setTimeout(() => {
-      if (document.getElementById('tensionLossChart').getContext && !window.tensionChartCreated) {
-        const ctx = document.getElementById('tensionLossChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Fresh', '2 hrs', '4 hrs', '6 hrs', '8 hrs', '10 hrs'],
-            datasets: [
-              { label: 'Polyester',     data: [100, 88, 78, 70, 63, 58], borderColor: '#9C27B0', backgroundColor: 'rgba(156,39,176,0.12)', tension: 0.4, fill: true },
-              { label: 'Multifilament', data: [100, 96, 92, 89, 86, 84], borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.12)', tension: 0.4, fill: true },
-              { label: 'Synthetic Gut', data: [100, 94, 89, 85, 82, 80], borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.12)', tension: 0.4, fill: true },
-              { label: 'Natural Gut',   data: [100, 98, 96, 94, 93, 92], borderColor: '#FF9800', backgroundColor: 'rgba(255,152,0,0.12)', tension: 0.4, fill: true }
-            ]
-          },
-          options: {
-            responsive: true,
-            plugins: { legend: { position: 'bottom' } },
-            scales: {
-              y: { min: 50, max: 105, title: { display: true, text: '% of Original Tension' } },
-              x: { title: { display: true, text: 'Hours Played' } }
-            }
-          }
-        });
-        window.tensionChartCreated = true;
+// Tension retention data (real-world averages)
+const retention = {
+  Polyester:     [100, 88, 78, 70, 63, 58, 54, 51, 48, 46, 44, 42, 40, 38, 37, 36, 35, 34, 33, 32, 31],
+  Multifilament: [100, 96, 92, 89, 86, 84, 82, 80, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66],
+  SyntheticGut:  [100, 94, 89, 85, 82, 80, 78, 76, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62],
+  NaturalGut:    [100, 98, 96, 94, 93, 92, 91, 90, 89, 88, 88, 87, 87, 86, 86, 85, 85, 84, 84, 83, 83]
+};
+
+let tensionChart = null;
+
+function updateChart(hours) {
+  document.getElementById('hoursPlayed').textContent = hours;
+
+  if (!tensionChart) {
+    const ctx = document.getElementById('tensionLossChart').getContext('2d');
+    tensionChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array.from({length: 21}, (_, i) => i + ' hrs'),
+        datasets: [
+          { label: 'Polyester',     data: retention.Polyester,     borderColor: '#9C27B0', backgroundColor: 'rgba(156,39,176,0.12)', tension: 0.4, fill: true },
+          { label: 'Multifilament', data: retention.Multifilament, borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.12)', tension: 0.4, fill: true },
+          { label: 'Synthetic Gut', data: retention.SyntheticGut,  borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.12)', tension: 0.4, fill: true },
+          { label: 'Natural Gut',   data: retention.NaturalGut,    borderColor: '#FF9800', backgroundColor: 'rgba(255,152,0,0.12)', tension: 0.4, fill: true }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: {
+          y: { min: 30, max: 105, title: { display: true, text: '% Tension Remaining' } },
+          x: { title: { display: true, text: 'Hours Played' } }
+        },
+        animation: { duration: 0 } // instant update when sliding
       }
-    }, 200);
+    });
+  }
+
+  // Update data at current hour
+  tensionChart.data.datasets.forEach((dataset, i) => {
+    const key = ['Polyester','Multifilament','SyntheticGut','NaturalGut'][i];
+    dataset.data = retention[key].map((v, idx) => idx <= hours ? v : null);
+    dataset.pointBackgroundColor = idx === hours ? '#ffffff' : dataset.borderColor;
+    dataset.pointBorderColor = dataset.borderColor;
+    dataset.pointRadius = idx === hours ? 8 : 4;
   });
+  tensionChart.update();
+}
+
+// Slider
+document.getElementById('tensionSlider').addEventListener('input', (e) => {
+  updateChart(parseInt(e.target.value));
+});
+
+// Auto-open chart when tab is clicked
+document.querySelector('button[onclick*="TensionLoss"]').addEventListener('click', () => {
+  setTimeout(() => updateChart(parseInt(document.getElementById('tensionSlider').value)), 300);
+});
+
+// Init at 0 hrs
+updateChart(0);
 </script>
 
 <script>
