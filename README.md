@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825D</h3>
+<h3>V120825E</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -102,11 +102,6 @@
     Pick any string from the shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
-
-tjames.brown@gmail.com <tjames.brown@gmail.com>
-12:55 PM (0 minutes ago)
-to me
-
 <!-- Recommended Tension Button -->
 <div style="text-align:center; margin:30px 0;">
 <button id="tensionGuideBtn"
@@ -116,31 +111,35 @@ Recommended Tension by Head Size
 </div>
 
 <!-- Tension Guide Pop-up -->
-<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; z-index:9998; justify-content:center; align-items:center;">
-<div style="background:#041E42; color:white; padding:30px; border-radius:18px; max-width:440px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.8); text-align:center; font-size:1em; line-height:1.6;">
-<strong style="font-size:1.4em; display:block; margin-bottom:15px;">Recommended Starting Tensions</strong>
+<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+<div style="background:#041E42; color:#ffffff !important; padding:35px; border-radius:20px; max-width:460px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.9); text-align:center; font-size:1.05em; line-height:1.7;">
+<strong style="font-size:1.5em; display:block; margin-bottom:18px; color:#ffffff !important;">Recommended Starting Tensions</strong>
 
+<div style="color:#e0e0e0; margin-bottom:20px;">
 Head size changes everything. Bigger heads deflect more — drop tension for control. Smaller heads need higher tension for power & comfort.
+</div>
 
-<table style="width:100%; margin:25px 0; border-collapse:collapse; font-size:1em; background:#0a2d5e; border-radius:12px; overflow:hidden;">
+<table style="width:100%; margin:25px 0; border-collapse:separate; border-spacing:0; font-size:1.05em; background:#0d3470; border-radius:14px; overflow:hidden;">
 <thead>
-<tr style="background:#0a2d5e;">
-<th style="padding:12px; text-align:left;">Head Size</th>
-<th style="padding:12px;">Poly</th>
-<th style="padding:12px;">Multi / Syn</th>
-<th style="padding:12px;">Gut</th>
+<tr style="background:#0a2a5c;">
+<th style="padding:14px; text-align:left; color:#fff;">Head Size</th>
+<th style="padding:14px; color:#fff;">Poly</th>
+<th style="padding:14px; color:#fff;">Multi / Syn</th>
+<th style="padding:14px; color:#fff;">Gut</th>
 </tr>
 </thead>
-<tbody style="background:#041E42;">
-<tr><td style="padding:12px;">95–98 in²</td><td>50–56</td><td>54–60</td><td>56–62</td></tr>
-<tr><td style="padding:12px;">99–100</td><td>48–54</td><td>52–58</td><td>54–60</td></tr>
-<tr><td style="padding:12px;">101–105</td><td>46–52</td><td>50–56</td><td>52–58</td></tr>
-<tr><td style="padding:12px;">106–115</td><td>44–50</td><td>48–54</td><td>50–56</td></tr>
-<tr><td style="padding:12px;">116+</td><td>42–48</td><td>46–52</td><td>48–54</td></tr>
+<tbody>
+<tr style="background:#041E42;"><td style="padding:14px; color:#fff;">95–98 in²</td><td style="color:#fff;">50–56</td><td style="color:#fff;">54–60</td><td style="color:#fff;">56–62</td></tr>
+<tr style="background:#052040;"><td style="padding:14px; color:#fff;">99–100</td><td style="color:#fff;">48–54</td><td style="color:#fff;">52–58</td><td style="color:#fff;">54–60</td></tr>
+<tr style="background:#041E42;"><td style="padding:14px; color:#fff;">101–105</td><td style="color:#fff;">46–52</td><td style="color:#fff;">50–56</td><td style="color:#fff;">52–58</td></tr>
+<tr style="background:#052040;"><td style="padding:14px; color:#fff;">106–115</td><td style="color:#fff;">44–50</td><td style="color:#fff;">48–54</td><td style="color:#fff;">50–56</td></tr>
+<tr style="background:#041E42;"><td style="padding:14px; color:#fff;">116+</td><td style="color:#fff;">42–48</td><td style="color:#fff;">46–52</td><td style="color:#fff;">48–54</td></tr>
 </tbody>
 </table>
 
-<em style="display:block; margin-top:15px; opacity:0.9;">These are proven starting points — 99% of players love them on the first hit.</em>
+<em style="display:block; margin-top:20px; color:#bbbbbb; font-size:0.95em;">
+These are proven starting points — 99% of players love them on the first hit.
+</em>
 </div>
 </div>
 
