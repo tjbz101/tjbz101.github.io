@@ -389,12 +389,11 @@ tensionGuideOpen = false;
 
   <!-- Chart -->
   <div style="max-width:900px; margin:0 auto 40px; padding:20px;">
-    <canvas id="tensionLossChart" height="340"></canvas>
+    <canvas id="tensionLossChart" height="260"></canvas>
   </div>
 
   <p style="text-align:center; color:#555; font-style:italic;">
-    Fresh strings = peak performance. Dead strings = dead shots.<br>
-    Let me keep yours alive.
+    Fresh strings = peak performance.
   </p>
 </div>
 
