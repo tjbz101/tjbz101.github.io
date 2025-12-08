@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825C</h3>
+<h3>V120825D</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -102,7 +102,12 @@
     Pick any string from the shop, set gauge/tension/pattern/head size, or hit a pro preset below.
   </p>
 
-<!-- Recommended Tension Button (keep where you have it now) -->
+
+tjames.brown@gmail.com <tjames.brown@gmail.com>
+12:55 PM (0 minutes ago)
+to me
+
+<!-- Recommended Tension Button -->
 <div style="text-align:center; margin:30px 0;">
 <button id="tensionGuideBtn"
 style="padding:14px 36px; font-size:1.15em; background:#041E42; color:white; border:none; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
@@ -110,8 +115,8 @@ Recommended Tension by Head Size
 </button>
 </div>
 
-<!-- Tension Guide Pop-up — 100% visible on all devices -->
-<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9998; justify-content:center; align-items:center;">
+<!-- Tension Guide Pop-up -->
+<div id="tensionGuidePopup" style="display:none; position:fixed; inset:0; z-index:9998; justify-content:center; align-items:center;">
 <div style="background:#041E42; color:white; padding:30px; border-radius:18px; max-width:440px; width:92%; box-shadow:0 20px 60px rgba(0,0,0,0.8); text-align:center; font-size:1em; line-height:1.6;">
 <strong style="font-size:1.4em; display:block; margin-bottom:15px;">Recommended Starting Tensions</strong>
 
@@ -153,7 +158,6 @@ overlay.style.display = 'flex';
 tensionGuideOpen = true;
 });
 
-// Close when clicking outside
 document.getElementById('tensionGuidePopup').addEventListener('click', function(e){
 if(e.target === this){
 this.style.display = 'none';
