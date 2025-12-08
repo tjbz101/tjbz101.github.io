@@ -436,5 +436,16 @@ function openTab(evt,tabName){
   evt.currentTarget.classList.add("active");
 }
 </script>
+<script>
+  // Auto-open tab from URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const openTabId = urlParams.get('tab');
+  if (openTabId) {
+    setTimeout(() => {
+      const btn = document.querySelector(`button[onclick*=" '${openTabId}'"]`);
+      if (btn) btn.click();
+    }, 100);
+  }
+</script>
 </body>
 </html>
