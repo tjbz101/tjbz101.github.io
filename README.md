@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825F</h3>
+<h3>V120825G</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -91,17 +91,68 @@
   </h3>
 
   <p style="text-align:center; max-width:800px; margin:0 auto 35px; color:#333; line-height:1.7;">
-    Current gear of the top 25 ATP & WTA players — racket, strings, tension, pattern. Updated Dec 2025.
+    Current gear of the top 25 ATP & WTA players — racket, strings, tension, pattern. Verified Dec 2025.
   </p>
 
   <script>
     const pros = [
-      ["1","Carlos Alcaraz","ATP","Babolat Pure Aero 98 (98sq)","Babolat RPM Blast (poly)","55/53"],["2","Jannik Sinner","ATP","Head Speed Pro (100sq)","Head Hawk Touch (poly)","61/61"],["3","Novak Djokovic","ATP","Head Speed Pro (custom) (100sq)","Babolat Natural Gut mains / Luxilon ALU Power Rough crosses","59/56"],["4","Alexander Zverev","ATP","Head Gravity Pro (100sq)","Head Hawk Touch mains / Babolat VS Touch crosses","53/55"],["5","Daniil Medvedev","ATP","Tecnifibre T-Fight 305 (98sq)","Tecnifibre Razor Code Soft (poly)","48/48"],["6","Andrey Rublev","ATP","Head Gravity Pro (100sq)","Luxilon Adrenaline (poly)","57/57"],["7","Casper Ruud","ATP","Yonex EZONE 98 (98sq)","Yonex Poly Tour Spin mains / Poly Tour Pro crosses","54/54"],["8","Hubert Hurkacz","ATP","Yonex Percept 98H (98sq)","Solinco Tour Bite mains / Babolat VS Touch crosses","50/50"],["9","Stefanos Tsitsipas","ATP","Wilson Blade 98 (98sq)","Luxilon 4G / ALU Power (poly)","57/57"],["10","Holger Rune","ATP","Babolat Pure Aero VS (98sq)","Babolat RPM Blast (poly)","48/50"],["11","Grigor Dimitrov","ATP","Wilson Pro Staff RF97 Autograph (97sq)","Wilson Natural Gut mains / Luxilon 4G crosses","55/52"],["12","Alex de Minaur","ATP","Wilson Blade 98 (98sq)","Luxilon 4G (poly)","48.5/48.5"],["13","Taylor Fritz","ATP","Head IG Radical MP (95sq)","HEAD Hawk mains / Babolat VS Touch crosses","~52/~50"],["14","Tommy Paul","ATP","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","52/52"],["15","Frances Tiafoe","ATP","Yonex Percept 97 (97sq)","Yonex Poly Tour Pro (poly)","46/46"],["16","Ben Shelton","ATP","Yonex EZONE 98 (98sq)","Yonex Poly Tour Strike mains / Poly Tour Pro crosses","60/57"],["17","Ugo Humbert","ATP","Head Gravity MP (100sq)","Head Hawk Touch (poly)","53/55"],["18","Arthur Fils","ATP","Babolat Pure Drive 98 (98sq)","Babolat RPM Blast (poly)","50/52"],["19","Jack Draper","ATP","Dunlop Srixon Revo CV 3.0","Babolat RPM Blast (poly)","54/54"],["20","Sebastian Korda","ATP","Wilson Blade 98 (98sq)","Solinco Hyper-G Soft (poly)","51/53"],["21","Iga Swiatek","WTA","Tecnifibre T-Fight 305 (98sq)","Tecnifibre Razor Code (poly)","53/53"],["22","Aryna Sabalenka","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","50/50"],["23","Coco Gauff","WTA","Head Boom MP (100sq)","Luxilon ALU Power (poly)","53/53"],["24","Elena Rybakina","WTA","Yonex EZONE 98 (98sq)","Yonex Poly Tour Pro (poly)","53/55"],["25","Jasmine Paolini","WTA","Yonex VCORE 100 (100sq)","Yonex Poly Tour Pro (poly)","52/54"],["26","Qinwen Zheng","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power (poly)","50/52"],["27","Mirra Andreeva","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power Soft (poly)","49/51"],["28","Danielle Collins","WTA","Wilson Clash 100 (100sq)","Wilson NXT (multi)","55/55"],["29","Anna Kalinskaya","WTA","Wilson Blade 98 (98sq)","Luxilon RPM Blast (poly)","51/53"],["30","Madison Keys","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power (poly)","52/52"],["31","Beatriz Haddad Maia","WTA","Wilson Clash 100 (100sq)","Wilson NXT Duramax (multi)","54/54"],["32","Diana Shnaider","WTA","Babolat Pure Aero 98 (98sq)","Babolat RPM Blast (poly)","50/52"],["33","Emma Navarro","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","51/53"],["34","Ons Jabeur","WTA","Wilson Blade 98 (98sq)","Wilson NXT (multi)","53/55"],["35","Barbora Krejcikova","WTA","Yonex VCORE Pro 97 (97sq)","Yonex Poly Tour Pro (poly)","52/52"],["36","Elina Svitolina","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power Rough (poly)","50/50"],["37","Maria Sakkari","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","51/51"],["38","Daria Kasatkina","WTA","Diadem Forge 7 (unknown)","Diadem Evolution (poly)","49/51"],["39","Karolina Muchova","WTA","Head Gravity Pro (100sq)","Head Hawk Touch (poly)","52/54"],["40","Jessica Pegula","WTA","Yonex EZONE 98 (98sq)","Yonex Poly Tour Fire (poly)","50/52"],["41","Paula Badosa","WTA","Wilson Clash 100 (100sq)","Luxilon ALU Power (poly)","53/55"],["42","Zheng Qinwen","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power (poly)","50/52"],["43","Marketa Vondrousova","WTA","Wilson Pro Staff 97 (97sq)","Wilson NXT (multi)","54/54"],["44","Linda Noskova","WTA","Yonex EZONE 98 (98sq)","Yonex Poly Tour Pro (poly)","51/53"],["45","Elise Mertens","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power Soft (poly)","52/52"],["46","Donna Vekic","WTA","Head Gravity MP (100sq)","Head Hawk (poly)","53/55"],["47","Petra Kvitova","WTA","Wilson Pro Staff RF97 Autograph (97sq)","Luxilon ALU Power Rough (poly)","55/52"],["48","Victoria Azarenka","WTA","Wilson Aura Pro (unknown)","Wilson Natural Gut mains / Luxilon ALU crosses","56/53"],["49","Sofia Kenin","WTA","Wilson Blade 98 (98sq)","Luxilon RPM Team (poly)","50/50"],["50","Anastasija Sevastova","WTA","Wilson Blade 98 v9 (98sq)","Wilson NXT (multi)","52/54"]
+      // ATP TOP 25 MEN
+      ["1","Jannik Sinner","ATP","Head Speed Pro 2024 (100sq)","HEAD Hawk Touch (poly)","61/61","18x20"],
+      ["2","Carlos Alcaraz","ATP","Babolat Pure Aero 98 (98sq)","Babolat RPM Blast (poly)","55/53","16x19"],
+      ["3","Novak Djokovic","ATP","Head PT113B Pro Stock (100sq)","Babolat VS Touch mains / Luxilon ALU Power Rough crosses","59/56","18x20"],
+      ["4","Alexander Zverev","ATP","Head Gravity Pro (100sq)","HEAD Hawk Touch mains / Babolat VS Touch crosses","53/55","18x20"],
+      ["5","Daniil Medvedev","ATP","Tecnifibre T-Fight 305 ISO (98sq)","Tecnifibre Razor Soft (poly)","48/48","18x19"],
+      ["6","Andrey Rublev","ATP","Head Gravity Pro (100sq)","HEAD Lynx Tour (poly)","57/57","18x20"],
+      ["7","Taylor Fritz","ATP","Head Radical Pro (98sq)","HEAD Hawk mains / Babolat VS Touch crosses","52/50","18x20"],
+      ["8","Casper Ruud","ATP","Yonex EZONE 98 (98sq)","Yonex Poly Tour Pro (poly)","53/51","16x19"],
+      ["9","Grigor Dimitrov","ATP","Wilson Pro Staff 97 v14 (97sq)","Wilson Natural Gut mains / Luxilon 4G crosses","55/52","18x20"],
+      ["10","Hubert Hurkacz","ATP","Yonex VCORE 98 (98sq)","Yonex Poly Tour Pro (poly)","52/50","16x19"],
+      ["11","Alex de Minaur","ATP","Wilson Blade 98 v9 (98sq)","Luxilon 4G (poly)","48.5/48.5","16x19"],
+      ["12","Tommy Paul","ATP","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","52/52","16x19"],
+      ["13","Holger Rune","ATP","Babolat Pure Aero VS (98sq)","Babolat RPM Blast (poly)","48/50","16x19"],
+      ["14","Ben Shelton","ATP","Yonex EZONE 98 (98sq)","Yonex Poly Tour Strike (poly)","60/57","16x19"],
+      ["15","Frances Tiafoe","ATP","Yonex Percept 97 (97sq)","Yonex Poly Tour Pro (poly)","46/46","16x19"],
+      ["16","Ugo Humbert","ATP","Head Gravity MP (100sq)","Head Hawk Touch (poly)","53/55","16x19"],
+      ["17","Arthur Fils","ATP","Babolat Pure Drive 98 (98sq)","Babolat RPM Blast (poly)","50/52","16x19"],
+      ["18","Jack Draper","ATP","Dunlop CX 200 Tour (95sq)","Babolat RPM Blast (poly)","54/54","18x20"],
+      ["19","Sebastian Korda","ATP","Wilson Blade 98 v9 (98sq)","Solinco Hyper-G Soft (poly)","51/53","16x19"],
+      ["20","Lorenzo Musetti","ATP","Head Boom Pro (98sq)","HEAD Lynx Tour (poly)","52/50","16x19"],
+      ["21","Felix Auger-Aliassime","ATP","Babolat Pure Aero 98 (98sq)","Babolat RPM Blast (poly)","54/52","16x19"],
+      ["22","Nicolas Jarry","ATP","Wilson Pro Staff 97 (97sq)","Luxilon ALU Power (poly)","55/53","18x20"],
+      ["23","Alejandro Davidovich Fokina","ATP","Head Speed Pro (100sq)","HEAD Hawk Touch (poly)","50/48","18x20"],
+      ["24","Jiri Lehecka","ATP","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","51/51","16x19"],
+      ["25","Adrian Mannarino","ATP","Babolat Pure Drive (100sq)","Babolat RPM Blast (poly)","49/49","16x19"],
+
+      // WTA TOP 25 WOMEN
+      ["1","Aryna Sabalenka","WTA","Wilson Blade 98 v9 Pro Stock (98sq)","Luxilon ALU Power (poly)","50/50","18x20"],
+      ["2","Iga Świątek","WTA","Tecnifibre T-Fight 305 ISO (98sq)","Tecnifibre Razor Code (poly)","53/53","16x19"],
+      ["3","Coco Gauff","WTA","Head PT339.2 Pro Stock (97sq)","HEAD Lynx Tour (poly)","50/48","18x20"],
+      ["4","Jasmine Paolini","WTA","Head Boom MP 2024 (100sq)","HEAD Lynx Tour (poly)","51/49","16x19"],
+      ["5","Elena Rybakina","WTA","Yonex EZONE 98 (98sq)","Yonex Poly Tour Pro (poly)","50/48","16x19"],
+      ["6","Jessica Pegula","WTA","Yonex EZONE 98 (98sq)","Yonex Poly Tour Fire (poly)","50/52","16x19"],
+      ["7","Qinwen Zheng","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","50/52","16x19"],
+      ["8","Emma Navarro","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","51/53","16x19"],
+      ["9","Danielle Collins","WTA","Wilson Clash 100 (100sq)","Wilson NXT (multi)","55/55","16x19"],
+      ["10","Barbora Krejčíková","WTA","Head Prestige Pro (98sq)","HEAD Hawk Touch (poly)","52/52","18x20"],
+      ["11","Maria Sakkari","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","51/51","16x19"],
+      ["12","Diana Shnaider","WTA","Babolat Pure Aero 98 (98sq)","Babolat RPM Blast (poly)","50/52","16x19"],
+      ["13","Daria Kasatkina","WTA","Diadem Forge 7 (98sq)","Diadem Evolution (poly)","49/51","16x19"],
+      ["14","Beatriz Haddad Maia","WTA","Wilson Clash 100 (100sq)","Wilson NXT Duramax (multi)","54/54","16x19"],
+      ["15","Anna Kalinskaya","WTA","Wilson Blade 98 (98sq)","Luxilon RPM Blast (poly)","51/53","16x19"],
+      ["16","Ludmilla Samsonova","WTA","Head Gravity Pro (100sq)","Head Hawk Touch (poly)","52/54","18x20"],
+      ["17","Madison Keys","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power (poly)","52/52","16x19"],
+      ["18","Elina Svitolina","WTA","Wilson Blade 98 (98sq)","Luxilon ALU Power Rough (poly)","50/50","16x19"],
+      ["19","Victoria Azarenka","WTA","Wilson Ultra Pro Stock (97sq)","Luxilon ALU Power (poly)","54/52","18x20"],
+      ["20","Mirra Andreeva","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power Soft (poly)","49/51","16x19"],
+      ["21","Paula Badosa","WTA","Wilson Clash 100 (100sq)","Luxilon ALU Power (poly)","53/55","16x19"],
+      ["22","Donna Vekic","WTA","Head Gravity MP (100sq)","Head Hawk (poly)","53/55","16x19"],
+      ["23","Leylah Fernandez","WTA","Babolat Pure Drive (100sq)","Babolat RPM Blast (poly)","52/50","16x19"],
+      ["24","Karolina Muchová","WTA","Head Gravity Pro (100sq)","Head Hawk Touch (poly)","52/54","18x20"],
+      ["25","Ekaterina Alexandrova","WTA","Wilson Blade 98 v9 (98sq)","Luxilon ALU Power (poly)","51/53","16x19"]
     ];
 
-    // Split into ATP and WTA
-    const atp = pros.filter(p => p[2] === "ATP").slice(0,25);
-    const wta = pros.filter(p => p[2] === "WTA").slice(0,25);
+    const atp = pros.filter(p => p[2] === "ATP");
+    const wta = pros.filter(p => p[2] === "WTA");
 
     // ATP Table
     document.write('<h4 style="text-align:center; color:#041E42; margin:50px 0 20px; font-size:1.6em;">ATP Top 25 Men</h4>');
@@ -110,9 +161,9 @@
     document.write('<thead><tr style="background:#041E42; color:white;"><th style="padding:16px; text-align:left;">Rank</th><th style="padding:16px; text-align:left;">Player</th><th style="padding:16px; text-align:left;">Racket</th><th style="padding:16px; text-align:left;">String Setup</th><th style="padding:16px; text-align:center;">Tension (lbs)</th><th style="padding:16px; text-align:center;">Pattern</th></tr></thead><tbody>');
 
     atp.forEach((row, i) => {
-      document.write(`<tr${i % 2 === 0 ? ' style="background:#f8f9fa;"' : ''}><td style="padding:14px;">${row[0]}</td><td style="padding:14px;">${row[1]}</td><td style="padding:14px;">${row[3]}</td><td style="padding:14px;">${row[4]}</td><td style="padding:14px; text-align:center;">${row[5]}</td><td style="padding:14px; text-align:center;">16×19</td></tr>`);  // Pattern placeholder; update if known
+      const bg = i % 2 === 0 ? '#f8f9fa' : 'white';
+      document.write(`<tr style="background:${bg};"><td style="padding:14px;">${row[0]}</td><td style="padding:14px;">${row[1]}</td><td style="padding:14px;">${row[3]}</td><td style="padding:14px;">${row[4]}</td><td style="padding:14px; text-align:center;">${row[5]}</td><td style="padding:14px; text-align:center;">${row[6]}</td></tr>`);
     });
-
     document.write('</tbody></table></div>');
 
     // Divider
@@ -125,13 +176,12 @@
     document.write('<thead><tr style="background:#041E42; color:white;"><th style="padding:16px; text-align:left;">Rank</th><th style="padding:16px; text-align:left;">Player</th><th style="padding:16px; text-align:left;">Racket</th><th style="padding:16px; text-align:left;">String Setup</th><th style="padding:16px; text-align:center;">Tension (lbs)</th><th style="padding:16px; text-align:center;">Pattern</th></tr></thead><tbody>');
 
     wta.forEach((row, i) => {
-      document.write(`<tr${i % 2 === 0 ? ' style="background:#f8f9fa;"' : ''}><td style="padding:14px;">${row[0]}</td><td style="padding:14px;">${row[1]}</td><td style="padding:14px;">${row[3]}</td><td style="padding:14px;">${row[4]}</td><td style="padding:14px; text-align:center;">${row[5]}</td><td style="padding:14px; text-align:center;">16×19</td></tr>`);  // Pattern placeholder; update if known
+      const bg = i % 2 === 0 ? '#f8f9fa' : 'white';
+      document.write(`<tr style="background:${bg};"><td style="padding:14px;">${row[0]}</td><td style="padding:14px;">${row[1]}</td><td style="padding:14px;">${row[3]}</td><td style="padding:14px;">${row[4]}</td><td style="padding:14px; text-align:center;">${row[5]}</td><td style="padding:14px; text-align:center;">${row[6]}</td></tr>`);
     });
-
     document.write('</tbody></table></div>');
   </script>
 </div>
-
 <div id="StringingInfo" class="tabcontent">
   <h3 style="text-align:center; color:#041E42; margin-bottom:20px;">
     String Job Simulator + Pro Presets
