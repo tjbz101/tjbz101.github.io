@@ -54,7 +54,7 @@
 <body>
 
 <h1>The Tennis Shop </h1>
-<h3>V120825I</h3>
+<h3>V120825J</h3>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
@@ -602,5 +602,47 @@ function searchTable(){
     }
   });
 </script>
+
+<script>
+// Strings data (keep your existing array — don't delete it)
+const strings = [ /* your full strings array from earlier */ ];
+
+// Render the table on load
+function renderTable(data = strings) {
+  const tbody = document.querySelector('#stringTable tbody');
+  tbody.innerHTML = '';
+  data.forEach(s => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Sort function (click header to sort asc/desc)
+let sortDirection = 1; // 1 = asc, -1 = desc
+function sortTable(col) {
+  sortDirection = -sortDirection; // flip direction
+  strings.sort((a, b) => {
+    let A = col === 0 ? a.name.toLowerCase() : a.type.toLowerCase();
+    let B = col === 0 ? b.name.toLowerCase() : b.type.toLowerCase();
+    return A > B ? sortDirection : A < B ? -sortDirection : 0;
+  });
+  renderTable();
+}
+
+// Search function
+function searchTable() {
+  const term = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = strings.filter(s => 
+    s.name.toLowerCase().includes(term) || 
+    s.type.toLowerCase().includes(term)
+  );
+  renderTable(filtered);
+}
+
+// Initial render
+renderTable();
+</script>
+
 </body>
 </html>
