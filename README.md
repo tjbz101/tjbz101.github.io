@@ -53,8 +53,9 @@
 </head>
 <body>
 
-<h1>The Tennis Shop </h1>
+<h1>Brownies</h1>
 <h3>V251218A</h3>
+<p>Est. 1973</p>
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
