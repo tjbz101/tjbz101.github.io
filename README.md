@@ -54,7 +54,7 @@
 <body>
 
 <h1>Brownies</h1>
-<h3>V260301A</h3>
+<h3>V260318A</h3>
 <p>Est. 1973</p>
 
 <div class="tab">
@@ -66,7 +66,7 @@
 <div id="AvailStrings" class="tabcontent" style="display:block;">
   <p style="text-align:center;">
     Available strings, sort by name or type. We can split sets for a hybrid string job.<br>
-    You provide strings → $20 | Pick from below → $25<br>
+    You provide strings → $20 | Pick from below → $25+<br>
     Currently stringing on a Gamma ELS 7500 stringer (40 years experience).
   </p>
   <input type="text" id="searchInput" placeholder="Search by name or type..." onkeyup="searchTable()">
@@ -351,12 +351,12 @@ tensionGuideOpen = false;
       "Prince Control 15":        {p:87,c:92,d:52,s:53,k:63},
       "Prince Tour XC":           {p:50,c:34,d:91,s:95,k:94},
       "Prince Synthetic Gut 15L": {p:71,c:81,d:74,s:59,k:69},
-      "Prince Synthetic Gut with Duraflex": {p:73,c:83,d:80,s:58,k:68},
+      "Prince Synthetic Gut": {p:73,c:83,d:80,s:58,k:68},
       "Tourna Premier Poly":      {p:52,c:37,d:89,s:93,k:91},
       "Wilson Extreme Octane":    {p:76,c:85,d:70,s:62,k:72},
       "Wilson Hollowcore 16":     {p:78,c:87,d:68,s:60,k:70},
       "Wilson Hyperlast":         {p:49,c:32,d:92,s:96,k:95},
-      "Wilson NXT with Duramax 15":{p:89,c:95,d:56,s:55,k:65},
+      "Wilson NXT & Sensation":{p:89,c:95,d:56,s:55,k:65},
       "Wilson Poly Last":         {p:48,c:30,d:93,s:97,k:96},
       "Wilson SGX":              {p:72,c:82,d:75,s:60,k:70},
       "Wilson Shock Shield 16":   {p:74,c:86,d:72,s:58,k:68},
@@ -478,9 +478,11 @@ const strings = [
   {name:"Wilson Extreme Octane",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Lively syn gut with good pop."},
   {name:"Wilson Hollowcore 16",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Hollow design gives extra power."},
   {name:"Wilson Hyperlast",type:"Polyester",available:"No",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Old-school stiff poly."},
-  {name:"Wilson NXT with Duramax 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Gold standard multi."},
+   {name:"Wilson NXT Comfort 16",type:"Multifilament",available:"Yes",msrp:"$45",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Gold standard multi."},
+  {name:"Wilson NXT with Duramax 15",type:"Multifilament",available:"Yes",msrp:"$45",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Gold standard multi."},
   {name:"Wilson Poly Last",type:"Polyester",available:"No",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Discontinued but loved for control."},
   {name:"Wilson SGX",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Smooth all-around performance."},
+   {name:"Wilson Sensation Comfort",type:"Multifilament",available:"Yes",msrp:"$35",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Excellent budget multifilament string."},
   {name:"Wilson Shock Shield 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Vibration-dampening tech."},
   {name:"Wilson Shock Shield 17",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Thinner = more feel."},
   {name:"Wilson Super Spin 16",type:"Multifilament",available:"No",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Moderate (7/10)",review:"Hex shape adds spin to soft multi."},
