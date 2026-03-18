@@ -53,7 +53,7 @@
 </head>
 <body>
 
-<h1>Brownies</h1>
+<h1>Tim's</h1>
 <h3>V260318A</h3>
 <p>Est. 1973</p>
 
