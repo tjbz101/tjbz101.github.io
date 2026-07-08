@@ -75,7 +75,7 @@
   <tr>
     <th onclick="sortTable(0)">String Name ↕</th>
     <th onclick="sortTable(1)">Type ↕</th>
-    <th>Available</th>
+    <th>General Availabilty</th>
     <th>MSRP (Set)</th>
     <th>Comfort Rating</th>
     <th>Durability</th>
