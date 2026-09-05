@@ -75,8 +75,8 @@
   <tr>
     <th onclick="sortTable(0)">String Name ↕</th>
     <th onclick="sortTable(1)">Type ↕</th>
-    <th>General Availabilty</th>
-    <th>MSRP (Set)</th>
+    <th>General Availability</th>
+    <th>Price strung</th>
     <th>Comfort Rating</th>
     <th>Durability</th>
     <th>Spin Potential</th>
@@ -318,7 +318,6 @@ tensionGuideOpen = false;
     <strong style="color:#041E42;">Pro Presets:</strong><br><br>
     <button onclick="loadPreset('alcaraz')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Alcaraz</button>
     <button onclick="loadPreset('sinner')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Sinner</button>
-    <button onclick="loadPreset('swiatek')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Swiatek</button>
     <button onclick="loadPreset('federer')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Federer Gut/Poly</button>
     <button onclick="loadPreset('comfort')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Max Comfort</button>
     <button onclick="loadPreset('spin')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Max Spin</button>
@@ -340,7 +339,7 @@ tensionGuideOpen = false;
       "Asics Resolution 16":      {p:70,c:80,d:72,s:60,k:70},
       "Babolat Conquest":          {p:72,c:82,d:75,s:58,k:68},
       "Babolat N.Vy":             {p:75,c:85,d:65,s:55,k:65},
-      "Babolat Excel":            {p:88,c:94,d:50,s:52,k:62},
+      "Babolat Xcel":            {p:88,c:94,d:50,s:52,k:62},
       "Bluestar Multi Filament":  {p:87,c:93,d:55,s:54,k:64},
       "Gamma Octo TNT":           {p:74,c:83,d:78,s:62,k:72},
       "Head FXP":                {p:71,c:81,d:73,s:59,k:69},
@@ -462,7 +461,7 @@ const strings = [
   {name:"Asics Resolution 16",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Solid all-court synthetic gut. Balanced power/comfort."},
   {name:"Babolat Conquest",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Arm-friendly, durable, cheap. Rec player favorite."},
   {name:"Babolat N.Vy",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Super soft and lively — feels almost like a multi."},
-  {name:"Babolat Excel",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"One of the plushest multis. Gut-like comfort."},
+  {name:"Babolat Xcel",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"One of the plushest multis. Gut-like comfort."},
   {name:"Bluestar Multi Filament",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"10-14 hours",spin:"Low (5/10)",review:"Budget gut substitute. Insanely comfortable."},
   {name:"Gamma Octo TNT",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Octagonal shape adds bite. Durable and crisp."},
   {name:"Head FXP",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Classic reliable syn gut. Great value."},
