@@ -383,35 +383,38 @@ tensionGuideOpen = false;
     const perLb = {p:-1.1,c:-0.9,d:+0.7,s:+1.4,k:+1.7};
 
     function calc(){
-      const m = stringData[document.getElementById('mainString').value];
-      const c = stringData[document.getElementById('crossString').value];
-      const mg = gaugeEffect[document.getElementById('mainGauge').value];
-      const cg = gaugeEffect[document.getElementById('crossGauge').value];
-      const pat = patternEffect[document.getElementById('pattern').value];
-      const hs = headsizeEffect[document.getElementById('headsize').value];
-      const mt = parseFloat(document.getElementById('mainSlider').value);
-      const ct = parseFloat(document.getElementById('crossSlider').value);
-      document.getElementById('mainTension').textContent = mt;
-      document.getElementById('crossTension').textContent = ct;
-      const avgT = (mt + ct) / 2;
-      const diff = avgT - 55;
-      const gaugeBonus = (mg + cg) / 2;
+  const m = stringData[document.getElementById('mainString').value];
+  const c = stringData[document.getElementById('crossString').value];
+  const mg = gaugeEffect[document.getElementById('mainGauge').value];
+  const cg = gaugeEffect[document.getElementById('crossGauge').value];
+  const pat = patternEffect[document.getElementById('pattern').value];
+  const hs = headsizeEffect[document.getElementById('headsize').value];
+  const mt = parseFloat(document.getElementById('mainSlider').value);
+  const ct = parseFloat(document.getElementById('crossSlider').value);
 
-      const r = {
-        p: Math.round((m.p + c.p)/2 + perLb.p * diff + gaugeBonus + (pat.p||0) + (hs.p||0)),
-        c: Math.round((m.c + c.c)/2 + perLb.c * diff + gaugeBonus + (pat.c||0) + (hs.c||0)),
-        d: Math.round((m.d + c.d)/2 + perLb.d * diff - gaugeBonus * 0.8 + (pat.d||0) + (hs.d||0)),
-        s: Math.round((m.s + c.s)/2 + perLb.s * diff + gaugeBonus * 1.2 + (pat.s||0) + (hs.s||0)),
-        k: Math.round((m.k + c.k)/2 + perLb.k * diff + gaugeBonus * 0.6 + (pat.k||0) + (hs.k||0))
-      };
+  document.getElementById('mainTension').textContent = mt;
+  document.getElementById('crossTension').textContent = ct;
 
-      ['power','comfort','durability','spin','control'].forEach(a=>{
-        let v = r[a[0]];
-        v = Math.max(10, Math.min(100, v));
-        document.getElementById(a+'Fill').style.height = v+'%';
-        document.getElementById(a+'Value').textContent = v+'%';
-      });
-    }
+  const avgT = (mt + ct) / 2;
+  const diff = avgT - 55;
+  const gaugeBonus = (mg + cg) / 2;
+
+  // Weighted averages (mains heavier on power/spin/durability, crosses heavier on comfort)
+  const r = {
+    p: Math.round( m.p*0.65 + c.p*0.35 + perLb.p * diff + gaugeBonus + (pat.p||0) + (hs.p||0) ),
+    c: Math.round( m.c*0.40 + c.c*0.60 + perLb.c * diff + gaugeBonus + (pat.c||0) + (hs.c||0) ),
+    d: Math.round( m.d*0.70 + c.d*0.30 + perLb.d * diff - gaugeBonus * 0.8 + (pat.d||0) + (hs.d||0) ),
+    s: Math.round( m.s*0.70 + c.s*0.30 + perLb.s * diff + gaugeBonus * 1.2 + (pat.s||0) + (hs.s||0) ),
+    k: Math.round( m.k*0.55 + c.k*0.45 + perLb.k * diff + gaugeBonus * 0.6 + (pat.k||0) + (hs.k||0) )
+  };
+
+  ['power','comfort','durability','spin','control'].forEach(a=>{
+    let v = r[a[0]];
+    v = Math.max(10, Math.min(100, v));
+    document.getElementById(a+'Fill').style.height = v+'%';
+    document.getElementById(a+'Value').textContent = v+'%';
+  });
+}
 
     // Presets
     function loadPreset(p){
