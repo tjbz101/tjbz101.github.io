@@ -59,7 +59,7 @@
 
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event,'AvailStrings')">Available Strings</button>
-  <!-- <button class="tablinks" onclick="openTab(event,'ProList')">Player Profiles</button> —->
+<!-- <button class="tablinks" onclick="openTab(event,'ProList')">Player Profiles</button> -->
   <button class="tablinks" onclick="openTab(event,'StringingInfo')">Tension Simulator</button>
 </div>
 
