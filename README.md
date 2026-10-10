@@ -395,17 +395,28 @@ tensionGuideOpen = false;
   document.getElementById('mainTension').textContent = mt;
   document.getElementById('crossTension').textContent = ct;
 
-  const avgT = (mt + ct) / 2;
-  const diff = avgT - 55;
+  // Tension bias: mains tension dominates power/spin/durability, crosses tension dominates comfort
+  const mainDiff = mt - 55;
+  const crossDiff = ct - 55;
+  const avgDiff = (mt + ct) / 2 - 55;   // still used lightly for control
+
   const gaugeBonus = (mg + cg) / 2;
 
-  // Weighted averages (mains heavier on power/spin/durability, crosses heavier on comfort)
   const r = {
-    p: Math.round( m.p*0.65 + c.p*0.35 + perLb.p * diff + gaugeBonus + (pat.p||0) + (hs.p||0) ),
-    c: Math.round( m.c*0.40 + c.c*0.60 + perLb.c * diff + gaugeBonus + (pat.c||0) + (hs.c||0) ),
-    d: Math.round( m.d*0.70 + c.d*0.30 + perLb.d * diff - gaugeBonus * 0.8 + (pat.d||0) + (hs.d||0) ),
-    s: Math.round( m.s*0.70 + c.s*0.30 + perLb.s * diff + gaugeBonus * 1.2 + (pat.s||0) + (hs.s||0) ),
-    k: Math.round( m.k*0.55 + c.k*0.45 + perLb.k * diff + gaugeBonus * 0.6 + (pat.k||0) + (hs.k||0) )
+    // Power: 65/35 string + mains-tension heavy
+    p: Math.round( m.p*0.65 + c.p*0.35 + perLb.p * (mainDiff*0.70 + crossDiff*0.30) + gaugeBonus + (pat.p||0) + (hs.p||0) ),
+
+    // Comfort: 40/60 string + crosses-tension heavy
+    c: Math.round( m.c*0.40 + c.c*0.60 + perLb.c * (mainDiff*0.35 + crossDiff*0.65) + gaugeBonus + (pat.c||0) + (hs.c||0) ),
+
+    // Durability: 70/30 string + mains-tension heavy
+    d: Math.round( m.d*0.70 + c.d*0.30 + perLb.d * (mainDiff*0.70 + crossDiff*0.30) - gaugeBonus * 0.8 + (pat.d||0) + (hs.d||0) ),
+
+    // Spin: 70/30 string + mains-tension heavy
+    s: Math.round( m.s*0.70 + c.s*0.30 + perLb.s * (mainDiff*0.75 + crossDiff*0.25) + gaugeBonus * 1.2 + (pat.s||0) + (hs.s||0) ),
+
+    // Control: more balanced
+    k: Math.round( m.k*0.55 + c.k*0.45 + perLb.k * (mainDiff*0.55 + crossDiff*0.45) + gaugeBonus * 0.6 + (pat.k||0) + (hs.k||0) )
   };
 
   ['power','comfort','durability','spin','control'].forEach(a=>{
