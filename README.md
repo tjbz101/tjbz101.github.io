@@ -361,7 +361,8 @@ tensionGuideOpen = false;
       "Wilson Shock Shield 16":   {p:74,c:86,d:72,s:58,k:68},
       "Wilson Shock Shield 17":   {p:75,c:88,d:68,s:57,k:67},
       "Wilson Super Spin 16":     {p:85,c:90,d:50,s:70,k:65},
-      "Wilson Synthetic Gut Extreme":{p:73,c:83,d:76,s:61,k:71}
+      "Wilson Synthetic Gut":{p:73,c:83,d:76,s:61,k:71},
+      "Yonex Poly Tour":      {p:52,c:37,d:89,s:93,k:91}
     };
 
     // Populate dropdowns
@@ -489,7 +490,8 @@ const strings = [
   {name:"Wilson SGX",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Smooth all-around performance."},
    {name:"Wilson Sensation",type:"Multifilament",available:"Yes",msrp:"$35",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Excellent budget multifilament string."},
   {name:"Wilson Shock Shield",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Vibration-dampening tech."},
-  {name:"Wilson Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Crisp and durable everyday string."}
+  {name:"Wilson Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Crisp and durable everyday string."},
+  {name:"Yonex Poly Tour Soft",type:"Polyester",available:"Yes",msrp:"$35",comfort:"High (8/10)",durability:"12-16 hours",spin:"High (8/10)",review:"Very soft Poly string, 16L."}
 ];
 
 // Render tables
