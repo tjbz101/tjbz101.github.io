@@ -483,7 +483,7 @@ const strings = [
   {name:"Prince Control 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"Ultra-soft multi. Amazing for elbows."},
   {name:"Prince Tour XC",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Shaped poly with great bite."},
   {name:"Prince Synthetic Gut with Duraflex",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Most durable syn gut here."},
-  {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Budget shaped poly that punches above price."},
+  {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$30",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Budget shaped poly that punches above price."},
   {name:"Wilson Extreme Octane",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Lively syn gut with good pop."},
   {name:"Wilson Hollowcore 16",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Hollow design gives extra power."},
    {name:"Wilson NXT Comfort",type:"Multifilament",available:"Yes",msrp:"$45",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Gold standard multi."},
