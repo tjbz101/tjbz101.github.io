@@ -481,7 +481,7 @@ const strings = [
   {name:"Kirschbaum Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$28",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Underrated syn gut."},
   {name:"Prince Control 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"Ultra-soft multi. Amazing for elbows."},
  {name:"Prince Synthetic Gut with Duraflex",type:"Synthetic Gut",available:"Yes",msrp:"$30",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Most durable syn gut here."},
-  {name:"Solinco Hyper-G",type:"Polyester ",available:"Yes",msrp:"$35",comfort:"Moderate (7/10)",durability:"14-18 hours",spin:"High (8/10)",review:"One of the most asked for Polyester strings."},
+  {name:"Solinco Hyper-G",type:"Polyester ",available:"Yes",msrp:"$35",comfort:"Moderate (7/10)",durability:"14-18 hours",spin:"High (8/10)",review:"Shaped co-poly with outstanding spin, control, and tension maintenance — the go-to poly for serious spin players."},
   {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$30",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Affordable shaped poly that punches well above its price point."},
   {name:"Wilson Extreme Octane",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Lively syn gut with excellent power and pop."},
   {name:"Wilson Hollowcore 16",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Hollow design gives extra power and feel."},
