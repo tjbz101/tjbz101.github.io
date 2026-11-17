@@ -489,7 +489,7 @@ const strings = [
    {name:"Wilson Sensation",type:"Multifilament",available:"Yes",msrp:"$35",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Excellent budget multifilament string."},
   {name:"Wilson Shock Shield",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Vibration-dampening tech."},
   {name:"Wilson Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Crisp and durable everyday string."},
-  {name:"Yonex Poly Tour Soft",type:"Polyester",available:"Yes",msrp:"$35",comfort:"High (8/10)",durability:"12-16 hours",spin:"High (8/10)",review:"Very soft Poly string, 16L."}
+  {name:"Yonex Poly Tour Soft",type:"Polyester",available:"Yes",msrp:"$35",comfort:"High (8/10)",durability:"12-16 hours",spin:"High (8/10)",review:"Soft shaped poly with strong spin, solid control, and extra comfort for easier power."}
 ];
 
 // Render tables
