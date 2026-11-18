@@ -473,7 +473,7 @@ tensionGuideOpen = false;
   
 <script>
 const strings = [
-{name:"AG International Poly 17",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Aggressive budget co-poly with excellent snapback, bite, and tension hold — ideal for spin-focused players."},
+{name:"AG International Poly 17",type:"Polyester",available:"Yes",msrp:"$25",comfort:"Low (4/10)",durability:"20-25 hours",spin:"Very High (9/10)",review:"Aggressive round poly with excellent snapback, bite, and tension hold — ideal for spin-focused players."},
   {name:"Babolat Conquest",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Soft, durable, and affordable synthetic gut — a reliable rec-player favorite."},
   {name:"Babolat N.Vy",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Super soft and lively — feels almost like a multi."},
   {name:"Babolat Xcel",type:"Multifilament",available:"Yes",msrp:"$35",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"One of the plushest multis. Gut-like comfort."},
@@ -483,8 +483,8 @@ const strings = [
   {name:"Kirschbaum Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$28",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Underrated budget synthetic gut that performs above its price."},
   {name:"Prince Control 15",type:"Multifilament",available:"Yes",msrp:"$25",comfort:"Very High (9/10)",durability:"8-12 hours",spin:"Low (5/10)",review:"Ultra-soft multi. Amazing for elbows."},
  {name:"Prince Synthetic Gut with Duraflex",type:"Synthetic Gut",available:"Yes",msrp:"$30",comfort:"High (8/10)",durability:"14-18 hours",spin:"Moderate (6/10)",review:"Most durable syn gut here."},
-  {name:"Solinco Hyper-G",type:"Polyester ",available:"Yes",msrp:"$35",comfort:"Moderate (7/10)",durability:"14-18 hours",spin:"High (8/10)",review:"Shaped co-poly with outstanding spin, control, and tension maintenance — the go-to poly for serious spin players."},
-  {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$30",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Affordable shaped poly that punches well above its price point."},
+  {name:"Solinco Hyper-G",type:"Polyester ",available:"Yes",msrp:"$35",comfort:"Moderate (7/10)",durability:"14-18 hours",spin:"High (8/10)",review:"Square-shaped co-poly with outstanding spin, control, and tension maintenance — the go-to poly for serious spin players."},
+  {name:"Tourna Premier Poly",type:"Polyester",available:"Yes",msrp:"$30",comfort:"Low (4/10)",durability:"18-22 hours",spin:"Very High (9/10)",review:"Affordable round co-poly that delivers solid control, durability, and value for the price."},
   {name:"Wilson Extreme Octane",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Lively syn gut with excellent power and pop."},
   {name:"Wilson Hollowcore 16",type:"Synthetic Gut",available:"Limited",msrp:"$25",comfort:"High (8/10)",durability:"10-14 hours",spin:"Moderate (6/10)",review:"Hollow design gives extra power and feel."},
    {name:"Wilson NXT Comfort",type:"Multifilament",available:"Yes",msrp:"$45",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"The gold-standard multifilament for comfort and feel."},
@@ -492,7 +492,7 @@ const strings = [
    {name:"Wilson Sensation",type:"Multifilament",available:"Yes",msrp:"$35",comfort:"Very High (9/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Excellent multifilament string."},
   {name:"Wilson Shock Shield",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Vibration-dampening tech."},
   {name:"Wilson Synthetic Gut",type:"Synthetic Gut",available:"Yes",msrp:"$25",comfort:"High (8/10)",durability:"12-16 hours",spin:"Moderate (6/10)",review:"Crisp and durable everyday string."},
-  {name:"Yonex Poly Tour Soft",type:"Polyester",available:"Yes",msrp:"$35",comfort:"High (8/10)",durability:"12-16 hours",spin:"High (8/10)",review:"Soft shaped poly with strong spin, solid control, and extra comfort for easier power."}
+  {name:"Yonex Poly Tour Soft",type:"Polyester",available:"Yes",msrp:"$35",comfort:"High (8/10)",durability:"12-16 hours",spin:"High (8/10)",review:"Soft octagonal co-poly with strong spin, solid control, and extra comfort for easier power."}
 ];
 
 // Render tables
