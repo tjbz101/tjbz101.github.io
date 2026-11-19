@@ -78,7 +78,7 @@
     <th>General Availability</th>
     <th>Price strung</th>
     <th>Comfort Rating</th>
-    <th>Durability</th>
+   <!—- <th>Durability</th> —->
     <th>Spin Potential</th>
   </tr>
 </thead>
