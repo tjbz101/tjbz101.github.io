@@ -1,1 +1,151 @@
+/* ===== Base Styles ===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #041E42;
+  line-height: 1.5;
+  font-size: 16px;
+}
 
+/* ===== Headings ===== */
+h1, h3 {
+  text-align: center;
+  color: #041E42;
+}
+
+h1 {
+  margin: 24px 0 8px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* ===== Tabs ===== */
+.tab {
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 10px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tab button {
+  background: #f3f4f6;
+  color: #041E42;
+  border: none;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.25s ease;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.tab button:hover {
+  background: #041E42;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.tab button.active {
+  background: #041E42;
+  color: white;
+  box-shadow: 0 6px 20px rgba(4, 30, 66, 0.35);
+  transform: translateY(-2px);
+}
+
+/* ===== Content areas ===== */
+.tabcontent {
+  display: none;
+  padding: 24px 16px;
+  animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Search box ===== */
+#searchInput {
+  width: 100%;
+  max-width: 580px;
+  margin: 20px auto 28px;
+  display: block;
+  padding: 13px 16px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #041E42;
+  box-shadow: 0 0 0 3px rgba(4, 30, 66, 0.12);
+}
+
+/* ===== Main Strings Table ===== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 11px 14px;          /* slightly more breathing room */
+  text-align: left;
+}
+
+th {
+  background: #041E42;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+th:hover {
+  background: #003087;
+}
+
+/* Alternating row colors for easier reading */
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 767px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    font-size: 0.9em;
+    padding: 10px 12px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
