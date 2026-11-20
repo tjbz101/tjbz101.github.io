@@ -500,7 +500,7 @@ strings.sort((a,b)=>a.name.localeCompare(b.name));
 const stringBody = document.querySelector('#stringTable tbody');
 strings.forEach(s=>{
   const tr=document.createElement('tr');
- tr.innerHTML = `<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.spin}</td>`; ;
+ tr.innerHTML = `<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.spin}</td>`;
   stringBody.appendChild(tr);
 });
 
