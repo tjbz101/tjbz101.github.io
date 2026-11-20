@@ -283,42 +283,48 @@ tensionGuideOpen = false;
 
  
   <!-- Main Simulator Script (your current working one) -->
-  <script>
-    const stringData = {
-      "1Generic Polyester":       {p:50,c:35,d:90,s:94,k:93},
-      "1Generic Multifilament":   {p:86,c:93,d:52,s:54,k:64},
-      "1Generic Synthetic Gut":   {p:72,c:81,d:74,s:62,k:71},
-      "1Generic Natural Gut":     {p:93,c:96,d:38,s:48,k:58},
-      "AG International Poly 17": {p:52,c:36,d:90,s:94,k:92},
-      "Asics Resolution 16":      {p:70,c:80,d:72,s:60,k:70},
-      "Babolat Conquest":          {p:72,c:82,d:75,s:58,k:68},
-      "Babolat N.Vy":             {p:75,c:85,d:65,s:55,k:65},
-      "Babolat Xcel":            {p:88,c:94,d:50,s:52,k:62},
-      "Bluestar Multi Filament":  {p:87,c:93,d:55,s:54,k:64},
-      "Gamma Octo TNT":           {p:74,c:83,d:78,s:62,k:72},
-      "Head FXP":                {p:71,c:81,d:73,s:59,k:69},
-      "Head FXP Tour":            {p:69,c:79,d:75,s:63,k:74},
-      "Head Intellistring":       {p:73,c:84,d:70,s:57,k:67},
-      "Kirschbaum Super Smash":   {p:48,c:30,d:94,s:98,k:96},
-      "Kirschbaum Synthetic Gut": {p:70,c:80,d:76,s:60,k:70},
-      "Prince Control 15":        {p:87,c:92,d:52,s:53,k:63},
-      "Prince Synthetic Gut 15L": {p:71,c:81,d:74,s:59,k:69},
-      "Prince Synthetic Gut": {p:73,c:83,d:80,s:58,k:68},
-      "Solinco Hyper-G":         {p:52,c:36,d:90,s:94,k:92},
-      "Tourna Premier Poly":      {p:52,c:37,d:89,s:93,k:91},
-      "Wilson Extreme Octane":    {p:76,c:85,d:70,s:62,k:72},
-      "Wilson Hollowcore 16":     {p:78,c:87,d:68,s:60,k:70},
-      "Wilson Hyperlast":         {p:49,c:32,d:92,s:96,k:95},
-      "Wilson NXT":{p:92,c:95,d:56,s:55,k:65},
-      "Wilson Sensation":{p:89,c:95,d:56,s:55,k:65},
-      "Wilson Poly Last":         {p:48,c:30,d:93,s:97,k:96},
-      "Wilson SGX":              {p:72,c:82,d:75,s:60,k:70},
-      "Wilson Shock Shield 16":   {p:74,c:86,d:72,s:58,k:68},
-      "Wilson Shock Shield 17":   {p:75,c:88,d:68,s:57,k:67},
-      "Wilson Super Spin 16":     {p:85,c:90,d:50,s:70,k:65},
-      "Wilson Synthetic Gut":{p:73,c:83,d:76,s:61,k:71},
-      "Yonex Poly Tour":      {p:52,c:37,d:89,s:93,k:91}
-    };
+const stringData = {
+  // ===== Generics =====
+  "1Generic Polyester":       {p:48, c:38, d:90, s:92, k:93},
+  "1Generic Multifilament":   {p:86, c:93, d:52, s:55, k:64},
+  "1Generic Synthetic Gut":   {p:72, c:80, d:74, s:60, k:70},
+  "1Generic Natural Gut":     {p:94, c:96, d:38, s:50, k:62},
+
+  // ===== Polyesters =====
+  "AG International Poly 17": {p:50, c:36, d:90, s:93, k:92},
+  "Kirschbaum Super Smash":   {p:52, c:42, d:91, s:94, k:93},
+  "Solinco Hyper-G":          {p:52, c:42, d:89, s:94, k:94},
+  "Tourna Premier Poly":      {p:51, c:40, d:88, s:92, k:91},
+  "Wilson Hyperlast":         {p:48, c:35, d:92, s:93, k:94},
+  "Wilson Poly Last":         {p:47, c:34, d:93, s:94, k:95},
+  "Yonex Poly Tour":          {p:54, c:48, d:86, s:88, k:87},
+
+  // ===== Multifilaments =====
+  "Babolat Xcel":             {p:88, c:94, d:52, s:54, k:63},
+  "Bluestar Multi Filament":  {p:86, c:92, d:54, s:55, k:64},
+  "Prince Control 15":        {p:85, c:91, d:53, s:54, k:65},
+  "Wilson NXT":               {p:89, c:95, d:55, s:56, k:66},
+  "Wilson Sensation":         {p:87, c:94, d:54, s:55, k:65},
+
+  // ===== Synthetic Guts =====
+  "Asics Resolution 16":      {p:72, c:80, d:73, s:60, k:70},
+  "Babolat Conquest":         {p:73, c:81, d:74, s:59, k:69},
+  "Babolat N.Vy":             {p:74, c:83, d:68, s:57, k:67},
+  "Gamma Octo TNT":           {p:75, c:82, d:76, s:61, k:71},
+  "Head FXP":                 {p:72, c:81, d:74, s:60, k:70},
+  "Head FXP Tour":            {p:70, c:79, d:76, s:62, k:72},
+  "Head Intellistring":       {p:73, c:83, d:71, s:58, k:68},
+  "Kirschbaum Synthetic Gut": {p:71, c:80, d:75, s:60, k:70},
+  "Prince Synthetic Gut 15L": {p:72, c:81, d:74, s:59, k:69},
+  "Prince Synthetic Gut":     {p:73, c:82, d:78, s:58, k:68},
+  "Wilson Extreme Octane":    {p:76, c:84, d:70, s:61, k:71},
+  "Wilson Hollowcore 16":     {p:77, c:86, d:68, s:60, k:70},
+  "Wilson SGX":               {p:73, c:82, d:75, s:60, k:70},
+  "Wilson Shock Shield 16":   {p:74, c:85, d:72, s:58, k:68},
+  "Wilson Shock Shield 17":   {p:75, c:87, d:69, s:57, k:67},
+  "Wilson Super Spin 16":     {p:78, c:84, d:58, s:72, k:66},
+  "Wilson Synthetic Gut":     {p:73, c:82, d:75, s:60, k:70}
+};
 
     // Populate dropdowns
     const list = Object.keys(stringData).sort();
