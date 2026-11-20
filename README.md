@@ -54,7 +54,7 @@
 <body>
 
 <h1>Tim's</h1>
-<h3>V261010</h3>
+<h3>V261122</h3>
 <p>Est. 1973</p>
 
 <div class="tab">
@@ -78,7 +78,6 @@
     <th>General Availability</th>
     <th>Price strung</th>
     <th>Comfort Rating</th>
- <th>Durability</th>
     <th>Spin Potential</th>
   </tr>
 </thead>
@@ -501,7 +500,7 @@ strings.sort((a,b)=>a.name.localeCompare(b.name));
 const stringBody = document.querySelector('#stringTable tbody');
 strings.forEach(s=>{
   const tr=document.createElement('tr');
-  tr.innerHTML=`<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.durability}</td><td>${s.spin}</td>`;
+ tr.innerHTML = `<td><a href="#" onclick="toggleReview('${s.name.replace(/'/g,"\\'")}');return false;">${s.name}</a></td><td>${s.type}</td><td>${s.available}</td><td>${s.msrp}</td><td>${s.comfort}</td><td>${s.spin}</td>`; ;
   stringBody.appendChild(tr);
 });
 
