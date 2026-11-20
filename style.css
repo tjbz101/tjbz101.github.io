@@ -192,3 +192,9 @@ select:focus {
     min-width: 110px;
   }
 }
+/* Make the Recommended Tension button match the tab buttons */
+#tensionGuideBtn {
+  font-size: 15px !important;
+  padding: 12px 28px !important;
+  font-weight: 600;
+}
