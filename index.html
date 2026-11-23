@@ -180,8 +180,8 @@ tensionGuideOpen = false;
     <button onclick="loadPreset('spin')" style="padding:10px 20px; margin:5px; background:#041E42; color:white; border:none; border-radius:25px; cursor:pointer;">Max Spin</button>
   </div>
 
-  <button onclick="copySetup()" style="display:block;margin:30px auto;padding:12px 30px;font-size:1.1em;background:#041E42;color:white;border:none;border-radius:30px;cursor:pointer;">
-    Copy My Setup
+  <button onclick="askGrok()" style="display:block;margin:30px auto;padding:10px 26px;font-size:0.95em;background:#041E42;color:white;border:none;border-radius:30px;cursor:pointer;">
+    Ask Grok about my setup
   </button>
 
  <script>
@@ -317,14 +317,29 @@ tensionGuideOpen = false;
       }
     }
 
-    function copySetup(){
-      const m = document.getElementById('mainString');
-      const c = document.getElementById('crossString');
-      const txt = `${m.options[m.selectedIndex].text} ${document.getElementById('mainGauge').value}g @ ${document.getElementById('mainSlider').value} lbs mains × ${c.options[c.selectedIndex].text} ${document.getElementById('crossGauge').value}g @ ${document.getElementById('crossSlider').value} lbs crosses — ${document.getElementById('pattern').value} ${document.getElementById('headsize').value} in²`;
-      navigator.clipboard.writeText(txt);
-      alert('Copied!\n' + txt);
-    }
+  function askGrok(){
+  const m = document.getElementById('mainString');
+  const c = document.getElementById('crossString');
+  const mainName = m.options[m.selectedIndex].text;
+  const crossName = c.options[c.selectedIndex].text;
+  const mainGauge = document.getElementById('mainGauge').value;
+  const crossGauge = document.getElementById('crossGauge').value;
+  const mainT = document.getElementById('mainSlider').value;
+  const crossT = document.getElementById('crossSlider').value;
+  const pattern = document.getElementById('pattern').options[document.getElementById('pattern').selectedIndex].text;
+  const head = document.getElementById('headsize').options[document.getElementById('headsize').selectedIndex].text;
 
+  const prompt = `Quick review of this tennis string setup:
+
+Mains: ${mainName} ${mainGauge}g @ ${mainT} lbs
+Crosses: ${crossName} ${crossGauge}g @ ${crossT} lbs
+Pattern: ${pattern}
+Head size: ${head}
+
+Give a short practical take on tension choice, power/control/comfort/spin trade-offs, and any recommendations or red flags.`;
+
+  window.open(`https://grok.com/?q=${encodeURIComponent(prompt)}`, '_blank');
+}
     ['mainString','mainGauge','mainSlider','crossString','crossGauge','crossSlider','pattern','headsize'].forEach(id=>{
       document.getElementById(id).addEventListener('input', calc);
       document.getElementById(id).addEventListener('change', calc);
